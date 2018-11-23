@@ -1,25 +1,27 @@
 version: 0.2
 
+env:
+  variables:
+    WEBSITE_S3_BUCKET: "www.inoue-kobo.com"
+
 phases:
   install:
     commands:
-      # Install dependencies needed for running tests
-      - npm install
-
-      # Upgrade AWS CLI to the latest version
+      - pip install --upgrade pip
       - pip install --upgrade awscli
+      - aws --version
+      - pip install mkdocs
+      - mkdocs --version
+      - pip install mkdocs-cinder
+      - pip install python-markdown-math
   pre_build:
     commands:
-      # Discover and run unit tests in the 'tests' directory
-      - npm test
   build:
     commands:
-      # Use AWS SAM to package the application by using AWS CloudFormation
-      - aws s3 cp --recursive public/ s3://$WEBSITE_S3_BUCKET/public/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
-      - sed -i -e "s|assets/|$WEBSITE_S3_PREFIX/public/assets/|g" public/index.html
-      - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
-
-artifacts:
-  type: zip
-  files:
-    - template-export.yml
+      - mkdocs build
+  post_build:
+    commands:
+      - cd ./site
+      - pwd
+      - aws s3 sync public s3://$WEBSITE_S3_BUCKET/public --delete
+      - aws cloudfront create-invalidation --region ap-northeast-1 --distribution-id E3JEKHZG9UN3GI --paths "/*"

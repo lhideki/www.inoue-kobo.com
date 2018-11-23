@@ -1,0 +1,28 @@
+# web site setting
+site_name: INOUE-KOBO.COM
+site_url: https://www.inoue-kobo.com/
+copyright: inoue-kobo.com
+docs_dir: public
+
+# theme
+theme:
+  name: 'cinder'
+  language: 'ja'
+  logo: 'images/favicon.png'
+  favicon: 'images/favicon.ico'
+
+# search engin
+extra:
+  search:
+    language: 'jp'
+
+# extension
+markdown_extensions:
+  - attr_list
+  - admonition
+  - footnotes
+  - mdx_math
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
