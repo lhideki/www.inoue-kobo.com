@@ -2,6 +2,7 @@
 site_name: INOUE-KOBO.COM
 site_url: https://www.inoue-kobo.com/
 site_author: hideki@inoue-kobo.com
+google_analytics: ['UA-24462002-1', 'auto']
 copyright: inoue-kobo.com
 repo_url: https://github.com/lhideki/www.inoue-kobo.com/
 repo_name: GitHub
