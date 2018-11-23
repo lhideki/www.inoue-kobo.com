@@ -1,8 +1,10 @@
 # web site setting
 site_name: INOUE-KOBO.COM
 site_url: https://www.inoue-kobo.com/
+site_author: hideki@inoue-kobo.com
 copyright: inoue-kobo.com
-docs_dir: public
+repo_url: https://github.com/lhideki/www.inoue-kobo.com/
+repo_name: GitHub
 
 # theme
 theme:
