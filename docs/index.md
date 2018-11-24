@@ -3,6 +3,16 @@
 フリーランスのシステムアーキテクト、機械学習エンジニアです。
 技術メモやポートフォリオを公開しています。
 
+<template id='card-template'>
+  <div class="card">
+    <img />
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <a class="btn btn-primary">Read</a>
+    </div>
+  </div>
+</template>
+
 ## AWS
 
 <div class="container-fluid">
