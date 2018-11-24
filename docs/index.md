@@ -7,17 +7,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="aws/mkdocs-s3-cloudfront/images/architecture.png">
-        <div class="card-body">
-          <h5 class="card-title">MkdocsとS3/Cloudfrontによるドキュメント公開システムの構築</h5>
-          <a href="aws/mkdocs-s3-cloudfront/index.html" class="btn btn-primary">Read</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">&nbsp;</div>
-    <div class="col-md-4">&nbsp;</div>
+    <div class="thumbnail-card" data-title="MkdocsとS3/Cloudfrontによるドキュメント公開システムの構築" data-dir="aws/mkdocs-s3-cloudfront" data-thumbnail="images/architecture.png"></div>
   </div>
 </div>
 
@@ -25,25 +15,9 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="ai_ml/automl-benchmark/images/image1.png">
-        <div class="card-body">
-          <h5 class="card-title">GCP AutoML Natural Languageのベンチマーク</h5>
-          <a href="ai_ml/automl-benchmark/index.html" class="btn btn-primary">Read</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="ai_ml/gan-pikachu/images/image8.png">
-        <div class="card-body">
-          <h5 class="card-title">GANでピカチュウを描いてみる</h5>
-          <a href="ai_ml/gan-pikachu/index.html" class="btn btn-primary">Read</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">&nbsp;</div>
+    <div class="thumbnail-card" data-title="GCP AutoML Natural Languageのベンチマーク" data-dir="ai_ml/automl-benchmark" data-thumbnail="images/image2.png"></div>
+    <div class="thumbnail-card" data-title="GANでピカチュウを描いてみる" data-dir="ai_ml/gan-pikachu" data-thumbnail="images/image8.png"></div>
+    <div class="thumbnail-card" data-title="FizzBuzz問題をニューラルネットワークで解いてみる" data-dir="ai_ml/fizzbuzz-ml" data-thumbnail="images/classification-report.png"></div>
   </div>
 </div>
 

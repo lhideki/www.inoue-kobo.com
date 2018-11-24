@@ -15,6 +15,7 @@ pages:
   - AI/ML:
     - GANでピカチュウを描いてみる: ai_ml/gan-pikachu/index.md
     - GCP AutoML Natural Languageのベンチマーク: ai_ml/automl-benchmark/index.md
+    - FizzBuzz問題をニューラルネットワークで解いてみる: ai_ml/fizzbuzz-ml/index.md
 
 
 # theme
@@ -40,6 +41,8 @@ markdown_extensions:
       permalink: true
 
 ## custom js/css
+extra_javascript:
+  - "js/custom.js"
 extra_css:
   - "css/custom.css"
 
