@@ -24,6 +24,7 @@ theme:
   language: 'ja'
   logo: 'images/log.png'
   favicon: 'images/favicon.ico'
+  custom_dir: 'theme'
 
 # plugins
 plugins:

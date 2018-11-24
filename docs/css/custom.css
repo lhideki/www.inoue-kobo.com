@@ -3,6 +3,9 @@
     font-size: 60%;
     margin-left: 0.3em;
 }
+footer {
+    padding-bottom: 20px;
+}
 footer > hr {
     width: 45%;
 }
