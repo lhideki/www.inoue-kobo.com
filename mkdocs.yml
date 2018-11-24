@@ -7,11 +7,21 @@ copyright: inoue-kobo.com
 repo_url: https://github.com/lhideki/www.inoue-kobo.com/
 repo_name: GitHub
 
+# navigation
+pages:
+  - HOME: index.md
+  - AWS:
+    - MkdocsとS3/Cloudfrontによるドキュメント公開システムの構築: aws/mkdocs-s3-cloudfront/index.md
+  - AI/ML:
+    - GANでピカチュウを描いてみる: ai_ml/gan-pikachu/index.md
+    - GCP AutoML Natural Languageのベンチマーク: ai_ml/automl-benchmark/index.md
+
+
 # theme
 theme:
   name: 'cinder'
   language: 'ja'
-  logo: 'images/favicon.png'
+  logo: 'images/log.png'
   favicon: 'images/favicon.ico'
 
 # search engin
@@ -22,10 +32,18 @@ extra:
 # extension
 markdown_extensions:
   - attr_list
-  - admonition
   - footnotes
   - mdx_math
   - codehilite:
       guess_lang: false
   - toc:
       permalink: true
+
+## custom js/css
+extra_css:
+  - "css/custom.css"
+
+## othters
+use_directory_urls: false
+
+dev_addr: '127.0.0.1:8080'
