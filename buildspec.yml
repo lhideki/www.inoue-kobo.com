@@ -14,6 +14,7 @@ phases:
       - mkdocs --version
       - pip install mkdocs-cinder
       - pip install python-markdown-math
+      - pip install mkdocs-macros-plugin
   pre_build:
     commands:
   build:

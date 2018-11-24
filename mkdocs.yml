@@ -8,7 +8,7 @@ repo_url: https://github.com/lhideki/www.inoue-kobo.com/
 repo_name: GitHub
 
 # navigation
-pages:
+nav:
   - HOME: index.md
   - AWS:
     - MkdocsとS3/Cloudfrontによるドキュメント公開システムの構築: aws/mkdocs-s3-cloudfront/index.md
@@ -17,13 +17,17 @@ pages:
     - GCP AutoML Natural Languageのベンチマーク: ai_ml/automl-benchmark/index.md
     - FizzBuzz問題をニューラルネットワークで解いてみる: ai_ml/fizzbuzz-ml/index.md
 
-
 # theme
 theme:
   name: 'cinder'
   language: 'ja'
   logo: 'images/log.png'
   favicon: 'images/favicon.ico'
+
+# plugins
+plugins:
+  - search
+  - macros
 
 # search engin
 extra:
