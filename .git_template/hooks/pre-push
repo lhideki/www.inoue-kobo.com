@@ -3,4 +3,4 @@
 echo 'mtime updating.'
 perl scripts/git-set-file-times.pl
 echo 'check update for qiita posted.'
-python article_manager.py
+python scripts/article_manager.py
