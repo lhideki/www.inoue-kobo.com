@@ -72,10 +72,14 @@ class QiitaArticle(Article):
         self.id = source['id']
         self.title = source['title']
         self.body = source['body']
+        self.tags = source['tags']
         self.last_updated_date = self._parse_date(source['updated_at'])
 
     def get_id(self):
         return self.id
+
+    def get_tags(self):
+        return self.tags
 
     def _parse_date(self, datestr):
         colon_removed = datestr[0:22] + datestr[23:]
@@ -137,15 +141,12 @@ class QiitaArticles(Articles):
         if res.status_code >= 300:
             raise Exception(res)
 
-    def update(self, id, my_article):
+    def update(self, id, tags, my_article):
         params = {
             'title': my_article.get_title(),
             'body': my_article.to_posting_format(),
             'private': False,
-            'tags': [{
-                'name': my_article.get_tag(),
-                'versions': []
-            }]
+            'tags': tags
         }
         res = requests.patch(f'{self.post_url}/{id}',
                              json=params, headers=self.headers)
@@ -186,14 +187,16 @@ class UpdateChecker():
                     my_article.get_title(),
                     my_article.get_last_updated_date().timestamp(
                     ) > qiita_article.get_last_updated_date().timestamp(),
-                    my_article
+                    my_article,
+                    qiita_article
                 ]
             else:
                 result = [
                     None,
                     my_article.get_title(),
                     True,
-                    my_article
+                    my_article,
+                    None
                 ]
             self.results.append(result)
 
@@ -206,7 +209,7 @@ if __name__ == '__main__':
     qiita_articles.fetch()
 
     my_dirs = [
-        ['AI/ML', 'docs/ai_ml'],
+        ['MarchineLearning', 'docs/ai_ml'],
         ['AWS', 'docs/aws']
     ]
     for my_dir in my_dirs:
@@ -221,11 +224,12 @@ if __name__ == '__main__':
             id = result[0]
             is_changed = result[2]
             my_article = result[3]
+            qiita_article = result[4]
             if is_changed:
                 if id:
                     logging.info(
                         f'{my_article.get_title()}({id}) will update.')
-                    qiita_articles.update(id, my_article)
+                    qiita_articles.update(id, qiita_article.get_tags(), my_article)
                 else:
                     logging.info(f'{my_article.get_title()}(new) will post.')
                     qiita_articles.post(my_article)
