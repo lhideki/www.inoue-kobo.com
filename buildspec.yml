@@ -3,7 +3,6 @@ version: 0.2
 env:
   variables:
     HOMEPAGE_S3_BUCKET: "www.inoue-kobo.com"
-    REPOSITORY: "https://github.com/lhideki/www.inoue-kobo.com.git"
 
 phases:
   install:
@@ -18,8 +17,6 @@ phases:
       - pip install mkdocs-macros-plugin
   pre_build:
     commands:
-      - git clone $REPOSITORY 
-      - perl scripts/git-set-file-times.pl
   build:
     commands:
       - mkdocs build

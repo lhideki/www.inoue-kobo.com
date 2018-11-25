@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+perl scripts/git-set-file-times.pl
+python article_manager.py
