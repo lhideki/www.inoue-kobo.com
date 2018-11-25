@@ -148,7 +148,7 @@ class QiitaArticles(Articles):
             }]
         }
         res = requests.patch(f'{self.post_url}/{id}',
-                            json=params, headers=self.headers)
+                             json=params, headers=self.headers)
         if res.status_code >= 300:
             raise Exception(res)
 
@@ -223,7 +223,8 @@ if __name__ == '__main__':
             my_article = result[3]
             if is_changed:
                 if id:
-                    logging.info(f'{my_article.get_title()}({id}) will update.')
+                    logging.info(
+                        f'{my_article.get_title()}({id}) will update.')
                     qiita_articles.update(id, my_article)
                 else:
                     logging.info(f'{my_article.get_title()}(new) will post.')
