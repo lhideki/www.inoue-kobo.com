@@ -1,3 +1,40 @@
+# GitHubにpushする際にQiitaにも投稿する
+
+## TL;DR
+
+MarkdownドキュメントをGitHubにpushする際に、hooksを利用してQiitaにも自動的に投稿するようにします。
+
+## 構築
+
+### 概要
+
+1. Qiitaのアクセストークンを発行する。
+2. 投稿用のPythonプログラムを作成する。
+3. gitでチェックアウトしたファイルの最終更新日を修正する。
+4. gitのpre-pushに設置する。
+
+### Qiitaのアクセストークンを発行する
+
+QiitaのREST APIに投稿するためにアクセストークンを発行します。
+以下のリンクから`個人用アクセストークン`を発行してください。
+
+* [https://qiita.com/settings/applications](https://qiita.com/settings/applications)
+
+トークンは`QIITA_TOKEN`という名前で環境変数に設定します。
+
+### 投稿用のPythonプログラムを作成する
+
+投稿用のPythonプログラムでは以下の処理を行います。
+
+* ローカルのMarkdownドキュメントの一覧を取得する。
+* Qiita上の記事一覧を取得する。
+* Qiita上の記事とローカルのドキュメントの最終更新日を比較する。
+* ローカル上にあって、Qiita上に存在しないドキュメントを新規に投稿する。
+* Qiita上に存在するがローカル上のドキュメントの方が最終更新日が新しいQiita上の記事を更新する。
+
+ここでは`scripts/article_manager.py`として以下のコードを保存します。
+
+```python
 import os
 from abc import ABCMeta, abstractmethod
 import requests
@@ -10,7 +47,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 MAX_PAGES = 100
 TOKEN = os.environ['QIITA_TOKEN']
-FQDN = 'https://www.inoue-kobo.com'
+FQDN = 'https://www.example.com'
 DOCUMENT_ROOT = 'docs'
 
 
@@ -236,3 +273,83 @@ if __name__ == '__main__':
                     qiita_articles.post(my_article)
             else:
                 logging.info(f'{my_article.get_title()} is not changed.')
+
+```
+
+### gitでチェックアウトしたファイルの最終更新日を修正する
+
+gitはチェックアウト(clone)したファイルの最終更新日は、チェックアウト日になっています。
+ファイルの更新日(commitした日)ではないため、そのままではQiita上の記事の最終更新日と比較ができません。
+
+解決策は色々ありますが、今回は以下の記事にある公式が紹介しているPerlスクリプトを使用します。
+
+* [checkoutしたファイルのmtimeを、そのファイルがcommitされた時刻に合わせたい ― svnとgitの場合](http://d.hatena.ne.jp/hirose31/20090106/1231171068)
+
+`scripts/git-set-file-times.pl`という名前のファイルを作成し、以下のPerlコードを記載します。
+
+```perl
+#!/usr/bin/perl
+
+my %attributions;
+my @files;
+
+open IN, "git ls-tree -r --full-name HEAD |" or die;
+while (<IN>) {
+	if (/^\S+\s+blob \S+\s+(\S+)$/) {
+		push(@files, $1);
+		$attributions{$1} = -1;
+	}
+}
+close IN;
+
+my $remaining = $#files + 1;
+
+open IN, "git log -r --root --raw --no-abbrev --pretty=format:%h~%an~%ad~ |" or die;
+while (<IN>) {
+	if (/^([^:~]+)~(.*)~([^~]+)~$/) {
+		($commit, $author, $date) = ($1, $2, $3);
+	} elsif (/^:\S+\s+1\S+\s+\S+\s+\S+\s+\S\s+(.*)$/) {
+		if ($attributions{$1} == -1) {
+			$attributions{$1} = "$author, $date ($commit)";
+			$remaining--;
+			if ($remaining <= 0) {
+				break;
+			}
+		}
+	}
+}
+close IN;
+
+for $f (@files) {
+	print "$f	$attributions{$f}\n";
+}
+```
+
+### gitのpre-pushに設置する
+
+git cloneした直下に以下のファイルを作成します。既にhooksを利用している場合は、内容を追記してください。
+
+* .git/hooks/pre-push
+
+記載する内容は以下の通りです。
+
+```sh
+#!/usr/bin/env bash
+
+echo 'mtime updating.'
+perl scripts/git-set-file-times.pl
+echo 'check update for qiita posted.'
+python scripts/article_manager.py
+```
+
+## 運用
+
+`article_manager.py`の`my_dirs`に設定したローカルディレクトリ内の`index.md`について、
+GitHubにpushする際に自動的にQiita上に投稿されるようになります。
+
+### Qiitaのタグに関する注意事項
+
+Qiitaのタグは記事を一意に識別するための識別子の一部になっています。
+`id`が一致してもタグが一致してないと別記事となり、記事の更新ができないため注意してください。
+
+投稿も同様で、既存のタグを設定しないと`404 NotFound`になります。

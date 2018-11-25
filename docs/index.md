@@ -11,6 +11,10 @@
 
 {{ print_thumbnail('docs/ai_ml') }}
 
+## REST API
+
+{{ print_thumbnail('docs/restapi') }}
+
 ## Others
 
 *under construction*

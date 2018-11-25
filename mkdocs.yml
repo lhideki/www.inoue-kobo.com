@@ -17,6 +17,8 @@ nav:
     - GANでピカチュウを描いてみる: ai_ml/gan-pikachu/index.md
     - GCP AutoML Natural Languageのベンチマーク: ai_ml/automl-benchmark/index.md
     - FizzBuzz問題をニューラルネットワークで解いてみる: ai_ml/fizzbuzz-ml/index.md
+  - REST API:
+    - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
 
 # theme
 theme:
