@@ -1,5 +1,5 @@
 # mkdocs-macrosを利用してサムネイル表示する
-5
+
 ## TL;DR
 
 `MkDocs`のプラグインである[mkdocs-macros](https://github.com/fralau/mkdocs_macros_plugin)を利用してサムネイル表示します。
