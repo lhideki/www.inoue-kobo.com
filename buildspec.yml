@@ -17,7 +17,8 @@ phases:
       - pip install mkdocs-macros-plugin
   pre_build:
     commands:
-      - perl ./scripts/get-set-file-times.pl
+      - git status
+      - perl scripts/git-set-file-times.pl
   build:
     commands:
       - mkdocs build
