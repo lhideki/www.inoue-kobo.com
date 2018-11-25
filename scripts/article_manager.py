@@ -211,7 +211,7 @@ if __name__ == '__main__':
     my_dirs = [
         ['MarchineLearning', 'docs/ai_ml'],
         ['AWS', 'docs/aws'],
-        ['REST API', 'docs/restapi']
+        ['REST-API', 'docs/restapi']
     ]
     for my_dir in my_dirs:
         my_articles = MyArticles(my_dir[0], my_dir[1])
