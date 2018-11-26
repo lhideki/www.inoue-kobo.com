@@ -15,6 +15,6 @@
 
 {{ print_thumbnail('docs/restapi') }}
 
-## Others
+## WEB SERVICE
 
-*under construction*
+{{ print_thumbnail('docs/webservice') }}

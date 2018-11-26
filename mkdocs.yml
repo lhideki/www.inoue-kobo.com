@@ -19,6 +19,9 @@ nav:
     - FizzBuzz問題をニューラルネットワークで解いてみる: ai_ml/fizzbuzz-ml/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
+  - WEB SERVICE:
+    - AIGAOMOI - 日本語文書感情分析サービス: webservice/aigaomoi/index.md
+  - ABOUT: about.md
 
 # theme
 theme:
