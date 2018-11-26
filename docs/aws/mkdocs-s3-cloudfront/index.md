@@ -210,3 +210,9 @@ CodeBuild実行時に公開ドキュメント管理用のS3へのアップロー
 S3経由でCloudfrontによる配信が行われます。
 
 S3でコンテンツを管理しているため安価な上に、Cloudfrontによりキャッシュされるためレスポンスも悪くありません。
+
+## Editors Note
+
+### 2018/11/26
+
+たぶん[AWS Amplify Console](https://dev.classmethod.jp/cloud/aws/aws-amplify-console-reinvent/)を利用する方が早いと思います。記事作成から間もなく新サービス発表とは悲しいやら嬉しいやら。
