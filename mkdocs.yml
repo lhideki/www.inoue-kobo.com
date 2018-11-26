@@ -39,7 +39,7 @@ plugins:
 # search engin
 extra:
   search:
-    language: 'jp'
+    lang: jp
 
 # extension
 markdown_extensions:
