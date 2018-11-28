@@ -13,6 +13,7 @@ nav:
   - AWS:
     - MkdocsとS3/Cloudfrontによるドキュメント公開システムの構築: aws/mkdocs-s3-cloudfront/index.md
     - mkdocs\-macrosを利用してサムネイル表示する: aws/mkdocs-macros/index.md
+    - AWS SageMaker Ground Truthでテキストのラベリングを試してみる: aws/sagemaker-ground-truth/index.md
   - AI/ML:
     - GANでピカチュウを描いてみる: ai_ml/gan-pikachu/index.md
     - GCP AutoML Natural Languageのベンチマーク: ai_ml/automl-benchmark/index.md
