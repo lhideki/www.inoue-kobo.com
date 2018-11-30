@@ -51,6 +51,8 @@ import os
 import sys
 import re
 
+COL_NUM = 3
+
 def get_thumbnail_element(dir, index_filename='index.md', thumbnail_filename='images/thumbnail.png'):
     html = '<div class="container-fluid">\n'
     filenames = glob.glob(f'{dir}/*/{index_filename}')
@@ -60,14 +62,14 @@ def get_thumbnail_element(dir, index_filename='index.md', thumbnail_filename='im
         content_dir = os.path.join(basedir, os.path.basename(os.path.dirname(filename)))
         thumbnail = os.path.join(content_dir, thumbnail_filename)
 
-        if i % 3 == 0:
-            html += '  <div class="row">\n'
+        if i == 0  or i % COL_NUM == 0:
+            html += '  <div class="row" style="margin-bottom: 1.5em">\n'
         html += '    <div class="col-md-4">\n'
         card = get_card_element(title, content_dir, thumbnail)
         html += card
         html += '    </div>\n'
 
-        if i > 0 and i % 3 == 0:
+        if i > 0 and (i + 1) % COL_NUM == 0:
           html += '  </div>\n'
         elif i == len(filenames) - 1:
           html += '  </div>\n'
