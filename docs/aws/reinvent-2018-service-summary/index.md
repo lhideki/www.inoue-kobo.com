@@ -219,3 +219,4 @@
 ## 参考文献
 
 * [【速報】AWS re:Invent 2018 Keynote 1日目で発表された新サービスまとめ](https://dev.classmethod.jp/cloud/aws/aws-reinvent-2018-keynote-day-1/)
+* [AWS re:Invent 製品発表](https://aws.amazon.com/jp/new/reinvent/?hp=r)
