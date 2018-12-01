@@ -178,6 +178,8 @@
     * 高いネットワーク帯域幅を備えたP系インスタンスです。基本的に機械学習用です。
 * [Amazon Lightsail Now Provides an Upgrade Path to EC2](https://aws.amazon.com/jp/about-aws/whats-new/2018/11/amazon-lightsail-now-provides-an-upgrade-path-to-ec2/)
     * Amazon Lightsailは簡単にVPSとしてサーバを起動出来るサービスです。Lightsailで作成したインスタンスを、簡単にEC2に移行できるようになりました。試験的にLightsailで作り、EC2で本番運用することが可能です。
+* [Hibernate Your EC2 Instances](https://aws.amazon.com/jp/blogs/aws/new-hibernate-your-ec2-instances/)
+    * EC2インスタンスをハイバネーションで停止出来ます。ハイバネーションなので停止から復帰指示にプロセスが生きた状態で再開できます。ElasticCacheとかでも実装されないかなぁ。
 
 ## IoT
 
