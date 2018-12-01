@@ -62,6 +62,8 @@
     * 複数のAWSアカウントにおいて、セキュリティ設定の統制を行うためのサービスです。
 * [AWS Security Hub](https://aws.amazon.com/jp/blogs/news/reinvent-2018-andy-keynote-aws-security-hub/)
     * Security関連のAWSサービスが提供することを纏めて確認するためのサービスです。
+* [AWS App Mesh](https://aws.amazon.com/jp/blogs/news/reinvent2018-aws-app-mesh/)
+    * マイクロサービス用監視サービスです。
 
 ## Storage
 
@@ -118,6 +120,8 @@
         * Amazon SQS
         * AWS Glue
         * Amazon SageMaker
+* [AWS Cloud Map](https://aws.amazon.com/jp/blogs/news/new-application-integration-with-aws-cloud-map-for-service-discovery/)
+    * サービスディスカバリサービスです。
 
 ## Operations
 
