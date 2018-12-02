@@ -20,6 +20,7 @@ UIが単純なのでフロントはフレームワークを使用せずに素の
 ## 使用技術
 
 * Python3
+* JavaScript
 * AWS Lambda
 * Amazon API Gateway
 * Amazon DynamoDB
