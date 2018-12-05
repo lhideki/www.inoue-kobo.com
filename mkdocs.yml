@@ -19,7 +19,7 @@ nav:
     - GANでピカチュウを描いてみる: ai_ml/gan-pikachu/index.md
     - GCP AutoML Natural Languageのベンチマーク: ai_ml/automl-benchmark/index.md
     - FizzBuzz問題をニューラルネットワークで解いてみる: ai_ml/fizzbuzz-ml/index.md
-    - 各種Totenize手法に依存したベクトル化手法の比較: ai_ml/comp-vectorizer/index.md
+    - 各種Tokenize手法に依存したベクトル化手法の比較: ai_ml/comp-vectorizer/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
