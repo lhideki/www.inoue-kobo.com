@@ -577,7 +577,7 @@ import numpy as np
 
 words_maxlen = len(max(word_tokenized_features, key = (lambda x: len(x))))
 
-word_features_vector = np.zeros((len(word_tokenized_features), words_maxlen, word2vec.get_word_vector('脂').shape[0]), dtype = np.int32)
+word_features_vector = np.zeros((len(word_tokenized_features), words_maxlen, word2vec.get_word_vector('脂').shape[0]), dtype = np.float32)
 for i, tokens in enumerate(word_tokenized_features):
     for t, token in enumerate(tokens):
         if not token or token == ' ':
@@ -796,7 +796,7 @@ import logging
 
 sentencepieced_word_maxlen = len(max(sentencepieced_word_tokenized_features, key = (lambda x: len(x))))
 
-sentencepieced_word_features = np.zeros((len(sentencepieced_word_tokenized_features), sentencepieced_word_maxlen, sentencepieced_word2vec.wv.vectors.shape[1]), dtype = np.int32)
+sentencepieced_word_features = np.zeros((len(sentencepieced_word_tokenized_features), sentencepieced_word_maxlen, sentencepieced_word2vec.wv.vectors.shape[1]), dtype = np.float32)
 for i, tokens in enumerate(sentencepieced_word_tokenized_features):
     for t, token in enumerate(tokens):
         if not token or token == ' ' :
@@ -833,7 +833,7 @@ import logging
 
 chars_maxlen = len(max(features_readable, key = (lambda x: len(x))))
 
-char_features_vector = np.zeros((len(features_readable), chars_maxlen, char2vec.wv.vectors.shape[1]), dtype = np.int32)
+char_features_vector = np.zeros((len(features_readable), chars_maxlen, char2vec.wv.vectors.shape[1]), dtype = np.float32)
 for i, text in enumerate(features_readable):
     for t, token in enumerate(text):
         if token == ' ':
@@ -997,31 +997,115 @@ display(df)
   <tbody>
     <tr>
       <th>0</th>
-      <td>11.50071</td>
-      <td>0.356764</td>
-      <td>2.960723</td>
-      <td>0.357099</td>
+      <td>1.207464</td>
+      <td>0.276164</td>
+      <td>1.345946</td>
+      <td>0.326653</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>11.50071</td>
-      <td>0.356764</td>
-      <td>11.206593</td>
-      <td>0.347640</td>
+      <td>0.981745</td>
+      <td>0.248911</td>
+      <td>1.033764</td>
+      <td>0.270818</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>11.50071</td>
-      <td>0.356764</td>
-      <td>11.206593</td>
-      <td>0.347640</td>
+      <td>0.985636</td>
+      <td>0.246861</td>
+      <td>0.950192</td>
+      <td>0.243584</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>11.50071</td>
-      <td>0.356764</td>
-      <td>11.206593</td>
-      <td>0.347640</td>
+      <td>0.958608</td>
+      <td>0.208711</td>
+      <td>0.821692</td>
+      <td>0.217474</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.940028</td>
+      <td>0.208070</td>
+      <td>0.817665</td>
+      <td>0.209816</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.998767</td>
+      <td>0.216945</td>
+      <td>0.744832</td>
+      <td>0.195718</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1.183153</td>
+      <td>0.247409</td>
+      <td>0.620412</td>
+      <td>0.166929</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.802547</td>
+      <td>0.193151</td>
+      <td>0.614557</td>
+      <td>0.163338</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.804815</td>
+      <td>0.186113</td>
+      <td>0.648118</td>
+      <td>0.157116</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.947861</td>
+      <td>0.196694</td>
+      <td>0.489098</td>
+      <td>0.137335</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1.173078</td>
+      <td>0.185279</td>
+      <td>0.451178</td>
+      <td>0.125243</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1.015319</td>
+      <td>0.165389</td>
+      <td>0.409986</td>
+      <td>0.113144</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1.140270</td>
+      <td>0.164665</td>
+      <td>0.348950</td>
+      <td>0.096174</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1.183256</td>
+      <td>0.170436</td>
+      <td>0.310988</td>
+      <td>0.086190</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1.341658</td>
+      <td>0.164859</td>
+      <td>0.256395</td>
+      <td>0.074341</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1.390065</td>
+      <td>0.179953</td>
+      <td>0.260767</td>
+      <td>0.071800</td>
     </tr>
   </tbody>
 </table>
@@ -1039,18 +1123,14 @@ numeric_valid_labels = np.array(valid_labels).argmax(axis=1)
 print(classification_report(numeric_valid_labels, predicted_valid_labels, target_names = ['グルメ', '携帯電話', '京都', 'スポーツ']))
 ```
 
-    C:\Users\hidek\Anaconda3\lib\site-packages\sklearn\metrics\classification.py:1135: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
-      'precision', 'predicted', average, warn_for)
-    
-
                  precision    recall  f1-score   support
     
-            グルメ       0.00      0.00      0.00        79
-           携帯電話       0.33      1.00      0.49       137
-             京都       0.00      0.00      0.00       159
-           スポーツ       0.00      0.00      0.00        44
+            グルメ       0.53      0.65      0.59        81
+           携帯電話       0.71      0.71      0.71       123
+             京都       0.71      0.60      0.65       158
+           スポーツ       0.52      0.58      0.55        57
     
-    avg / total       0.11      0.33      0.16       419
+    avg / total       0.65      0.64      0.64       419
     
     
 
@@ -1126,66 +1206,115 @@ display(df)
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.956627</td>
-      <td>0.221953</td>
-      <td>1.326010</td>
-      <td>0.247198</td>
+      <td>0.981924</td>
+      <td>0.225036</td>
+      <td>1.412470</td>
+      <td>0.248839</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.797366</td>
-      <td>0.184630</td>
-      <td>0.707562</td>
-      <td>0.179766</td>
+      <td>0.812226</td>
+      <td>0.183087</td>
+      <td>0.715505</td>
+      <td>0.182059</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.955078</td>
-      <td>0.184920</td>
-      <td>0.575998</td>
-      <td>0.149156</td>
+      <td>0.897991</td>
+      <td>0.201606</td>
+      <td>0.587846</td>
+      <td>0.151420</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.816159</td>
-      <td>0.160946</td>
-      <td>0.460184</td>
-      <td>0.119154</td>
+      <td>0.839604</td>
+      <td>0.169194</td>
+      <td>0.476369</td>
+      <td>0.125096</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.892578</td>
-      <td>0.161730</td>
-      <td>0.374453</td>
-      <td>0.098004</td>
+      <td>0.872412</td>
+      <td>0.165859</td>
+      <td>0.365053</td>
+      <td>0.096792</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>1.044131</td>
-      <td>0.153019</td>
-      <td>0.235490</td>
-      <td>0.065125</td>
+      <td>1.683439</td>
+      <td>0.222042</td>
+      <td>0.220963</td>
+      <td>0.060716</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>1.193457</td>
-      <td>0.154924</td>
-      <td>0.148180</td>
-      <td>0.040250</td>
+      <td>1.385759</td>
+      <td>0.174349</td>
+      <td>0.186714</td>
+      <td>0.048699</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>1.323699</td>
-      <td>0.154288</td>
-      <td>0.114584</td>
-      <td>0.029999</td>
+      <td>1.239616</td>
+      <td>0.156966</td>
+      <td>0.120487</td>
+      <td>0.031168</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>1.507059</td>
-      <td>0.158151</td>
-      <td>0.098657</td>
-      <td>0.024973</td>
+      <td>1.064627</td>
+      <td>0.140925</td>
+      <td>0.139941</td>
+      <td>0.029395</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1.321537</td>
+      <td>0.144991</td>
+      <td>0.035579</td>
+      <td>0.011306</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1.354807</td>
+      <td>0.139662</td>
+      <td>0.081770</td>
+      <td>0.015940</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1.435030</td>
+      <td>0.146897</td>
+      <td>0.051363</td>
+      <td>0.010653</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1.370385</td>
+      <td>0.139031</td>
+      <td>0.102884</td>
+      <td>0.017993</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1.682676</td>
+      <td>0.145551</td>
+      <td>0.018069</td>
+      <td>0.004990</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1.613921</td>
+      <td>0.146687</td>
+      <td>0.068362</td>
+      <td>0.011012</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1.809527</td>
+      <td>0.139845</td>
+      <td>0.025406</td>
+      <td>0.006684</td>
     </tr>
   </tbody>
 </table>
@@ -1205,12 +1334,12 @@ print(classification_report(numeric_valid_labels, predicted_valid_labels, target
 
                  precision    recall  f1-score   support
     
-            グルメ       0.55      0.71      0.62        79
-           携帯電話       0.86      0.70      0.77       137
-             京都       0.72      0.72      0.72       159
-           スポーツ       0.60      0.66      0.63        44
+            グルメ       0.76      0.67      0.71        81
+           携帯電話       0.79      0.77      0.78       123
+             京都       0.70      0.81      0.75       158
+           スポーツ       0.72      0.58      0.64        57
     
-    avg / total       0.73      0.71      0.71       419
+    avg / total       0.74      0.74      0.74       419
     
     
 
@@ -1286,101 +1415,129 @@ display(df)
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.133514</td>
-      <td>0.260941</td>
-      <td>1.511209</td>
-      <td>0.294927</td>
+      <td>1.213003</td>
+      <td>0.288650</td>
+      <td>1.466107</td>
+      <td>0.295818</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.031117</td>
-      <td>0.242494</td>
-      <td>0.885137</td>
-      <td>0.223371</td>
+      <td>1.171639</td>
+      <td>0.251361</td>
+      <td>0.888587</td>
+      <td>0.225342</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.033733</td>
-      <td>0.213774</td>
-      <td>0.670592</td>
-      <td>0.172283</td>
+      <td>1.132296</td>
+      <td>0.221131</td>
+      <td>0.701668</td>
+      <td>0.178148</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.134447</td>
-      <td>0.195758</td>
-      <td>0.465304</td>
-      <td>0.123497</td>
+      <td>1.162182</td>
+      <td>0.229053</td>
+      <td>0.570244</td>
+      <td>0.144374</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.322540</td>
-      <td>0.190850</td>
-      <td>0.323370</td>
-      <td>0.085696</td>
+      <td>1.351509</td>
+      <td>0.225116</td>
+      <td>0.420535</td>
+      <td>0.111450</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>1.444636</td>
-      <td>0.186323</td>
-      <td>0.211693</td>
-      <td>0.057552</td>
+      <td>1.513968</td>
+      <td>0.208743</td>
+      <td>0.297211</td>
+      <td>0.079006</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>1.454644</td>
-      <td>0.194053</td>
-      <td>0.462514</td>
-      <td>0.064610</td>
+      <td>1.669821</td>
+      <td>0.218852</td>
+      <td>0.226855</td>
+      <td>0.058338</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>1.364223</td>
-      <td>0.188317</td>
-      <td>0.375528</td>
-      <td>0.064455</td>
+      <td>1.900534</td>
+      <td>0.207223</td>
+      <td>0.160443</td>
+      <td>0.040320</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>1.542475</td>
-      <td>0.182408</td>
-      <td>0.132808</td>
-      <td>0.033755</td>
+      <td>2.199897</td>
+      <td>0.206606</td>
+      <td>0.127803</td>
+      <td>0.029902</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>1.684466</td>
-      <td>0.187286</td>
-      <td>0.104973</td>
-      <td>0.024736</td>
+      <td>2.142587</td>
+      <td>0.211019</td>
+      <td>0.094395</td>
+      <td>0.021337</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>1.561364</td>
-      <td>0.170014</td>
-      <td>0.079682</td>
-      <td>0.018421</td>
+      <td>2.125271</td>
+      <td>0.199587</td>
+      <td>0.075933</td>
+      <td>0.016797</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>1.958930</td>
-      <td>0.185263</td>
-      <td>0.071481</td>
-      <td>0.014887</td>
+      <td>1.919156</td>
+      <td>0.187987</td>
+      <td>0.100046</td>
+      <td>0.018867</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>2.003443</td>
-      <td>0.184295</td>
-      <td>0.078971</td>
-      <td>0.015059</td>
+      <td>2.132756</td>
+      <td>0.195224</td>
+      <td>0.086103</td>
+      <td>0.013790</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>2.181898</td>
-      <td>0.188742</td>
-      <td>0.077126</td>
-      <td>0.014577</td>
+      <td>1.906969</td>
+      <td>0.203895</td>
+      <td>0.672039</td>
+      <td>0.055926</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1.915199</td>
+      <td>0.186711</td>
+      <td>0.054997</td>
+      <td>0.012123</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2.000887</td>
+      <td>0.203794</td>
+      <td>0.120228</td>
+      <td>0.020637</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2.237101</td>
+      <td>0.199090</td>
+      <td>0.065000</td>
+      <td>0.013173</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2.491051</td>
+      <td>0.200367</td>
+      <td>0.048307</td>
+      <td>0.009193</td>
     </tr>
   </tbody>
 </table>
@@ -1400,12 +1557,12 @@ print(classification_report(numeric_valid_labels, predicted_valid_labels, target
 
                  precision    recall  f1-score   support
     
-            グルメ       0.55      0.65      0.60        79
-           携帯電話       0.62      0.67      0.65       137
-             京都       0.72      0.53      0.61       159
-           スポーツ       0.29      0.41      0.34        44
+            グルメ       0.50      0.78      0.61        81
+           携帯電話       0.62      0.61      0.62       123
+             京都       0.76      0.59      0.67       158
+           スポーツ       0.55      0.47      0.51        57
     
-    avg / total       0.61      0.58      0.59       419
+    avg / total       0.64      0.62      0.62       419
     
     
 
