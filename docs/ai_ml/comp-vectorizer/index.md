@@ -1413,9 +1413,8 @@ print(classification_report(numeric_valid_labels, predicted_valid_labels, target
 
 それぞれクラシフィケーションレポートの結果は以下の通りです。
 今回の結果からは`sentencepiece`の優位性が確認できました。
-`character`も悪くはないのですが、精度的に`sentencepiece`よりも悪い上に入力信号が長くなるので学習時間が長くかかります。
 
-ただ、`word`の結果が悪すぎるので何か間違っている気がします・・・。問題に気付いた方はご指摘いただけると助かります。
+`word`、`character`の順になっているところも直感的な理解と合致します。
 
 ### word
 
@@ -1447,3 +1446,10 @@ print(classification_report(numeric_valid_labels, predicted_valid_labels, target
 ## Jupyter Notebook
 
 * [check-vectorizer](check-vectorizer.ipynb)
+
+## Editor's Note
+
+### 2018/12/06
+
+入力ベクトルを初期化する際に`int32`としていたためword2vecでベクトル化した値がほとんど0になっていました。
+このため、`float32`にするように修正したところ、`word`についても適切に学習が進むようになりました。
