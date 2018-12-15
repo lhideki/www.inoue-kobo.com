@@ -128,7 +128,7 @@
 ### 新機能
 
 * [Amazon CloudWatch Logs Insightsでログの分析が可能に](https://aws.amazon.com/jp/blogs/aws/new-amazon-cloudwatch-logs-insights-fast-interactive-log-analytics/)
-    * CloudWatch Logsでログは集中管理するのが定番ですが、あまり分析的な機能はなかったのでElasticSearchなどを併用するのが定石でした。これでログ分析についてはElasticSearch使わなくてもよくなるかも?
+    * CloudWatch Logsでログは集中管理するのが定番ですが、あまり分析的な機能はなかったのでElasticsearchなどを併用するのが定石でした。これでログ分析についてはElasticsearch使わなくてもよくなるかも?
 
 ## Database
 
