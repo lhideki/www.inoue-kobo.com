@@ -42,7 +42,9 @@ def get_card_element(title, dir, thumbnail):
     card += f'      <img src="{thumbnail}" />\n'
     card += f'      <div class="card-body">\n'
     card += f'        <h5 class="card-title">{title}</h5>\n'
-    card += f'        <a class="btn btn-primary" href="{dir}/index.html">Read</a>\n'
+    card += f'        <div class="actions">\n'
+    card += f'          <a class="btn btn-primary" href="{dir}/index.html">Read</a>\n'
+    card += f'        </div>'
     card += f'      </div>\n'
     card += f'    </div>\n'
 
