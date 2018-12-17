@@ -25,8 +25,12 @@ footer > hr {
     padding-bottom: 10px;
     font-weight: bold;
 }
+
+.card {
+    text-align: center;
+}
+
 .card > img {
     max-width: 100%;
     max-height: 160px;
-    min-width: 100%;
 }

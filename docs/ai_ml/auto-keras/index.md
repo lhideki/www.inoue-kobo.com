@@ -1,6 +1,6 @@
 # Auto-Kerasを使って見る
 
-## TL:DR
+## TL;DR
 
 AutoML実装の一つである[Auto-Keras](https://autokeras.com/)を使ってみました。
 Auto-Kerasのインストールから、チュートリアルにある[MNIST](http://yann.lecun.com/exdb/mnist/)の分類モデルの作成までです。
@@ -165,12 +165,14 @@ print(y)
 ```python
 from keras.utils import plot_model
 from keras.models import load_model
+from IPython.display import Image
 
 model_filename = 'models/my_model.h5'
 clf.export_keras_model(model_filename)
 
 model = load_model(model_filename)
-plot_model(model, to_file='my_model.png')
+plot_model(model, to_file='my_model.png', show_layer_names=True, show_shapes=True)
+display(Image('my_model.png'))
 ```
 
 ![](images/auto-keras-image-model.png)
