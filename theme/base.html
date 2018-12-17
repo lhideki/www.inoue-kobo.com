@@ -63,7 +63,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsSocials/1.5.0/jssocials-theme-plain.min.css"></link>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSocials/1.5.0/jssocials.min.js"></script>-->
-    <script src="js/jssocials.min.js"></script>
+    <!--jssocials.min.js must be loaded as mkdocs.yml custom js-->
+    <script src="{{ base_url }}/js/jssocials.min.js"></script>
 </head>
 
 <body{% if page and page.is_homepage %} class="homepage" {% endif %}>

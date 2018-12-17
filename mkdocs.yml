@@ -59,6 +59,7 @@ markdown_extensions:
 ## custom js/css
 extra_javascript:
   - "js/custom.js"
+  - "js/jssocials.min.js"
 extra_css:
   - "css/custom.css"
 
