@@ -22,6 +22,7 @@ nav:
     - 各種Tokenize手法に依存したベクトル化手法の比較: ai_ml/comp-vectorizer/index.md
     - Auto-Kerasを使ってみる: ai_ml/auto-keras/index.md
     - Auto-KerasでTextClassifierを使って見る: ai_ml/auto-keras-text/index.md
+    - 自然言語ベクトル化用Pythonモジュール(text-vectorian)をリリースしました: ai_ml/text-vectorian/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
