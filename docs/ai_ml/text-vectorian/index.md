@@ -30,6 +30,17 @@ pip install pyyaml
 pip install git+https://github.com/lhideki/text-vectorian
 ```
 
+### 注意事項
+
+学習済みモデルの取得をgitで行っているためgit lfsがインストールされている必要があります。
+git lfsが未導入の場合はgensimのモデルロードで失敗するため注意してください。
+
+以下はMacOSでのgit-lfsのインストール例です。
+
+```bash
+brew install git-lfs
+```
+
 ## 利用例
 
 `SentencePieceVectorianクラス`のオブジェクトを作成し、任意のテキストをfitメソッドに渡す事でベクトル化した結果を得る事ができます。
