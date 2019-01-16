@@ -8,7 +8,7 @@ TokenizerやVectorizerの詳細を気にすることなく、任意のテキス�
 
 `text-vectorian`はオープンソースとしてGitHubで公開しています。ライセンスは`MIT License`です。
 
-* [text-vectgorian](https://github.com/lhideki/text-vectorian)
+* [text-vectorian](https://github.com/lhideki/text-vectorian)
 
 ## 開発理由
 
@@ -20,25 +20,8 @@ TokenizerやVectorizerの詳細を気にすることなく、任意のテキス�
 
 ## 利用方法
 
-[PyPI](https://pypi.org/)に登録はしていませんが、Pythonモジュールとして作成しているためGitHubから直接pipでインストール出来ます。
-
 ```bash
-pip install numpy
-pip install sentencepiece
-pip install gensim
-pip install pyyaml
-pip install git+https://github.com/lhideki/text-vectorian
-```
-
-### 注意事項
-
-学習済みモデルの取得をgitで行っているためgit lfsがインストールされている必要があります。
-git lfsが未導入の場合はgensimのモデルロードで失敗するため注意してください。
-
-以下はMacOSでのgit-lfsのインストール例です。
-
-```bash
-brew install git-lfs
+pip install text-vectorian
 ```
 
 ## 利用例
