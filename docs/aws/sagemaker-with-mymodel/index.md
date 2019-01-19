@@ -66,6 +66,7 @@ SageMakerによりS3からトレーニングジョブを実行するコンテナ
 
 なお、Pipe ModeとしてS3からストリームとしてデータを取得しながら学習させることもできます。
 
+### トレーニング用Pythonスクリプトの内容
 
 ```bash
 !cat jobs/train.py
@@ -241,9 +242,10 @@ if __name__ == '__main__':
 
 ## 共通パラメータ
 
+以降はノートブックインスタンス上のノートブックで実行します。
+
 ラベルデータの保存先となるS3やジョブ実行名となるプロジェクト名、バージョンなどの情報です。
 プロジェクト毎に定義します。
-
 
 ```python
 import sys
@@ -286,7 +288,6 @@ S3からラベルデータを取得したり、モデルや出力結果を配置
 #### metric_definitions
 
 メトリクスの定義を指定します。指定しないとメトリクスとして何も記録されず、ハイパーパラメータの自動調整もできません。
-
 
 ```python
 from sagemaker.tensorflow import TensorFlow
@@ -337,7 +338,6 @@ Estimatorのfitメソッドによりトレーニングを実行します。
 #### inputs
 
 ラベルデータを指定します。学習用とテスト用などを別けて指定することが可能です。
-
 
 ```python
 import shortuuid
@@ -403,7 +403,6 @@ estimator.fit(job_name=f'{PROJECT_NAME}-{VERSION}-s-{uuid}', inputs=inputs)
 #### max_jobs
 
 ハイパーパラメータ探索で実行するトレーニングジョブの延べ数の上限です。
-
 
 ```python
 from sagemaker.tuner import IntegerParameter, CategoricalParameter, ContinuousParameter, HyperparameterTuner
