@@ -23,6 +23,7 @@ nav:
     - Auto-Kerasを使ってみる: ai_ml/auto-keras/index.md
     - Auto-KerasでTextClassifierを使って見る: ai_ml/auto-keras-text/index.md
     - 自然言語ベクトル化用Pythonモジュール(text-vectorian)をリリースしました: ai_ml/text-vectorian/index.md
+    - SageMakerでTensorFlow+Kerasによる独自モデルをトレーニングする方法: ai_ml/sagemaker-with-mymodel/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
