@@ -61,7 +61,8 @@ model = Model(input_tensor, output_tensor)
 model.summary()
 ```
 
-## 今後の発展
+## Editor's Note
 
-現在では`SentencePiece + Word2Vec`の組み合わせのみですが、他のTokenizerとVecvtorizerの組み合わせを提供したり、
-文字ベースエンベディングのような異なるトークンの学習済みモデルも選択できるようにしたいと考えています。
+### 2018/01/22
+
+文字ベースエンベディング(Char2VecVectorian)の実装をリリースしました。
