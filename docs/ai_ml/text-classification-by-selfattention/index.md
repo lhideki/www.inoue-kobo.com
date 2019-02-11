@@ -73,7 +73,7 @@ weighted avg       0.80      0.79      0.79       419
 `LSTMのみ`では0.76であったF1値が`Self-Attention`を追加することで3%増加し0.79に向上しました。
 それぞれ複数回試しても±1-2%程度の誤差範囲でしたので、`Self-Attention`を追加することは有意であると考えられます。
 
-`Attention`はNMT(Neural Machine Translation)`のようなシーケンスからシーケンスを推論する問題(seq2seq)への適用が注目されますが、
+`Attention`は`NMT(Neural Machine Translation)`のようなシーケンスからシーケンスを推論する問題(seq2seq)への適用が注目されますが、
 単純な分類問題にも入出力の形を変えずにそのまま適用出来るため、とりあえず使って見るのは悪く無さそうです。
 
 ## 参考文献
