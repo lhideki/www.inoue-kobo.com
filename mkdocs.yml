@@ -27,6 +27,7 @@ nav:
     - 自然言語ベクトル化用Pythonモジュール(text-vectorian)をリリースしました: ai_ml/text-vectorian/index.md
     - Self-Attentionを利用したテキスト分類: ai_ml/text-classification-by-selfattention/index.md
     - 自然言語処理の分類問題の入力信号に、単語単位の入力だけではなく文字単位の入力を使用する: ai_ml/word-or-character/index.md
+    - SentencePiece+word2vecでコーパスによる差を確認してみる: ai_ml/comp-corpus/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
