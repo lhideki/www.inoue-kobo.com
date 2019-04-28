@@ -29,6 +29,7 @@ nav:
     - 自然言語処理の分類問題の入力信号に、単語単位の入力だけではなく文字単位の入力を使用する: ai_ml/word-or-character/index.md
     - SentencePiece+word2vecでコーパスによる差を確認してみる: ai_ml/comp-corpus/index.md
     - SentencePiece + 日本語WikipediaのBERTモデルをKeras BERTで利用する: ai_ml/keras-bert/index.md
+    - 自然言語処理で使われるAttentionのWeightを可視化する: ai_ml/attention-visualize/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
