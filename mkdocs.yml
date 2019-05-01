@@ -61,6 +61,7 @@ markdown_extensions:
   - attr_list
   - footnotes
   - mdx_math
+  - meta
   - codehilite:
       guess_lang: false
   - toc:

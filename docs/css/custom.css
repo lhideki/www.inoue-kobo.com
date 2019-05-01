@@ -13,28 +13,41 @@ footer > hr {
 .card {
     border: 1px #dfdfdf solid;
     padding: 20px 20px 20px 20px !important;
-    min-height: 330px;
-    position: relative;
-}
-.card .card-body {
-    position: absolute;
-    bottom: 20px;
+    min-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 .card .card-title {
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: bold;
 }
-
-.card {
-    text-align: center;
+.card > .actions {
+    position: absolute;
+    bottom: 20px;
 }
-
-.card > img {
+.card .card-thumbnail {
+    text-align: center;
+    height: 160px;
+    width: 100%;
+}
+.card .card-thumbnail img {
+    margin: 0 auto;
     max-width: 100%;
     max-height: 160px;
 }
-
 .card-body {
     text-align: left;
+}
+.card p {
+    word-break: break-all;
+}
+
+.btn-primary, .btn-primary:hover {
+    border-color: transparent;
+    background-color: #466dc0;
+}
+a, a:hover {
+    color: #466dc0;
 }

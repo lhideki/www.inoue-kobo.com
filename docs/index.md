@@ -1,4 +1,6 @@
-# INOUE-KOBO.COM
+disable_toc: false
+
+![](images/computer-2982270_1280.jpg)
 
 フリーランスのシステムアーキテクト、機械学習エンジニアです。
 技術メモやポートフォリオを公開しています。
