@@ -31,6 +31,7 @@ nav:
     - SentencePiece + 日本語WikipediaのBERTモデルをKeras BERTで利用する: ai_ml/keras-bert/index.md
     - 自然言語処理で使われるAttentionのWeightを可視化する: ai_ml/attention-visualize/index.md
     - Fighting ICEを動かしてみる: ai_ml/fighting-ice/index.md
+    - sumyを使って青空文庫を要約してみる: ai_ml/sumy-aozora/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:

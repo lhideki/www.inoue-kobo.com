@@ -44,7 +44,7 @@ def read_description(filename):
         for line in f.readlines():
             if re.search('^\#+\s.+', line):
                 continue
-            description += line
+            description += re.sub(r'\[(.+?)\]\(.+?\)', r'`\1`', line)
             if len(description) > SUMMARY_SIZE:
                 description = description[:SUMMARY_SIZE]
                 description += '・・・'
