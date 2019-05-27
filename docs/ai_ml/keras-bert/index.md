@@ -103,12 +103,12 @@ sp.Load('bert-wiki-ja/wiki-ja.model')
 def _get_vector(feature):
     common_seg_input = np.zeros((1, maxlen), dtype = np.float32)
     indices = np.zeros((1, maxlen), dtype = np.float32)
-    
+
     tokens = []
     tokens.append('[CLS]')
     tokens.extend(sp.encode_as_pieces(feature))
     tokens.append('[SEP]')
-        
+
     for t, token in enumerate(tokens):
         try:
             indices[0, t] = sp.piece_to_id(token)
@@ -116,7 +116,7 @@ def _get_vector(feature):
             logging.warn(f'{token} is unknown.')
             indices[0, t] = sp.piece_to_id('<unk>')
     vector =  bert.predict([indices, common_seg_input])[0]
-    
+
     return vector
 
 def _load_labeldata(train_dir, test_dir):
@@ -133,7 +133,7 @@ def _load_labeldata(train_dir, test_dir):
 
     train_features = []
     test_features = []
-    
+
     for feature in train_features_df['feature']:
         train_features.append(_get_vector(feature))
     for feature in test_features_df['feature']:
@@ -213,7 +213,7 @@ data['train_features'][:5]
              -0.18176533,  0.609959  ],
             [-0.36450043,  0.02214984,  0.2564181 , ...,  0.35734403,
              -0.01305788,  0.8493353 ]],
-    
+
            [[ 0.31687105,  1.2244819 ,  0.36265972, ...,  0.2956537 ,
              -0.7329245 ,  0.3783138 ],
             [ 0.1442154 ,  0.169483  ,  0.4410671 , ..., -0.49457642,
@@ -227,7 +227,7 @@ data['train_features'][:5]
              -0.48757967,  0.8818958 ],
             [-0.20600995,  1.0697701 ,  0.21132138, ...,  0.60967827,
              -0.58680713,  0.75882226]],
-    
+
            [[-0.10706001,  0.3738867 , -0.44477016, ...,  0.20106766,
               0.43196645, -0.40388373],
             [ 0.10844216, -0.16230595,  0.81597984, ..., -0.4139093 ,
@@ -241,7 +241,7 @@ data['train_features'][:5]
               0.33833283,  0.7278649 ],
             [-0.31896925, -0.41911578, -0.7302225 , ..., -0.19937491,
               0.30634403,  0.7484876 ]],
-    
+
            [[-0.08156536,  1.3763438 , -0.4511324 , ..., -0.2718555 ,
               0.01139554,  0.3233358 ],
             [ 0.29251447,  0.016281  ,  0.3287114 , ..., -0.04428148,
@@ -255,7 +255,7 @@ data['train_features'][:5]
              -0.39675236,  1.509865  ],
             [-0.49272478, -0.3240378 ,  0.0129818 , ..., -0.05501541,
              -0.13940048,  1.6560441 ]],
-    
+
            [[ 0.33917487, -0.45505336, -0.12048204, ..., -0.15798426,
              -0.31510183,  0.08813866],
             [ 0.01879137,  0.3558463 ,  0.74166125, ..., -1.1869664 ,
@@ -296,13 +296,13 @@ history = model.fit(data['train_features'],
 ```
 
     _________________________________________________________________
-    Layer (type)                 Output Shape              Param #   
+    Layer (type)                 Output Shape              Param #
     =================================================================
-    input_1 (InputLayer)         (None, 512, 768)          0         
+    input_1 (InputLayer)         (None, 512, 768)          0
     _________________________________________________________________
-    bidirectional_1 (Bidirection (None, 712)               3204000   
+    bidirectional_1 (Bidirection (None, 712)               3204000
     _________________________________________________________________
-    dense_1 (Dense)              (None, 4)                 2852      
+    dense_1 (Dense)              (None, 4)                 2852
     =================================================================
     Total params: 3,206,852
     Trainable params: 3,206,852
@@ -589,16 +589,16 @@ print(classification_report(numeric_test_labels, predicted_test_labels, target_n
 ```
 
                   precision    recall  f1-score   support
-    
+
              グルメ       0.76      0.86      0.81       137
             携帯電話       0.85      0.82      0.84       145
               京都       0.73      0.68      0.70        47
             スポーツ       0.89      0.78      0.83        90
-    
+
        micro avg       0.81      0.81      0.81       419
        macro avg       0.80      0.79      0.79       419
     weighted avg       0.81      0.81      0.81       419
-    
+
 
 
 ## まとめ
@@ -614,8 +614,10 @@ F値で81と高い精度が得られました。これは同じコーパスを�
 
 ### ToDo
 
-Keras BERT経由でFine Tuningを行うと結果が収束しなかったため、今回はFineTuningを行っていません。
-さらに高い精度を得られる可能性があるため、原因を特定してFine Tuningした結果も確認したいと考えています。
+> Keras BERT経由でFine Tuningを行うと結果が収束しなかったため、今回はFineTuningを行っていません。
+> さらに高い精度を得られる可能性があるため、原因を特定してFine Tuningした結果も確認したいと考えています。
+
+[2019/05/27 FineTunignしてみました。](https://www.inoue-kobo.com/ai_ml/keras-bert-with-finetuning/index.html)
 
 ## BERTの構造
 
