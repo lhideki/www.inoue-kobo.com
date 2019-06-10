@@ -4,6 +4,8 @@
 
 [Qiita](https://qiita.com/hideki/items/589a4fad8e135d5adcbd)の方でコメントを頂いたので、早速[gym-fightingice](https://github.com/myt1996/gym-fightingice)を試してみました。
 
+OpenAI GymのAPIを通して全てPythonでコーディングできるようになるので、機械学習系をPythonで慣れている人はかなり使いやすくなります。
+
 ## 実行環境
 
 * MacOS
