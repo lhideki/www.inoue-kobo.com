@@ -209,7 +209,7 @@ if __name__ == '__main__':
     qiita_articles.fetch()
 
     my_dirs = [
-        ['MarchineLearning', 'docs/ai_ml'],
+        ['MachineLearning', 'docs/ai_ml'],
         ['AWS', 'docs/aws'],
         ['REST-API', 'docs/restapi']
     ]

@@ -35,6 +35,7 @@ nav:
     - sumyを使って青空文庫を要約してみる: ai_ml/sumy-aozora/index.md
     - Keras BERTでファインチューニングしてみる: ai_ml/keras-bert-with-finetuning/index.md
     - OpenAI Gym API for Fighting ICEを動かしてみる: ai_ml/gym-fightingice/index.md
+    - もっと簡単にKeras BERTでファインチューニングしてみる: ai_ml/keras-bert-with-text-vectorian/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
