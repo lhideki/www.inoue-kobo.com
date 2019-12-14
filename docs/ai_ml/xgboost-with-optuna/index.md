@@ -30,10 +30,10 @@ print(test_labels.shape)
 ```
 
 ```
->    (404, 13)
->    (404,)
->    (102, 13)
->    (102,)
+> (404, 13)
+> (404,)
+> (102, 13)
+> (102,)
 ```
 
 ```python
@@ -54,12 +54,10 @@ Optunaでパラメータチューニングを行います。チューニング�
 目的はR2(決定係数)を使用します。R2は大きい方が性能が高いことを表すため`direction`を`maximize`にしています。
 
 ```python
-params = {
+base_params = {
     'booster': 'gbtree',
     'objective': 'reg:squarederror',
     'eval_metric': 'rmse',
-    'max_depth': 5,
-    'eta': 0.01,
 }
 
 watchlist = [(trains, 'train'), (tests, 'eval')]
@@ -68,19 +66,22 @@ watchlist = [(trains, 'train'), (tests, 'eval')]
 ```python
 import optuna
 from sklearn.metrics import r2_score
+import copy
+
+tmp_params = copy.deepcopy(base_params)
 
 def optimizer(trial):
-    #booster = trial.suggest_categorical('booster', ['gbtree', 'dart', 'gblinear'])
+#     booster = trial.suggest_categorical('booster', ['gbtree', 'dart', 'gblinear'])
     eta = trial.suggest_uniform('eta', 0.01, 0.3)
     max_depth = trial.suggest_int('max_depth', 4, 15)
     __lambda = trial.suggest_uniform('lambda', 0.7, 2)
 
-    #params['booster'] = booster
-    params['eta'] = eta
-    params['max_depth'] = max_depth
-    params['lambda'] = __lambda
+#     params['booster'] = booster
+    tmp_params['eta'] = eta
+    tmp_params['max_depth'] = max_depth
+    tmp_params['lambda'] = __lambda
 
-    model = xgb.train(params, trains, num_boost_round=50)
+    model = xgb.train(tmp_params, trains, num_boost_round=50)
     predicts = model.predict(tests)
 
     r2 = r2_score(test_labels, predicts)
@@ -95,36 +96,15 @@ study.optimize(optimizer, n_trials=500)
 ```
 
 ```
->    #0, Result: 0.4407700758314629, {'eta': 0.02815947490006805, 'max_depth': 15, 'lambda': 1.7745357854073418}
->
->
->    [I 2019-12-14 21:55:06,271] Finished trial#0 resulted in value: 0.4407700758314629. Current best value is 0.4407700758314629 with parameters: {'eta': 0.02815947490006805, 'max_depth': 15, 'lambda': 1.7745357854073418}.
->
->
->    #1, Result: 0.9411376545146801, {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}
->
->
->    [I 2019-12-14 21:55:06,399] Finished trial#1 resulted in value: 0.9411376545146801. Current best value is 0.9411376545146801 with parameters: {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}.
->
->
->    #2, Result: 0.9334222868385071, {'eta': 0.13902339239669845, 'max_depth': 5, 'lambda': 1.7072931624988712}
->
->
->    [I 2019-12-14 21:55:06,482] Finished trial#2 resulted in value: 0.9334222868385071. Current best value is 0.9411376545146801 with parameters: {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}.
->
->
->    #3, Result: 0.73803703148582, {'eta': 0.03931804573356067, 'max_depth': 14, 'lambda': 1.3872293369119229}
->
->
->    [I 2019-12-14 21:55:06,581] Finished trial#3 resulted in value: 0.73803703148582. Current best value is 0.9411376545146801 with parameters: {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}.
->
->
+> #0, Result: 0.9153797234954849, {'eta': 0.21541259325117842, 'max_depth': 4, 'lambda': 1.7243766588775653}
+> [I 2019-12-14 23:49:43,636] Finished trial#0 resulted in value: 0.9153797234954849. Current best value is 0.9153797234954849 with parameters: {'eta': 0.21541259325117842, 'max_depth': 4, 'lambda': 1.7243766588775653}.
+> #1, Result: 0.9277796354008809, {'eta': 0.1678675361241897, 'max_depth': 7, 'lambda': 1.9228108973855251}
+> [I 2019-12-14 23:49:43,734] Finished trial#1 resulted in value: 0.9277796354008809. Current best value is 0.9277796354008809 with parameters: {'eta': 0.1678675361241897, 'max_depth': 7, 'lambda': 1.9228108973855251}.
+> #2, Result: 0.8903499007997161, {'eta': 0.07375873958103377, 'max_depth': 13, 'lambda': 1.841310013076201}
+> [I 2019-12-14 23:49:43,856] Finished trial#2 resulted in value: 0.8903499007997161. Current best value is 0.9277796354008809 with parameters: {'eta': 0.1678675361241897, 'max_depth': 7, 'lambda': 1.9228108973855251}.
 [省略]
->
->    #499, Result: 0.9451385721692452, {'eta': 0.1399512997944577, 'max_depth': 6, 'lambda': 0.9998555419185053}
->
->
->    [I 2019-12-14 21:56:24,897] Finished trial#499 resulted in value: 0.9451385721692452. Current best value is 0.9530448799539337 with parameters: {'eta': 0.15359982254807167, 'max_depth': 5, 'lambda': 1.0040675732276585}.
+> #499, Result: 0.9350409121311861, {'eta': 0.146374389194902, 'max_depth': 8, 'lambda': 1.731254194217149}
+> [I 2019-12-14 23:51:08,655] Finished trial#499 resulted in value: 0.9350409121311861. Current best value is 0.9477310818026083 with parameters: {'eta': 0.16519267749243557, 'max_depth': 7, 'lambda': 1.72021507963037}.
 ```
 
 以下が探索された中でベストのパラメータです。
@@ -134,7 +114,7 @@ study.best_params
 ```
 
 ```
->    {'eta': 0.15359982254807167, 'max_depth': 5, 'lambda': 1.0040675732276585}
+> {'eta': 0.16519267749243557, 'max_depth': 7, 'lambda': 1.72021507963037}
 ```
 
 以下はSeabornのPairplotで表示したパラメータ間の相関です。
@@ -154,38 +134,40 @@ sns.pairplot(study_df, kind='reg')
 最適化されたパラメータを使用して学習します。
 
 ```python
-params = dict(params, **study.best_params)
-watchlist = [(trains, 'train'), (tests, 'eval')]
-
-model = xgb.train(params, trains, num_boost_round=100, verbose_eval=True, evals=watchlist)
-```
-
-```
->    [0]	train-rmse:20.3573	eval-rmse:20.5125
->    [1]	train-rmse:17.4151	eval-rmse:17.5057
->    [2]	train-rmse:14.9285	eval-rmse:14.9457
->    [3]	train-rmse:12.8167	eval-rmse:12.8562
-[省略]
->    [99]	train-rmse:0.346584	eval-rmse:2.04457
-```
-
-```python
-predicts = model.predict(tests)
-```
-
-```python
 from sklearn.metrics import r2_score
 
-r2_score(test_labels, predicts)
+def eval_model(params, trains, tests):
+    model = xgb.train(params, trains, num_boost_round=100, verbose_eval=False, evals=watchlist)
+    predicts = model.predict(tests)
+    r2 = r2_score(test_labels, predicts)
+
+    return r2
+```
+
+```python
+base_r2 = eval_model(base_params, trains, tests)
+
+merged_params = dict(base_params, **study.best_params)
+best_r2 = eval_model(merged_params, trains, tests)
+
+print(f'Base params: {base_params}')
+print(f'Best params: {merged_params}')
+print(f'Base: {base_r2}, Best: {best_r2}, Diff: {best_r2 - base_r2}')
 ```
 
 ```
->    0.9519996238263829
+> Base params: {'booster': 'gbtree', 'objective': 'reg:squarederror', 'eval_metric': 'rmse'}
+> Best params: {'booster': 'gbtree', 'objective': 'reg:squarederror', 'eval_metric': 'rmse', 'eta': 0.16519267749243557, 'max_depth': 7, 'lambda': 1.72021507963037}
+> Base: 0.8937800621867638, Best: 0.94643405613549, Diff: 0.052653993948726274
 ```
 
 ## まとめ
 
-最終的に`0.95`と高い精度で説明可能なモデルが探索できました。
+Optunaによりハイパーパラメータを探索することで以下の様に改善する事ができました。
+
+* デフォルト: 0.89
+* 最適化後: 0.95
+* 改善値: 0.05
 
 ## 参考文献
 
