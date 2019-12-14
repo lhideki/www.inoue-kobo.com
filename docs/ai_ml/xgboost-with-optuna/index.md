@@ -30,10 +30,10 @@ print(test_labels.shape)
 ```
 
 ```
-    (404, 13)
-    (404,)
-    (102, 13)
-    (102,)
+>    (404, 13)
+>    (404,)
+>    (102, 13)
+>    (102,)
 ```
 
 ```python
@@ -95,36 +95,36 @@ study.optimize(optimizer, n_trials=500)
 ```
 
 ```
-    #0, Result: 0.4407700758314629, {'eta': 0.02815947490006805, 'max_depth': 15, 'lambda': 1.7745357854073418}
-
-
-    [I 2019-12-14 21:55:06,271] Finished trial#0 resulted in value: 0.4407700758314629. Current best value is 0.4407700758314629 with parameters: {'eta': 0.02815947490006805, 'max_depth': 15, 'lambda': 1.7745357854073418}.
-
-
-    #1, Result: 0.9411376545146801, {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}
-
-
-    [I 2019-12-14 21:55:06,399] Finished trial#1 resulted in value: 0.9411376545146801. Current best value is 0.9411376545146801 with parameters: {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}.
-
-
-    #2, Result: 0.9334222868385071, {'eta': 0.13902339239669845, 'max_depth': 5, 'lambda': 1.7072931624988712}
-
-
-    [I 2019-12-14 21:55:06,482] Finished trial#2 resulted in value: 0.9334222868385071. Current best value is 0.9411376545146801 with parameters: {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}.
-
-
-    #3, Result: 0.73803703148582, {'eta': 0.03931804573356067, 'max_depth': 14, 'lambda': 1.3872293369119229}
-
-
-    [I 2019-12-14 21:55:06,581] Finished trial#3 resulted in value: 0.73803703148582. Current best value is 0.9411376545146801 with parameters: {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}.
-
-
- [省略]
-
-    #499, Result: 0.9451385721692452, {'eta': 0.1399512997944577, 'max_depth': 6, 'lambda': 0.9998555419185053}
-
-
-    [I 2019-12-14 21:56:24,897] Finished trial#499 resulted in value: 0.9451385721692452. Current best value is 0.9530448799539337 with parameters: {'eta': 0.15359982254807167, 'max_depth': 5, 'lambda': 1.0040675732276585}.
+>    #0, Result: 0.4407700758314629, {'eta': 0.02815947490006805, 'max_depth': 15, 'lambda': 1.7745357854073418}
+>
+>
+>    [I 2019-12-14 21:55:06,271] Finished trial#0 resulted in value: 0.4407700758314629. Current best value is 0.4407700758314629 with parameters: {'eta': 0.02815947490006805, 'max_depth': 15, 'lambda': 1.7745357854073418}.
+>
+>
+>    #1, Result: 0.9411376545146801, {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}
+>
+>
+>    [I 2019-12-14 21:55:06,399] Finished trial#1 resulted in value: 0.9411376545146801. Current best value is 0.9411376545146801 with parameters: {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}.
+>
+>
+>    #2, Result: 0.9334222868385071, {'eta': 0.13902339239669845, 'max_depth': 5, 'lambda': 1.7072931624988712}
+>
+>
+>    [I 2019-12-14 21:55:06,482] Finished trial#2 resulted in value: 0.9334222868385071. Current best value is 0.9411376545146801 with parameters: {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}.
+>
+>
+>    #3, Result: 0.73803703148582, {'eta': 0.03931804573356067, 'max_depth': 14, 'lambda': 1.3872293369119229}
+>
+>
+>    [I 2019-12-14 21:55:06,581] Finished trial#3 resulted in value: 0.73803703148582. Current best value is 0.9411376545146801 with parameters: {'eta': 0.22645720401324948, 'max_depth': 14, 'lambda': 0.8344469058001295}.
+>
+>
+[省略]
+>
+>    #499, Result: 0.9451385721692452, {'eta': 0.1399512997944577, 'max_depth': 6, 'lambda': 0.9998555419185053}
+>
+>
+>    [I 2019-12-14 21:56:24,897] Finished trial#499 resulted in value: 0.9451385721692452. Current best value is 0.9530448799539337 with parameters: {'eta': 0.15359982254807167, 'max_depth': 5, 'lambda': 1.0040675732276585}.
 ```
 
 以下が探索された中でベストのパラメータです。
@@ -134,7 +134,7 @@ study.best_params
 ```
 
 ```
-    {'eta': 0.15359982254807167, 'max_depth': 5, 'lambda': 1.0040675732276585}
+>    {'eta': 0.15359982254807167, 'max_depth': 5, 'lambda': 1.0040675732276585}
 ```
 
 以下はSeabornのPairplotで表示したパラメータ間の相関です。
@@ -161,12 +161,12 @@ model = xgb.train(params, trains, num_boost_round=100, verbose_eval=True, evals=
 ```
 
 ```
-    [0]	train-rmse:20.3573	eval-rmse:20.5125
-    [1]	train-rmse:17.4151	eval-rmse:17.5057
-    [2]	train-rmse:14.9285	eval-rmse:14.9457
-    [3]	train-rmse:12.8167	eval-rmse:12.8562
+>    [0]	train-rmse:20.3573	eval-rmse:20.5125
+>    [1]	train-rmse:17.4151	eval-rmse:17.5057
+>    [2]	train-rmse:14.9285	eval-rmse:14.9457
+>    [3]	train-rmse:12.8167	eval-rmse:12.8562
 [省略]
-    [99]	train-rmse:0.346584	eval-rmse:2.04457
+>    [99]	train-rmse:0.346584	eval-rmse:2.04457
 ```
 
 ```python
@@ -180,7 +180,7 @@ r2_score(test_labels, predicts)
 ```
 
 ```
-    0.9519996238263829
+>    0.9519996238263829
 ```
 
 ## まとめ
