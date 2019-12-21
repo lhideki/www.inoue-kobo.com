@@ -37,6 +37,7 @@ nav:
     - OpenAI Gym API for Fighting ICEを動かしてみる: ai_ml/gym-fightingice/index.md
     - もっと簡単にKeras BERTでファインチューニングしてみる: ai_ml/keras-bert-with-text-vectorian/index.md
     - XGBoostをOptunaでパラメータチューニングする: ai_ml/xgboost-with-optuna/index.md
+    - BERTおよびWord2Vecで文の類似性を確認する: ai_ml/sentence-similarity/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
