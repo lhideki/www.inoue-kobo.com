@@ -123,13 +123,13 @@ best_r2 = r2_score(test_labels, predicts)
 
 ```python
 print(f'Base params: {params}')
-print(f'Best params: {best_params}')
+print(f'Best params: {merged_params}')
 print(f'Base: {base_r2}, Best: {best_r2}, Diff: {best_r2 - base_r2}')
 ```
 
 ```
 Base params: {'objective': 'mean_squared_error', 'metric': 'rmse'}
-Best params: {'lambda_l1': 0.5180093752159527, 'lambda_l2': 0.018791253111455634, 'num_leaves': 31, 'feature_fraction': 1.0, 'bagging_fraction': 1.0, 'bagging_freq': 0, 'min_child_samples': 5}
+Best params: {'objective': 'mean_squared_error', 'metric': 'rmse', 'lambda_l1': 0.5180093752159527, 'lambda_l2': 0.018791253111455634, 'num_leaves': 31, 'feature_fraction': 1.0, 'bagging_fraction': 1.0, 'bagging_freq': 0, 'min_child_samples': 5}
 Base: 0.8711808181814997, Best: 0.9004158293791359, Diff: 0.029235011197636163
 ```
 
