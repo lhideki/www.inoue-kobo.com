@@ -39,6 +39,7 @@ nav:
     - もっと簡単にKeras BERTでファインチューニングしてみる: ai_ml/keras-bert-with-text-vectorian/index.md
     - XGBoostをOptunaでパラメータチューニングする: ai_ml/xgboost-with-optuna/index.md
     - BERTおよびWord2Vecで文の類似性を確認する: ai_ml/sentence-similarity/index.md
+    - LightGBMをOptunaでパラメータチューニングする: ai_ml/lightbgm-with-optuna/index.html
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
