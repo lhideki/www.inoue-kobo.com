@@ -146,6 +146,6 @@ LightGBM専用のハイパーパラメータチューナーがOptunaに組み込
 
 ## 参考文献
 
-* [Optuna の拡張機能 LightGBM Tuner によるハイパーパラメータ自動最適化](https://tech.preferred.jp/ja/blog/)hyperparameter-tuning-with-optuna-integration-lightgbm-tuner/)
+* [Optuna の拡張機能 LightGBM Tuner によるハイパーパラメータ自動最適化](https://tech.preferred.jp/ja/blog/hyperparameter-tuning-with-optuna-integration-lightgbm-tuner/)
 * [Add automatic LightGBM tuner with stepwise logic.](https://github.com/optuna/optuna/pull/549)
 * [LightGBM](https://lightgbm.readthedocs.io/en/latest/index.html)
