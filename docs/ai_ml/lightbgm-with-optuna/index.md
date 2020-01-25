@@ -57,13 +57,13 @@ best_params
 ```
 
 ```
-{'lambda_l1': 0.0029385173511272877,
- 'lambda_l2': 8.280111500565932,
+{'lambda_l1': 0.5180093752159527,
+ 'lambda_l2': 0.018791253111455634,
  'num_leaves': 31,
  'feature_fraction': 1.0,
- 'bagging_fraction': 0.8764226042397782,
- 'bagging_freq': 5,
- 'min_child_samples': 10}
+ 'bagging_fraction': 1.0,
+ 'bagging_freq': 0,
+ 'min_child_samples': 5}
 ```
 
 ```python
@@ -110,13 +110,13 @@ sns.pairplot(study_df, kind='reg')
 import lightgbm as lgb_original
 from sklearn.metrics import r2_score
 
-model = lgb_original.train(params, tests, num_boost_round=100)
+model = lgb_original.train(params, trains, num_boost_round=100)
 predicts = model.predict(test_features)
 base_r2 = r2_score(test_labels, predicts)
 ```
 
 ```python
-model = lgb_original.train(best_params, tests, num_boost_round=100)
+model = lgb_original.train(best_params, trains, num_boost_round=100)
 predicts = model.predict(test_features)
 best_r2 = r2_score(test_labels, predicts)
 ```
@@ -129,17 +129,17 @@ print(f'Base: {base_r2}, Best: {best_r2}, Diff: {best_r2 - base_r2}')
 
 ```
 Base params: {'objective': 'mean_squared_error', 'metric': 'rmse'}
-Best params: {'lambda_l1': 0.0029385173511272877, 'lambda_l2': 8.280111500565932, 'num_leaves': 31, 'feature_fraction': 1.0, 'bagging_fraction': 0.8764226042397782, 'bagging_freq': 5, 'min_child_samples': 10}
-Base: 0.90643134802633, Best: 0.9557989653668788, Diff: 0.04936761734054884
+Best params: {'lambda_l1': 0.5180093752159527, 'lambda_l2': 0.018791253111455634, 'num_leaves': 31, 'feature_fraction': 1.0, 'bagging_fraction': 1.0, 'bagging_freq': 0, 'min_child_samples': 5}
+Base: 0.8711808181814997, Best: 0.9004158293791359, Diff: 0.029235011197636163
 ```
 
 ## まとめ
 
 Optunaによりハイパーパラメータを探索することで以下の様に改善する事ができました。
 
-* デフォルト: 0.91
-* 最適化後: 0.96
-* 改善値: 0.05
+* デフォルト: 0.87
+* 最適化後: 0.90
+* 改善値: 0.03
 
 LightGBM専用のハイパーパラメータチューナーがOptunaに組み込まれたことにより、普通にLightGBMとしてトレーニングするだけでパラメータの最適化が可能になりました。
 モデル探索の最初の一手としては最適だと思われます。
