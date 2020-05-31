@@ -39,7 +39,8 @@ nav:
     - もっと簡単にKeras BERTでファインチューニングしてみる: ai_ml/keras-bert-with-text-vectorian/index.md
     - XGBoostをOptunaでパラメータチューニングする: ai_ml/xgboost-with-optuna/index.md
     - BERTおよびWord2Vecで文の類似性を確認する: ai_ml/sentence-similarity/index.md
-    - LightGBMをOptunaでパラメータチューニングする: ai_ml/lightbgm-with-optuna/index.html
+    - LightGBMをOptunaでパラメータチューニングする: ai_ml/lightbgm-with-optuna/index.md
+    - 自然言語処理で使われるAttentionのWeightを可視化する(spaCy版): ai_ml/attention-visualize-with-spacy/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
