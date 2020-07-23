@@ -19,6 +19,7 @@ nav:
     - SageMakerでTensorFlow+Kerasによる独自モデルをトレーニングする方法: aws/sagemaker-with-mymodel/index.md
     - SageMakerでKerasの独自モデルをトレーニングしてデプロイするまで(Python3対応): aws/sagemaker-with-keras-traing2deploy/index.md
     - AWS DeepLens Tips: aws/deeplens-tips/index.md
+    - SageMakerで独自コンテナでトレーニングする方法: aws/sagemaker-with-mycontainer/index.md
   - AI/ML:
     - GANでピカチュウを描いてみる: ai_ml/gan-pikachu/index.md
     - GCP AutoML Natural Languageのベンチマーク: ai_ml/automl-benchmark/index.md
