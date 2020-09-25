@@ -1,4 +1,4 @@
 text-vectorian==0.1.10
 keras-self-attention==0.41.0
 pandas==0.24.1
-tensorflow==1.12.3
+tensorflow==1.15.4
