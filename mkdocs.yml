@@ -43,6 +43,7 @@ nav:
     - BERTおよびWord2Vecで文の類似性を確認する: ai_ml/sentence-similarity/index.md
     - LightGBMをOptunaでパラメータチューニングする: ai_ml/lightbgm-with-optuna/index.md
     - 自然言語処理で使われるAttentionのWeightを可視化する(spaCy版): ai_ml/attention-visualize-with-spacy/index.md
+    - PyCaretで学ぶデータ分析におけるAutoMLの利用: ai_ml/pycaret-basic/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
   - WEB SERVICE:
