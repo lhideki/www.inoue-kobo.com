@@ -111,7 +111,7 @@ test_df = pd.read_csv(f'{data_root}/knbc-test.csv', index_col=0)
 
 ```python
 from transformers import pipeline
-from transformers import AutoTokenizer, TFBertForSequenceClassification
+from transformers import AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained('cl-tohoku/bert-base-japanese-whole-word-masking')
 ```
@@ -150,7 +150,7 @@ Transformersが用意するTrainer(TensorFlow用はTFTrainer)を利用して学�
 
 
 ```python
-from transformers import TFTrainer, TFTrainingArguments, TFBertForMaskedLM
+from transformers import TFTrainer, TFTrainingArguments, TFBertForSequenceClassification
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 import tensorflow as tf
 
