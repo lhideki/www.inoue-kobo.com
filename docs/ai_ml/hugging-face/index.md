@@ -89,9 +89,6 @@ Transformersと今回使用する学習済みBERTモデルが要求するモジ�
 
 ```python
 !pip install transformers
-!apt install aptitude
-!aptitude install mecab libmecab-dev mecab-ipadic-utf8 git make curl xz-utils file -y
-!pip install mecab-python3==0.7
 !pip install fugashi
 !pip install ipadic
 ```
