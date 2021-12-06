@@ -34,8 +34,10 @@ def get_thumbnail_element(dir, index_filename='index.md', thumbnail_filename='im
 
 def read_title(filename):
     with open(filename) as f:
-        title = re.search('\# (.+)', f.readlines()[0]).group(1)
-    return title
+        title = re.search('\# (.+)', f.readlines()[0])
+        if title:
+            return title.group(1)
+    return 'No Title'
 
 def read_description(filename):
     description = ''

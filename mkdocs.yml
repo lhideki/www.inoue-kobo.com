@@ -21,6 +21,7 @@ nav:
     - AWS DeepLens Tips: aws/deeplens-tips/index.md
     - SageMakerで独自コンテナでトレーニングする方法: aws/sagemaker-with-mycontainer/index.md
     - SageMakerで利用できるDeepChemのためDockerfile: aws/sagemaker-with-deepchem/index.md
+    - SageMaker Canvasを使ってみた: aws/sagemaker-canvas/index.md
   - AI/ML:
     - GANでピカチュウを描いてみる: ai_ml/gan-pikachu/index.md
     - GCP AutoML Natural Languageのベンチマーク: ai_ml/automl-benchmark/index.md
