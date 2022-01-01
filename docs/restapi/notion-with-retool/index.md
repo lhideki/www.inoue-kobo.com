@@ -169,25 +169,25 @@ query1.data.results
 ### Title
 
 ```json
-{{currentRow.properties.Title.title[0].plain_text}}
+{{ "{{ currentRow.properties.Title.title[0].plain_text"}} }}
 ```
 
 ### Note
 
 ```json
-{{currentRow.properties.Note.rich_text[0].text.content}}
+{{ "{{ currentRow.properties.Note.rich_text[0].text.content"}} }}
 ```
 
 ### Due Date
 
 ```json
-{{currentRow.properties['Due Date'].date.start}}
+{{ "{{ currentRow.properties['Due Date'].date.start"}} }}
 ```
 
 ### Done
 
 ```json
-{{currentRow.properties.Done.checkbox}}
+{{ "{{ currentRow.properties.Done.checkbox"}} }}
 ```
 
 ## 設定完了後の画面を確認する
