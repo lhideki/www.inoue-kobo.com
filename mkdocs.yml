@@ -47,6 +47,7 @@ nav:
     - PyCaretで学ぶデータ分析におけるAutoMLの利用: ai_ml/pycaret-basic/index.md
     - Huggingface TransformersでBERTをFine Tuningしてみる: ai_ml/hugging-face/index.md
     - Huggingface Transformersによる日本語GPT-2モデルのrinnaを利用した推論の例: ai_ml/rinna/index.md
+    - 時系列予測用フレームワークであるDatrsでドル円為替を予測してみる: ai_ml/darts/index.md
   - REST API:
     - GitHubにpushする際にQiitaにも投稿する: restapi/qiita_posting/index.md
     - Notionのデータベースに対するViewerをRetoolで作ってみた: restapi/notion-with-retool/index.md
