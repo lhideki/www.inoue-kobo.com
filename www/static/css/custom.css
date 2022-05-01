@@ -30,6 +30,11 @@ div.container div.logo .logo__item {
 }
 
 div.container .logo__item .logo__img {
-    max-width: 312px;
+    max-width: 320px;
     max-height: none;
+}
+
+table thead th {
+    background-color: #2a2a2a;
+    color: #ffffff;
 }
