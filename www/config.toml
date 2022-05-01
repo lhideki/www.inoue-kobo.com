@@ -40,7 +40,8 @@ googleAnalytics = "UA-24462002-1"
   mathjax = true
   mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
   mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
-  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"
+#  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"
+  googleFontsLink = "https://fonts.googleapis.com/css?family=Noto+Sans+JP"
   customCSS = ["css/custom.css"]
   customJS = ["js/custom.js"]
 
@@ -51,7 +52,7 @@ googleAnalytics = "UA-24462002-1"
 
 [Params.style.vars]
   highlightColor = "#466dc0"
-  fontFamilyPrimary = "'Open Sans', Helvetica, Arial, sans-serif"
+  fontFamilyPrimary = "'Noto Sans JP','Open Sans', Helvetica, Arial, sans-serif"
   fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
 
 [Params.thumbnail]
