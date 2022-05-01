@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 MAX_PAGES = 100
 TOKEN = os.environ['QIITA_TOKEN']
 FQDN = 'https://www.inoue-kobo.com'
-DOCUMENT_ROOT = 'docs'
+DOCUMENT_ROOT = 'www/content'
 
 
 class Article(metaclass=ABCMeta):
@@ -34,14 +34,35 @@ class MyArticle(Article):
         self.filename = filename
         with open(filename) as f:
             lines = f.readlines()
-            self.title = self._parse_title(lines)
-            self.lines = lines
-            self.body = ''.join(lines)
+            removed_meta_lines = self._remove_meta(lines)
+            self.title = self._parse_title(removed_meta_lines)
+            self.lines = removed_meta_lines
+            self.body = ''.join(removed_meta_lines)
             self.last_updated_date = datetime.datetime.fromtimestamp(
                 os.stat(filename).st_mtime)
 
+    def _remove_meta(self, lines):
+        new_lines = []
+        is_in_meta = False
+        for i, line in enumerate(lines):
+            if i == 0 and re.match('^\-\-\-\\n$', line):
+                is_in_meta = True
+                continue
+            if is_in_meta and re.match('^\-\-\-\\n$', line):
+                is_in_meta = False
+                continue
+            if is_in_meta:
+                continue
+
+            new_lines.append(line)
+
+        return new_lines
+
     def _parse_title(self, lines):
-        return re.search('\# (.+)', lines[0]).group(1)
+        for line in lines:
+            if re.match('\# (.+)', line):
+                return re.search('\# (.+)', line).group(1)
+        return 'No Title'
 
     def get_filename(self):
         return self.filename
@@ -209,9 +230,9 @@ if __name__ == '__main__':
     qiita_articles.fetch()
 
     my_dirs = [
-        ['MachineLearning', 'docs/ai_ml'],
-        ['AWS', 'docs/aws'],
-        ['REST-API', 'docs/restapi']
+        ['MachineLearning', 'www/content/ai_ml'],
+        ['AWS', 'www/content/aws'],
+        ['REST-API', 'www/content/restapi']
     ]
     for my_dir in my_dirs:
         my_articles = MyArticles(my_dir[0], my_dir[1])
@@ -230,9 +251,11 @@ if __name__ == '__main__':
                 if id:
                     logging.info(
                         f'{my_article.get_title()}({id}) will update.')
-                    qiita_articles.update(id, qiita_article.get_tags(), my_article)
+                    qiita_articles.update(
+                        id, qiita_article.get_tags(), my_article)
                 else:
                     logging.info(f'{my_article.get_title()}(new) will post.')
                     qiita_articles.post(my_article)
             else:
-                logging.info(f'{my_article.get_title()} is not changed.')
+                #logging.info(f'{my_article.get_title()} is not changed.')
+                pass
