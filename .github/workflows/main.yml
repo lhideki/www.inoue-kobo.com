@@ -37,3 +37,4 @@ jobs:
           HOMEPAGE_S3_BUCKET: ${{ secrets.HOMEPAGE_S3_BUCKET }}
         run: |
           aws s3 sync www/public s3://$HOMEPAGE_S3_BUCKET/docs-v2 --delete
+          aws cloudfront create-invalidation --region ap-northeast-1 --distribution-id E3JEKHZG9UN3GI --paths "/*"
