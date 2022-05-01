@@ -34,4 +34,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           HOMEPAGE_S3_BUCKET: ${{ secrets.HOMEPAGE_S3_BUCKET }}
         run: |
-          aws s3 sync public s3://$HOMEPAGE_S3_BUCKET/docs-v2 --delete
+          aws s3 sync www/public s3://$HOMEPAGE_S3_BUCKET/docs-v2 --delete
