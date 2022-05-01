@@ -16,6 +16,7 @@ phases:
       - rm -rf /tmp/hugo*
   build:
     commands:
+      - cd www
       - hugo
   post_build:
     commands:
