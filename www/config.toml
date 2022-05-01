@@ -59,9 +59,9 @@ googleAnalytics = "UA-24462002-1"
   widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
 
 [Params.widgets]
+  tags_counter = true
+  categories_counter = true
   recent_num = 10
-  categories_counter = false
-  tags_counter = false
 
 [Params.widgets.social]
   facebook = "hideki.inoue"
