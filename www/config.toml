@@ -1,0 +1,73 @@
+baseURL = "https://www.inoue-kobo.com/"
+languageCode = "ja"
+title = "INOUE-KOBO.COM"
+theme = "mainroad"
+paginate = "10"
+summaryLength = "10"
+googleAnalytics = "UA-24462002-1"
+
+[menu]
+[[menu.main]]
+  identifier = 'home'
+  name = 'HOME'
+  pre = "<i class='fa fa-heart'></i>"
+  url = '/'
+  weight = -110
+
+[Author] # Used in authorbox
+  name = "Hideki INOUE"
+  bio = "フリーランスのシステムアーキテクト、機械学習エンジニアです。 "
+  #avatar = "static/images/favicon.ico"
+
+[Params]
+  description = "フリーランスのシステムアーキテクト、機械学習エンジニアです。 技術メモやポートフォリオを公開しています。"
+  copyright = "www.inoue-kobo.com"
+  opengraph = true
+  schema = true
+  twitter_cards = false
+  readmore = true
+  authorbox = true
+  toc = true
+  pager = true
+  post_meta = ["author", "date", "categories", "translations"]
+  mainSections = ["aws", "ai_ml", "restapi", "webservice"]
+  dateformat = "2006-01-02"
+  mathjax = true
+  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
+  mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
+  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"
+  customCSS = ["css/custom.css"]
+  customJS = ["js/custom.js"]
+
+[Params.logo]
+  image = "images/computer-2982270_1280.jpg"
+  title = "INOUE-KOBO.COM"
+  subtitle = "フリーランスのシステムアーキテクト、機械学習エンジニアです。 技術メモやポートフォリオを公開しています。"
+
+[Params.style.vars]
+  highlightColor = "#466dc0"
+  fontFamilyPrimary = "'Open Sans', Helvetica, Arial, sans-serif"
+  fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+
+[Params.thumbnail]
+  visibility = ["list"] # Control thumbnail visibility
+
+[Params.sidebar]
+  home = "right"
+  list = "left"
+  single = false
+  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+
+[Params.widgets]
+  recent_num = 10
+  categories_counter = false
+  tags_counter = false
+
+[Params.widgets.social]
+  facebook = "hideki.inoue"
+  github = "lhideki"
+  email = "hideki@inoue-kobo.com"
+
+[[Params.widgets.social.custom]]
+  title = "Qiita"
+  url = "https://qiita.com/hideki"

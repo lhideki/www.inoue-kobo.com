@@ -3,27 +3,22 @@ version: 0.2
 env:
   variables:
     HOMEPAGE_S3_BUCKET: "www.inoue-kobo.com"
+    HUGO_VERSION: "0.98.0"
 
 phases:
   install:
+    runtime-versions:
+      golang: 1.14
     commands:
-      - pip install --upgrade pip
-      - pip install --upgrade awscli
-      - aws --version
-      - pip install mkdocs
-      - mkdocs --version
-      - pip install mkdocs-cinder
-      - pip install python-markdown-math
-      - pip install mkdocs-macros-plugin
-  pre_build:
-    commands:
+      - curl -Ls https://github.com/gohugoio/hugo/releases/download/v${hugo_version}/hugo_extended_${hugo_version}_Linux-64bit.tar.gz -o /tmp/hugo.tar.gz
+      - tar xf /tmp/hugo.tar.gz -C /tmp
+      - mv /tmp/hugo /usr/bin/hugo
+      - rm -rf /tmp/hugo*
   build:
     commands:
-      - mkdocs build
+      - hugo
   post_build:
     commands:
-      - cd site
-      - pwd
       - echo $HOMEPAGE_S3_BUCKET
-      - aws s3 sync . s3://$HOMEPAGE_S3_BUCKET/docs --delete
+      - aws s3 sync public s3://$HOMEPAGE_S3_BUCKET/docs-v2 --delete
       - aws cloudfront create-invalidation --region ap-northeast-1 --distribution-id E3JEKHZG9UN3GI --paths "/*"

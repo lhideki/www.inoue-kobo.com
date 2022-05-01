@@ -3,3 +3,6 @@
 
 __pycache__/
 .ipynb_checkpoints
+
+www/public
+www/.hugo_build.lock
