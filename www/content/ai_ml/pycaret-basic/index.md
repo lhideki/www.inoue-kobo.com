@@ -32,7 +32,7 @@ thumbnail: "ai_ml/pycaret-basic/images/thumbnail.png"
 `ボストン住宅価格データセット`は、以下の要素を持ったボストンにおける住宅価格と、関連すると思われる情報のデータです。トイプロブレム(練習問題)として、データ分析に関するテキストで頻繁に利用されています。
 
 | カラム  | 説明                                                                 |
-|---------|----------------------------------------------------------------------|
+| ------- | -------------------------------------------------------------------- |
 | CRIM    | 町ごとの一人当たりの犯罪率                                           |
 | ZN      | 宅地の比率が25000平方フィートを超える敷地に区画されている。          |
 | INDUS   | 町当たりの非小売業エーカーの割合                                     |
@@ -46,7 +46,7 @@ thumbnail: "ai_ml/pycaret-basic/images/thumbnail.png"
 | PTRATIO | 生徒教師の比率                                                       |
 | B       | 町における黒人の割合                                                 |
 | LSTAT   | 人口当たり地位が低い率                                               |
-| MEDV    | 所有者居住住宅価格の中央値(1000ドル単位)                                   |
+| MEDV    | 所有者居住住宅価格の中央値(1000ドル単位)                             |
 
 今回は`住宅価格(MEDV)`を予測するというテーマで進めます。
 
@@ -113,21 +113,6 @@ from pycaret.datasets import get_data
 data = get_data('boston')
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -236,7 +221,6 @@ data = get_data('boston')
     </tr>
   </tbody>
 </table>
-</div>
 
 ### データの分析
 
@@ -248,8 +232,7 @@ from pycaret.regression import *
 expression = setup(data, target='medv', silent=True)
 ```
 
-<style  type="text/css" >
-</style><table id="T_4d740bc6_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Description</th>        <th class="col_heading level0 col1" >Value</th>    </tr></thead><tbody>
+<table id="T_4d740bc6_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Description</th>        <th class="col_heading level0 col1" >Value</th>    </tr></thead><tbody>
                 <tr>
                         <th id="T_4d740bc6_e86a_11ea_a103_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
                         <td id="T_4d740bc6_e86a_11ea_a103_0242ac1c0002row0_col0" class="data row0 col0" >session_id</td>
@@ -470,494 +453,7 @@ PyCaretがサポートする複数のモデルで学習・評価した上で、�
 best = compare_models(blacklist = ['catboost'])
 ```
 
-
-<style  type="text/css" >
-    #T_676977be_e86a_11ea_a103_0242ac1c0002 th {
-          text-align: left;
-    }    #T_676977be_e86a_11ea_a103_0242ac1c0002row0_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row0_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row0_col2 {
-            background-color:  yellow;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row0_col3 {
-            background-color:  yellow;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row0_col4 {
-            background-color:  yellow;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row0_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row0_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row0_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row1_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row1_col1 {
-            background-color:  yellow;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row1_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row1_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row1_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row1_col5 {
-            background-color:  yellow;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row1_col6 {
-            background-color:  yellow;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row1_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row2_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row2_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row2_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row2_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row2_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row2_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row2_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row2_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row3_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row3_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row3_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row3_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row3_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row3_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row3_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row3_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row4_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row4_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row4_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row4_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row4_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row4_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row4_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row4_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row5_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row5_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row5_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row5_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row5_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row5_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row5_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row5_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row6_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row6_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row6_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row6_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row6_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row6_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row6_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row6_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row7_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row7_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row7_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row7_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row7_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row7_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row7_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row7_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row8_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row8_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row8_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row8_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row8_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row8_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row8_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row8_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row9_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row9_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row9_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row9_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row9_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row9_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row9_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row9_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row10_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row10_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row10_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row10_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row10_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row10_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row10_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row10_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row11_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row11_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row11_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row11_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row11_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row11_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row11_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row11_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row12_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row12_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row12_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row12_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row12_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row12_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row12_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row12_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row13_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row13_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row13_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row13_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row13_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row13_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row13_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row13_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row14_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row14_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row14_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row14_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row14_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row14_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row14_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row14_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row15_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row15_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row15_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row15_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row15_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row15_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row15_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row15_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row16_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row16_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row16_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row16_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row16_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row16_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row16_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row16_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row17_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row17_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row17_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row17_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row17_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row17_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row17_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row17_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row18_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row18_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row18_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row18_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row18_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row18_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row18_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row18_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row19_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row19_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row19_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row19_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row19_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row19_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row19_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row19_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row20_col0 {
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row20_col1 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row20_col2 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row20_col3 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row20_col4 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row20_col5 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row20_col6 {
-            : ;
-            text-align:  left;
-        }    #T_676977be_e86a_11ea_a103_0242ac1c0002row20_col7 {
-            background-color:  lightgrey;
-            text-align:  left;
-        }</style><table id="T_676977be_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Model</th>        <th class="col_heading level0 col1" >MAE</th>        <th class="col_heading level0 col2" >MSE</th>        <th class="col_heading level0 col3" >RMSE</th>        <th class="col_heading level0 col4" >R2</th>        <th class="col_heading level0 col5" >RMSLE</th>        <th class="col_heading level0 col6" >MAPE</th>        <th class="col_heading level0 col7" >TT (Sec)</th>    </tr></thead><tbody>
+<table id="T_676977be_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Model</th>        <th class="col_heading level0 col1" >MAE</th>        <th class="col_heading level0 col2" >MSE</th>        <th class="col_heading level0 col3" >RMSE</th>        <th class="col_heading level0 col4" >R2</th>        <th class="col_heading level0 col5" >RMSLE</th>        <th class="col_heading level0 col6" >MAPE</th>        <th class="col_heading level0 col7" >TT (Sec)</th>    </tr></thead><tbody>
                 <tr>
                         <th id="T_676977be_e86a_11ea_a103_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
                         <td id="T_676977be_e86a_11ea_a103_0242ac1c0002row0_col0" class="data row0 col0" >Gradient Boosting Regressor</td>
@@ -1189,7 +685,8 @@ best = compare_models(blacklist = ['catboost'])
                         <td id="T_676977be_e86a_11ea_a103_0242ac1c0002row20_col6" class="data row20 col6" >0.3563</td>
                         <td id="T_676977be_e86a_11ea_a103_0242ac1c0002row20_col7" class="data row20 col7" >0.0062</td>
             </tr>
-    </tbody></table>
+    </tbody>
+</table>
 
 以下が今回選択された最適なモデルです。
 
@@ -1217,21 +714,7 @@ best
 model = create_model(best)
 ```
 
-
-<style  type="text/css" >
-    #T_68a3b126_e86a_11ea_a103_0242ac1c0002row10_col0 {
-            background:  yellow;
-        }    #T_68a3b126_e86a_11ea_a103_0242ac1c0002row10_col1 {
-            background:  yellow;
-        }    #T_68a3b126_e86a_11ea_a103_0242ac1c0002row10_col2 {
-            background:  yellow;
-        }    #T_68a3b126_e86a_11ea_a103_0242ac1c0002row10_col3 {
-            background:  yellow;
-        }    #T_68a3b126_e86a_11ea_a103_0242ac1c0002row10_col4 {
-            background:  yellow;
-        }    #T_68a3b126_e86a_11ea_a103_0242ac1c0002row10_col5 {
-            background:  yellow;
-        }</style><table id="T_68a3b126_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MAE</th>        <th class="col_heading level0 col1" >MSE</th>        <th class="col_heading level0 col2" >RMSE</th>        <th class="col_heading level0 col3" >R2</th>        <th class="col_heading level0 col4" >RMSLE</th>        <th class="col_heading level0 col5" >MAPE</th>    </tr></thead><tbody>
+<table id="T_68a3b126_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MAE</th>        <th class="col_heading level0 col1" >MSE</th>        <th class="col_heading level0 col2" >RMSE</th>        <th class="col_heading level0 col3" >R2</th>        <th class="col_heading level0 col4" >RMSLE</th>        <th class="col_heading level0 col5" >MAPE</th>    </tr></thead><tbody>
                 <tr>
                         <th id="T_68a3b126_e86a_11ea_a103_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
                         <td id="T_68a3b126_e86a_11ea_a103_0242ac1c0002row0_col0" class="data row0 col0" >2.5338</td>
@@ -1348,21 +831,7 @@ model = create_model(best)
 tuned_model = tune_model(model)
 ```
 
-
-<style  type="text/css" >
-    #T_7b266730_e86a_11ea_a103_0242ac1c0002row10_col0 {
-            background:  yellow;
-        }    #T_7b266730_e86a_11ea_a103_0242ac1c0002row10_col1 {
-            background:  yellow;
-        }    #T_7b266730_e86a_11ea_a103_0242ac1c0002row10_col2 {
-            background:  yellow;
-        }    #T_7b266730_e86a_11ea_a103_0242ac1c0002row10_col3 {
-            background:  yellow;
-        }    #T_7b266730_e86a_11ea_a103_0242ac1c0002row10_col4 {
-            background:  yellow;
-        }    #T_7b266730_e86a_11ea_a103_0242ac1c0002row10_col5 {
-            background:  yellow;
-        }</style><table id="T_7b266730_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MAE</th>        <th class="col_heading level0 col1" >MSE</th>        <th class="col_heading level0 col2" >RMSE</th>        <th class="col_heading level0 col3" >R2</th>        <th class="col_heading level0 col4" >RMSLE</th>        <th class="col_heading level0 col5" >MAPE</th>    </tr></thead><tbody>
+<table id="T_7b266730_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MAE</th>        <th class="col_heading level0 col1" >MSE</th>        <th class="col_heading level0 col2" >RMSE</th>        <th class="col_heading level0 col3" >R2</th>        <th class="col_heading level0 col4" >RMSLE</th>        <th class="col_heading level0 col5" >MAPE</th>    </tr></thead><tbody>
                 <tr>
                         <th id="T_7b266730_e86a_11ea_a103_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
                         <td id="T_7b266730_e86a_11ea_a103_0242ac1c0002row0_col0" class="data row0 col0" >2.6026</td>
@@ -1471,7 +940,8 @@ tuned_model = tune_model(model)
                         <td id="T_7b266730_e86a_11ea_a103_0242ac1c0002row11_col4" class="data row11 col4" >0.0409</td>
                         <td id="T_7b266730_e86a_11ea_a103_0242ac1c0002row11_col5" class="data row11 col5" >0.0262</td>
             </tr>
-    </tbody></table>
+    </tbody>
+</table>
 
 
 
@@ -1504,21 +974,6 @@ interpret_model(tuned_model)
 test_pred = predict_model(tuned_model)
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1545,9 +1000,6 @@ test_pred = predict_model(tuned_model)
     </tr>
   </tbody>
 </table>
-</div>
-
-
 
 ```python
 test_pred['type'] = 'single'
@@ -1555,21 +1007,6 @@ test_pred['type'] = 'single'
 display(test_pred[['type', 'medv', 'Label']].head(10))
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1642,7 +1079,6 @@ display(test_pred[['type', 'medv', 'Label']].head(10))
     </tr>
   </tbody>
 </table>
-</div>
 
 
 * medv・・・実測値(Actual)
@@ -1676,21 +1112,6 @@ from pycaret.regression import models
 models()
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1859,7 +1280,6 @@ models()
     </tr>
   </tbody>
 </table>
-</div>
 
 今回は[スタッキング](https://bigdata-tools.com/stacking/)を試してみます。
 `mlp`、`xgboost`、`lightgbm`を利用し、`rf(ランダムフォレスト)`をメタモデルとして纏めています。
@@ -1875,21 +1295,7 @@ meta = create_model('rf')
 stacked_model = stack_models([model1, model2, model3], meta_model=meta)
 ```
 
-
-<style  type="text/css" >
-    #T_8de7e894_e86a_11ea_a103_0242ac1c0002row10_col0 {
-            background:  yellow;
-        }    #T_8de7e894_e86a_11ea_a103_0242ac1c0002row10_col1 {
-            background:  yellow;
-        }    #T_8de7e894_e86a_11ea_a103_0242ac1c0002row10_col2 {
-            background:  yellow;
-        }    #T_8de7e894_e86a_11ea_a103_0242ac1c0002row10_col3 {
-            background:  yellow;
-        }    #T_8de7e894_e86a_11ea_a103_0242ac1c0002row10_col4 {
-            background:  yellow;
-        }    #T_8de7e894_e86a_11ea_a103_0242ac1c0002row10_col5 {
-            background:  yellow;
-        }</style><table id="T_8de7e894_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MAE</th>        <th class="col_heading level0 col1" >MSE</th>        <th class="col_heading level0 col2" >RMSE</th>        <th class="col_heading level0 col3" >R2</th>        <th class="col_heading level0 col4" >RMSLE</th>        <th class="col_heading level0 col5" >MAPE</th>    </tr></thead><tbody>
+<table id="T_8de7e894_e86a_11ea_a103_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MAE</th>        <th class="col_heading level0 col1" >MSE</th>        <th class="col_heading level0 col2" >RMSE</th>        <th class="col_heading level0 col3" >R2</th>        <th class="col_heading level0 col4" >RMSLE</th>        <th class="col_heading level0 col5" >MAPE</th>    </tr></thead><tbody>
                 <tr>
                         <th id="T_8de7e894_e86a_11ea_a103_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
                         <td id="T_8de7e894_e86a_11ea_a103_0242ac1c0002row0_col0" class="data row0 col0" >3.3571</td>
@@ -1998,7 +1404,8 @@ stacked_model = stack_models([model1, model2, model3], meta_model=meta)
                         <td id="T_8de7e894_e86a_11ea_a103_0242ac1c0002row11_col4" class="data row11 col4" >0.0404</td>
                         <td id="T_8de7e894_e86a_11ea_a103_0242ac1c0002row11_col5" class="data row11 col5" >0.0245</td>
             </tr>
-    </tbody></table>
+    </tbody>
+</table>
 
 
 
@@ -2007,21 +1414,6 @@ test_pred = test_pred.append(predict_model(stacked_model))
 test_pred = test_pred.fillna('ensemble')
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2048,9 +1440,6 @@ test_pred = test_pred.fillna('ensemble')
     </tr>
   </tbody>
 </table>
-</div>
-
-
 
 ```python
 sns.lmplot(data=test_pred, x='medv', y='Label', hue='type')

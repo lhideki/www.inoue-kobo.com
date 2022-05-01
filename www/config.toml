@@ -19,6 +19,11 @@ googleAnalytics = "UA-24462002-1"
   bio = "フリーランスのシステムアーキテクト、機械学習エンジニアです。 "
   #avatar = "static/images/favicon.ico"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [Params]
   description = "フリーランスのシステムアーキテクト、機械学習エンジニアです。 技術メモやポートフォリオを公開しています。"
   copyright = "www.inoue-kobo.com"
@@ -50,7 +55,7 @@ googleAnalytics = "UA-24462002-1"
   fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
 
 [Params.thumbnail]
-  visibility = ["list"] # Control thumbnail visibility
+  visibility = ["list"]
 
 [Params.sidebar]
   home = "right"
