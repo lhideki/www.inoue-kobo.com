@@ -1,0 +1,8 @@
+{{ $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) }}
+{{ $alt := .PlainText | safeHTML }}
+
+<p class="md__image">
+  {{ with $image }}
+    <img src="{{ .RelPermalink }}" decoding="async" loading="lazy" width="{{ .Width }}" height="{{ .Height }}"  {{ with .Title }} title="{{ . }}"{{ end }}>
+  {{ end }}
+</p>
