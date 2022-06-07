@@ -41,7 +41,7 @@ googleAnalytics = "UA-24462002-1"
   mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
   mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
 #  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"
-  googleFontsLink = "https://fonts.googleapis.com/css?family=Noto+Sans+JP"
+  googleFontsLink = "https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap"
   customCSS = ["css/custom.css"]
   customJS = ["js/custom.js"]
 
