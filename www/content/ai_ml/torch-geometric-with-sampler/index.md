@@ -6,7 +6,7 @@ tags:
   - "torch-geometric"
   - "Graph"
   - "AI/ML"
-thumbnail: "aws/torch-geometric-with-sampler/images/sampler-graph.png"
+thumbnail: "ai_ml/torch-geometric-with-sampler/images/sampler-graph.png"
 ---
 # 1 つのグラフに対し、PyG の Sampler を利用してMini Batchによる学習を行う
 
