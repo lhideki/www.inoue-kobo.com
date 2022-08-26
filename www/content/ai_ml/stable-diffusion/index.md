@@ -95,6 +95,12 @@ for i, image in enumerate(images):
 
 ![](images/generated-images.png)
 
+上記の例では 1 個だけ黒い画像となっていますが、画像生成時に以下のログが出力されており、`NSFW(Not Safe For Work)=職場閲覧注意`との理由で黒塗りとなるようです。
+
+```
+Potential NSFW content was detected in one or more images. A black image will be returned instead. Try again with a different prompt and/or seed.
+```
+
 ## 参考文献
 
 -   [Hugging Face - CompVis/stable-diffusion-v1-4](https://huggingface.co/CompVis/stable-diffusion-v1-4)
