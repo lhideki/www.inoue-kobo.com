@@ -16,8 +16,11 @@ thumbnail: 'ai_ml/whisper/images/thumbnail.png'
 
 1. ブラウザ経由で音声を録音
 2. whisperで書き起こしと共に英語へ翻訳
+    * whisperは音声から直接、英語への翻訳タスクも(マルチタスクとして)学習しているので、その機能を利用します。
 3. 英語の要約モデルで要約
 4. 英日翻訳モデルで日本語に翻訳
+
+### whisperのアーキテクチャ概要
 
 ![](images/thumbnail.png)
 https://github.com/openai/whisper
