@@ -19,9 +19,8 @@ jobs:
           extended: true
 
       - name: Build Hugo
-        run: |
-          cd www
-          hugo --environment production
+        working-directory: ./www
+        run: hugo --environment production
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
