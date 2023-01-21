@@ -1,6 +1,6 @@
 ---
 title: 'Huggingfaceで公開されている日本語モデルを使ってQAタスクをファインチューニングする'
-date: '2023-01-14'
+date: '2023-01-21'
 tags:
     - 'Huggingface'
     - 'AI/ML'
@@ -25,6 +25,30 @@ JSQuAD は以下のようなデータセットです。
 
 -   [ku-nlp/deberta-v2-base-japanese](https://huggingface.co/ku-nlp/deberta-v2-base-japanese)
 
+### 2023/01/21: Tokenizer の使い方を修正しました
+
+Qiita の方で`ku-nlp/deberta-v2-base-japanese`の Tokenizer の使い方が意図されたものではないとの御指摘をいただきました。具体的な使い方も提示いただき、記事に反映させています。[@KoichiYasuoka](https://qiita.com/hideki/items/394f120d8eea030cb552)さん、ありがとうございました。
+
+意図した Tokenizer の使い方をすると、QA タスクの性能が改善されることを確認しています。以下は、3000 サンプルでの評価結果です(コードでは Accuracy としていますが正確には Exact Match となっています)。`ku-nlp/deberta-v2-base-japanese`を利用する際には、モデル ID から AutoTokenizer で取得した Tokenizer をそのまま利用するのではなく、PreTokenizer として juman++を使う形に変更することが必要という点にご注意ください。
+
+-   修正前: 0.627
+-   修正後: 0.703
+
+## Juman++をインストールする
+
+[ku-nlp/deberta-v2-base-japanese](https://huggingface.co/ku-nlp/deberta-v2-base-japanese)に書いてあるように、[ku-nlp/deberta-v2-base-japanese](https://huggingface.co/ku-nlp/deberta-v2-base-japanese)を使う場合は Tokenizer に入力する前に Juman++で分かち書きせよとのことです。Juman++は 1 系ではなく`v2.0.0-rc3`を使っているとあるため、以下のコードで Juman++の 2 系をインストールします。
+
+これは Google Colab での実行例ですが、M1 Mac で Juman++の 2 系をコンパイルする場合は[Juman++ V2 を m1 mac にインストール](https://qiita.com/percipere/items/f5aa1d744724a4ae93c0)が参考になると思います。
+
+```python
+!test -d jumanpp-2.0.0-rc3 || curl -L https://github.com/ku-nlp/jumanpp/releases/download/v2.0.0-rc3/jumanpp-2.0.0-rc3.tar.xz | tar xJf -
+!test -x /usr/local/bin/jumanpp || ( mkdir jumanpp-2.0.0-rc3/build && cd jumanpp-2.0.0-rc3/build && cmake .. -DCMAKE_BUILD_TYPE=Release && make install )
+```
+
+```python
+!jumanpp --version
+```
+
 ## モジュールを準備する
 
 ```python
@@ -33,6 +57,7 @@ JSQuAD は以下のようなデータセットです。
 !pip install transformers
 !pip install torch torchvision torchaudio
 !pip install datasets
+!pip install pytextspan
 ```
 
 ## データセットを読み込む
@@ -71,11 +96,24 @@ display(test_df)
 
 ## 事前学習モデルを準備する
 
+モデル ID で取得した Tokenizer をそのまま使用するのではなく、PreTokenizer を置き換えます。この影響でモデルの Save がそのままではできなくなります。現状の回避策は以下を参照ください。
+
+-   [日本語で Hugging Face Tokenizers を動かす](https://tech.mntsq.co.jp/entry/2021/02/26/120013)
+
 ```python
 model_ckpt = 'ku-nlp/deberta-v2-base-japanese'
 
 model = AutoModelForQuestionAnswering.from_pretrained(model_ckpt)
-tokenizer = AutoTokenizer.from_pretrained(model_ckpt)
+tokenizer = DebertaV2TokenizerFast.from_pretrained(model_ckpt)
+class JumanppPreTokenizer(JumanppTokenizer):
+    def jumanpp_split(self, i, normalized_string):
+        t = str(normalized_string)
+        k = self.tokenize(t)
+
+        return [normalized_string[s:e] for c in textspan.get_original_spans(k,t) for s,e in c]
+    def pre_tokenize(self, pretok):
+        pretok.split(self.jumanpp_split)
+tokenizer._tokenizer.pre_tokenizer = Sequence([PreTokenizer.custom(JumanppPreTokenizer()), Metaspace()])
 ```
 
 ## データ形式を変換する
@@ -192,6 +230,7 @@ training_args = TrainingArguments(
     per_device_train_batch_size=8,
     per_device_eval_batch_size=8,
     num_train_epochs=3,
+    save_strategy='no', # Custom PreTokenizerはそのままでは保存できないので、ここでは簡易のために保存しないようにします。
     weight_decay=0.01,
 )
 
@@ -244,3 +283,9 @@ display(pred_df)
 ```
 
 ![](images/predict-sample.png)
+
+## 参考文献
+
+-   [yasuoka の日記: ku-nlp/deberta-v2-base-japanese のトークナイザを DebertaV2TokenizerFast のままで Juman++に繋ぐには](https://srad.jp/~yasuoka/journal/659674/)
+-   [日本語で Hugging Face Tokenizers を動かす](https://tech.mntsq.co.jp/entry/2021/02/26/120013)
+-   [Juman++ V2 を m1 mac にインストール](https://qiita.com/percipere/items/f5aa1d744724a4ae93c0)
