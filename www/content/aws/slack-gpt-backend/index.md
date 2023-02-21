@@ -307,6 +307,13 @@ def lambda_handler(event: dict, context: LambdaContext) -> dict:
 
 以下の値のPrameterStoreを仮の値(dummyなど)で設定します。
 
+-   /slack-gpt-backend/OpenAiApiKey
+-   /slack-gpt-backend/SlackToken
+-   /slack-gpt-backend/SlackChannel
+-   /slack-gpt-backend/SlackContextTeamId
+-   /slack-gpt-backend/SlackUserId
+-   /slack-gpt-backend/SlackReplyUsername
+
 デプロイ時にParameterStoreが存在していることが要求されるためです。
 
 ## デプロイする
