@@ -303,6 +303,12 @@ def lambda_handler(event: dict, context: LambdaContext) -> dict:
     return app.resolve(event, context)
 ```
 
+## SSM ParameterStore を仮に設定する
+
+以下の値のPrameterStoreを仮の値(dummyなど)で設定します。
+
+デプロイ時にParameterStoreが存在していることが要求されるためです。
+
 ## デプロイする
 
 以下の様に SAM でデプロイします。
@@ -356,7 +362,7 @@ Slack からの Event を受け付ける先として、先にデプロイした 
 
 ![](images/slack-app-oauth-permissions-3.png)
 
-## SSM ParameterStore を設定する
+## SSM ParameterStore をちゃんと設定する
 
 Slack Token や OpenAI の ApiKey など、バックエンドが利用する各種パラメータは SAM で自動的に設定しないため、AWS コンソールにて先に以下のパラメータを設定しておきます。
 
@@ -399,11 +405,13 @@ Bot に代替させるユーザの Slack UserId です。以下のような形�
 
 Bot がメッセージを送信する際の Username です。チャネルに参加している人の Username を指定します。
 
-## Slack の対象チャネルにアプリを招待する
+## 再デプロイする
 
-Bot を導入するチャネルに作成したアプリを追加します。
+Lambdaからは環境変数として参照しているため、ParameterStoreの値を変更しても即事に反映されません。このため、ParameterStore値を変更したら、以下の様に再デプロイします。
 
-![](images/slack-channel-add-app.png)
+```bash
+sam deploy
+```
 
 ## もう少し何とかしたいところ
 
