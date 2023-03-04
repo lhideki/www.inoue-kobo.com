@@ -24,6 +24,8 @@ LangChainの`ConversationSummaryBufferMemory`を利用しているため、過�
 
 また、LangChain がトークン数の計算に GPT2 のトークナイザーを利用するようになっており、そのままでは Huggingface に対して毎回アクセスを行います。このことで前処理に 1 分近くかかることが確認されたため、Huggingface に対してアクセスすることなく、OFFLINE での利用ができるように調整しています。一応これで十数秒で応答するはずですが、かなりアドホックなやり方であるため将来の互換性はありません。この点は今後のLangChainのバージョンアップに期待です。
 
+![](images/thumbnail.png)
+
 ### 前提条件
 
 -   slack-sdk==3.20.0
