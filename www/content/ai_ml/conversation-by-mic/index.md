@@ -15,7 +15,7 @@ thumbnail: 'ai_ml/conversation-by-mic/images/thumbnail.png'
 
 発言が途中であるか否かの判定、音声認識で発生するであろう誤字脱字について考慮したプロンプトとしています。
 
-![](ai_ml/conversation-by-mic/images/thumbnail.png)
+![](images/thumbnail.png)
 
 ### 前提条件
 
