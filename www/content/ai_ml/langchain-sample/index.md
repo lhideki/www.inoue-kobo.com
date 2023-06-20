@@ -128,6 +128,18 @@ Human: Markdown形式の箇条書きにしてください。
 ```
 
 ```python
+import os
+
+openai_api_key = "OPENAI_API_KEY"#@param {type:"string"}
+google_api_key = "GOOGLE_API_KEY"#@param {type:"string"}
+google_cse_id = "GOOGLE_CSE_ID"#@param {type:"string"}
+
+os.environ["OPENAI_API_KEY"] = openai_api_key
+os.environ["GOOGLE_API_KEY"] = google_api_key
+os.environ["GOOGLE_CSE_ID"] = google_cse_id
+```
+
+```python
 from langchain import (
     LLMMathChain,
     OpenAI,
