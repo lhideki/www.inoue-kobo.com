@@ -7,7 +7,7 @@ tags:
 thumbnail: 'ai_ml/langchain-sample/images/thumbnail.png'
 ---
 
-# ローカルに保存した英語の PDF に日本語で質問応答する Gradio でのデモンストレーション
+# LangChain 0.0.200での履歴を持ったChat、シンプルなAgent、長文の要約の実装サンプル
 
 ## TL;DR
 
