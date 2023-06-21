@@ -1,13 +1,13 @@
 ---
-title: 'LangChain 0.0.200での履歴を持ったChat、シンプルなAgent、長文の要約の実装サンプル'
-date: '2023-06-20'
+title: 'LangChain 0.0.200での履歴を持ったChat、シンプルなAgent、長文の要約などの実装サンプル'
+date: '2023-06-21'
 tags:
     - 'LangChain'
     - 'OpenAI'
 thumbnail: 'ai_ml/langchain-sample/images/thumbnail.png'
 ---
 
-# LangChain 0.0.200での履歴を持ったChat、シンプルなAgent、長文の要約の実装サンプル
+# LangChain 0.0.200 での履歴を持った Chat、シンプルな Agent、長文の要約などの実装サンプル
 
 ## TL;DR
 
@@ -23,6 +23,8 @@ LangChain は進化が早いということもあり、頻繁にインターフ�
 -   openai==0.27.0
 
 ## 履歴を持った Chat
+
+会話履歴を一定のトークン数に制限するために、要約をすることで会話履歴を圧縮して保持するチャットの実装例です。
 
 ```python
 !pip install langchain
@@ -121,6 +123,8 @@ Human: Markdown形式の箇条書きにしてください。
 
 ## シンプルな Agent
 
+Google 検索、計算をもった Agent の実装例です。ツールの選択は OpenAI API の Function Calling を使っています。
+
 ```python
 !pip install langchain
 !pip install openai
@@ -199,6 +203,8 @@ Answer: 70.74
 
 ## 長文の要約
 
+モデルのトークン数制限に収まらない文章の要約の実装例です。
+
 ```python
 !pip install langchain
 !pip install openai
@@ -260,4 +266,46 @@ display(summary)
 from IPython.display import display, Markdown
 
 display(Markdown(summary))
+```
+
+## 論文に対する質問応答
+
+arXiv 上の論文に対する質問応答の実装例です。arXiv ID を指定して検索する、PDF の URL を指定する、ローカルの PDF を指定する場合の 3 パターンがあります。
+
+```python
+!pip install arxiv
+!pip install pymupdf
+!pip install pypdf
+!pip install chromadb
+```
+
+```python
+from langchain.document_loaders import ArxivLoader
+from langchain.document_loaders import PyPDFLoader
+
+# Google Colaboratory上からだとarXiv側に403ではじかれることがあります。
+# このため、ローカル環境で実行してください。
+# loader = ArxivLoader(query="2210.03629", load_max_docs=100)
+loader = PyPDFLoader("https://arxiv.org/pdf/2210.03629.pdf")
+
+# Google Colaboratory上で実行する場合は、PDFを事前にダウンロードし、Colaboratory上にアップロードして以下を実行してください。
+# loader = PyPDFLoader("2210.03629.pdf")
+```
+
+```python
+from langchain.indexes import VectorstoreIndexCreator
+
+index = VectorstoreIndexCreator().from_loaders([loader])
+```
+
+```python
+from IPython.display import display, Markdown
+
+answer = index.query("ReACTとはどのような手法ですか?")
+
+display(Markdown(answer))
+```
+
+```
+ReActは、多層の質問応答や事実検証などの知識密度の高い推論タスクを行うための、外部ソースとのインターフェースを可能にするアクションを使用した手法です。ReActは、単純なWikipedia APIと対話して、チェーンオブシング思考（CoT）よりも人間のようなタスク解決の軌跡を生成し、基準よりも改善された人間の解釈性と信頼性を実現します。
 ```
