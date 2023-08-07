@@ -1,5 +1,5 @@
 ---
-title: 'API Key不要！DuckDuckGoとLangChainで質問応答ボットを作る方法'
+title: 'API Key不要！OpenAI Function Callingにより検索エンジンであるDuckDuckGoとLangChainで、最新情報を参照する質問応答ボットを作る方法'
 date: '2023-08-05'
 tags:
     - 'LangChain'
@@ -9,7 +9,7 @@ tags:
 thumbnail: 'ai_ml/duckduckgo-langchain-langsmith/images/thumbnail.png'
 ---
 
-# API Key不要！DuckDuckGoとLangChainで質問応答ボットを作る方法
+# API Key不要！OpenAI Function Callingにより検索エンジンであるDuckDuckGoとLangChainで、最新情報を参照する質問応答ボットを作る方法
 
 LangChain の Agent の機能を利用することで、検索エンジンで最新の情報を検索しながら、対話型モデルによる質問応答の仕組みを作ることが簡単にできます。ただ、Google 検索の API を利用するためには、API Key の発行など、少し準備に手間がかかります(SerpAPI も同様)。そこで、DuckDuckGo を検索エンジンとして利用する方法を試してみました。DuckDuckGo であれば API 経由での呼び出しでも事前の登録や API Key の発行が不要です。
 
