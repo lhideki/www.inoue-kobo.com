@@ -1,5 +1,5 @@
 ---
-title: 'OpenAI API で質問応答する Discrod Bot をサーバーレスで実装する'
+title: 'OpenAI API で質問応答する Discord Bot をサーバーレスで実装する'
 date: '2023-08-22'
 tags:
     - 'AWS'
@@ -9,9 +9,9 @@ tags:
 thumbnail: 'discord/discord-bot-zundamon/images/thumbnail.png'
 ---
 
-# OpenAI API で質問応答する Discrod Bot をサーバーレスで実装する
+# OpenAI API で質問応答する Discord Bot をサーバーレスで実装する
 
-OpenAI API で質問応答する Discrod Bot を AWS AppRunner で実装してみました。具体的なコードは GitHub で公開しています。Bot への質問はスラッシュコマンドで行います。
+OpenAI API で質問応答する Discord Bot を AWS AppRunner で実装してみました。具体的なコードは GitHub で公開しています。Bot への質問はスラッシュコマンドで行います。
 
 -   [GitHub - lhideki/discord-bot-zundamon](https://github.com/lhideki/discord-bot-zundamon)
 
