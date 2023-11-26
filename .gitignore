@@ -6,3 +6,7 @@ __pycache__/
 
 www/public
 www/.hugo_build.lock
+
+.venv
+cdk.out
+__pycache__
