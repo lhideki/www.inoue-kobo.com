@@ -17,7 +17,7 @@ APIが提供されていないなどの理由で、Seleniumを使ってWebサー
 
 * [docker-selenium-lambda](https://github.com/umihico/docker-selenium-lambda)
 
-SeleniumをAWS Lambdaで動かすためのDockerコンテナが定義されており、SeleniumをHeadlessで動かすためのコードサンプルも付いています。基本的にそのまま利用できますが、実行例がServerless Frameworkでの実行になっているので、AWS CDKでの実行例を作ってみました。
+SeleniumをAWS Lambdaで動かすためのDockerコンテナが定義されており、SeleniumをHeadlessで動かすためのコードサンプルも付いています。基本的にそのまま利用できますが、実行例がServerless Frameworkになっているので、AWS CDKでの実行例を作ってみました。
 
 ## フォルダ構成
 
