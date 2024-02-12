@@ -233,7 +233,8 @@ if __name__ == '__main__':
         ['MachineLearning', 'www/content/ai_ml'],
         ['AWS', 'www/content/aws'],
         ['REST-API', 'www/content/restapi'],
-        ['Discord', 'www/content/discord']
+        ['Discord', 'www/content/discord'],
+        ['LLM', 'www/content/llm'],
     ]
     for my_dir in my_dirs:
         my_articles = MyArticles(my_dir[0], my_dir[1])
