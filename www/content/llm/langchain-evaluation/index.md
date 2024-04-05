@@ -4,6 +4,7 @@ date: '2024-01-17'
 tags:
     - 'OpenAI'
     - 'LangChain'
+    - 'LLM'
 thumbnail: 'llm/langchain-evaluation/images/thumbnail.png'
 ---
 

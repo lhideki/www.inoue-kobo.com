@@ -9,7 +9,7 @@ thumbnail: 'llm/parallel-processing-openai/images/thumbnail.webp'
 
 # PandasのDataFrameに対して、OpenAI APIを利用した処理を並列で呼び出す方法
 
-PandasのDataFrameに対して、OpenAI APIを利用した処理を並列で呼び出す方法を調べてみました。結論としては、`pandarallel`を使うのが最も簡単だろうという感じです。
+PandasのDataFrameに対して、OpenAI APIを利用した処理を並列で呼び出す方法を調べてみました。結論としては、[pandarallel](https://github.com/nalepae/pandarallel)を使うのが最も簡単だろうという感じです。
 
 ```python
 from pandarallel import pandarallel
@@ -143,3 +143,9 @@ display(summary_df)
 ## おまけ
 
 [async-openai](https://github.com/GrowthEngineAI/async-openai)というものがあるらしいですが(非公式ライブラリです)、今回は未検証です。
+
+## 参考文献
+
+* [pandarallel](https://github.com/nalepae/pandarallel)
+* [async-openai](https://github.com/GrowthEngineAI/async-openai)
+* [OpenAI API](https://platform.openai.com/docs/api-reference)
