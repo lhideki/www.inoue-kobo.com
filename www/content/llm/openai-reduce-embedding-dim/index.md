@@ -3,6 +3,7 @@ title: 'OpenAI API Embeddingsのdim指定の実装方法を確認した'
 date: '2024-02-12'
 tags:
     - 'OpenAI'
+    - 'LLM'
 thumbnail: 'llm/openai-reduce-embedding-dim/images/thumbnail.png'
 ---
 

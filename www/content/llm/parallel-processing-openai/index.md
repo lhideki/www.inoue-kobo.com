@@ -3,6 +3,7 @@ title: 'PandasのDataFrameに対して、OpenAI APIを利用した処理を並�
 date: '2024-04-05'
 tags:
     - 'OpenAI'
+    - 'LLM'
 thumbnail: 'llm/parallel-processing-openai/images/thumbnail.webp'
 ---
 
