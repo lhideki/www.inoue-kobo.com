@@ -22,6 +22,12 @@
 		{{- end }}
 	</article>
 </main>
+{{ if .Store.Get "hasMermaid" }}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+{{ end }}
 {{ partial "authorbox.html" . }}
 {{ partial "pager.html" . }}
 {{ partial "comments.html" . }}

@@ -39,6 +39,40 @@ table thead th {
     color: #ffffff;
 }
 
+.center * {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p.md__image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1024px;
+    object-fit: scale-down;
+}
+
+figure {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1024px;
+    object-fit: scale-down;
+}
+
+div.content aside {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    /* border: #466dc0 1px solid; */
+    background-color: #466dc02e;
+}
+
+pre.mermaid {
+    text-align: center;
+}
+
 @media (max-width: 1100px) {
     div.logo__imagebox { display: none; }
- }
+}
