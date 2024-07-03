@@ -99,13 +99,13 @@ MLOpsでは、データ処理からモデルの展開まで、幅広いツール
 
 MLOpsは複雑なプロセスを伴うため、段階的に導入していくことが想定されます。以下はMicrosoftによるMLOpsの成熟度レベルの定義です。PoC段階ではLevel 0の場合が多いのですが、システムとして運用する段階では、最低限Level 2に到達していることが必要です。
 
-| Level | 説明 | ハイライト | テクノロジ |
+| Level | タイトル | ハイライト | テクノロジ |
 | --- | --- | --- | --- |
-| 0 | https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-0-no-mlops | • 機械学習モデルのライフサイクル全体を管理することは困難 • チームは別々で、リリースは困難 • ほとんどのシステムは "ブラック ボックス" として存在し、デプロイ時およびデプロイ後のフィードバックはほとんどなし | • 手動によるビルドとデプロイ • モデルおよびアプリケーションの手動によるテスト • モデルのパフォーマンスの一元的追跡なし • モデル トレーニングは手動 |
-| 1 | https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-1-devops-no-mlops | • "MLOps なし" よりもリリースの苦労は少ないが、新しいモデルごとにデータ チームに依存 • 運用段階でのモデルのパフォーマンスに関するフィードバックは依然として限られる • 結果の追跡および再現が困難 | • 自動ビルド • アプリケーション コードの自動テスト |
-| 2 | https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-2-automated-training | • トレーニング環境は完全に管理され、追跡可能 • モデルの再現が容易 • リリースは手動であるが、摩擦は少ない | • 自動化されたモデルのトレーニング • モデル トレーニングのパフォーマンスを一元的に追跡 • モデル管理 |
-| 3 | https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-3-automated-model-deployment | • リリースは低摩擦で自動 • デプロイから元のデータまで完全に追跡可能 • 環境全体 (トレーニング > テスト > 運用) を管理 | • デプロイのためのモデルのパフォーマンスに関する A および B テストを統合 • すべてのコードのテストを自動化 • モデル トレーニングのパフォーマンスを一元的に追跡 |
-| 4 | https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-4-full-mlops-automated-retraining | • システムを完全自動化し、監視を容易化 • 運用システムは、改善方法に関する情報を提供。場合によっては、新しいモデルで自動的に改善 • ゼロ ダウンタイム システムに近づく | • モデル トレーニングとテストを自動化 • デプロイされたモデルからの詳細で一元化されたメトリック |
+| 0 | [MLOps なし](https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-0-no-mlops) | • 機械学習モデルのライフサイクル全体を管理することは困難<br />• チームは別々で、リリースは困難<br />• ほとんどのシステムは "ブラック ボックス" として存在し、デプロイ時およびデプロイ後のフィードバックはほとんどなし | • 手動によるビルドとデプロイ<br />• モデルおよびアプリケーションの手動によるテスト<br />• モデルのパフォーマンスの一元的追跡なし<br />• モデル トレーニングは手動 |
+| 1 | [DevOps あり、MLOps なし](https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-1-devops-no-mlops) | • "MLOps なし" よりもリリースの苦労は少ないが、新しいモデルごとにデータ チームに依存<br />• 運用段階でのモデルのパフォーマンスに関するフィードバックは依然として限られる<br />• 結果の追跡および再現が困難 | • 自動ビルド<br />• アプリケーションコードの自動テスト |
+| 2 | [トレーニングの自動化](https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-2-automated-training) | • トレーニング環境は完全に管理され、追跡可能<br />• モデルの再現が容易<br />• リリースは手動であるが、摩擦は少ない | • 自動化されたモデルのトレーニング<br />• モデルトレーニングのパフォーマンスを一元的に追跡<br />• モデル管理 |
+| 3 | [モデル デプロイの自動化](https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-3-automated-model-deployment) | • リリースは低摩擦で自動<br />• デプロイから元のデータまで完全に追跡可能<br />• 環境全体 (トレーニング > テスト > 運用) を管理 | • デプロイのためのモデルのパフォーマンスに関する A および B テストを統合<br />• すべてのコードのテストを自動化<br />• モデルトレーニングのパフォーマンスを一元的に追跡 |
+| 4 | [MLOps の再トレーニングの完全自動化](https://learn.microsoft.com/ja-jp/azure/architecture/ai-ml/guide/mlops-maturity-model#level-4-full-mlops-automated-retraining) | • システムを完全自動化し、監視を容易化<br />• 運用システムは、改善方法に関する情報を提供。場合によっては、新しいモデルで自動的に改善<br />• ゼロ ダウンタイム システムに近づく | • モデル トレーニングとテストを自動化<br />• デプロイされたモデルからの詳細で一元化されたメトリック |
 
 ## まとめ
 
