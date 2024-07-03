@@ -73,6 +73,10 @@ pre.mermaid {
     text-align: center;
 }
 
+figure.list-thumbnail {
+    width: 260px;
+}
+
 @media (max-width: 1100px) {
     div.logo__imagebox { display: none; }
 }
