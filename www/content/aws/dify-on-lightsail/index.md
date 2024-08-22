@@ -1,6 +1,6 @@
 ---
 title: 'DifyをAmazon Lightsailで動かす'
-date: '2024-05-09'
+date: '2024-08-22'
 tags:
     - 'Dify'
     - 'Lightsail'
@@ -11,6 +11,10 @@ thumbnail: 'aws/dify-on-lightsail/images/dify.png'
 # DifyをAmazon Lightsailで動かす
 
 [Dify](https://dify.ai/jp)をLightsailで動かす方法です。[絶対に失敗しないDifyデプロイの手順、AWS Lightsail編](https://note.com/sangmin/n/nbb4db69784e8)で紹介されているままですが、起動スクリプトを貼り付けるだけでDifyまで起動するようにしているため、必要な操作はLightsailの初期設定のみです。
+
+<aside>
+⚠️ 本手順を実行すると、インターネット上に公開された状態でDifyサービスが動作します。別途、<a href="https://docs.aws.amazon.com/ja_jp/lightsail/latest/userguide/understanding-firewall-and-port-mappings-in-amazon-lightsail.html">Lightsail のファイアウォールでインスタンストラフィックを制御する</a>などを参考に、アクセス元を制限するなどのセキュリティは適切に設定してください。また、本手順のみでは平文での通信となるため、あくまで動作確認用としてご利用ください。
+</aside>
 
 ## Lightsailインスタンスを作成する
 
