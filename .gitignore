@@ -10,3 +10,5 @@ www/.hugo_build.lock
 .venv
 cdk.out
 __pycache__
+
+tmp

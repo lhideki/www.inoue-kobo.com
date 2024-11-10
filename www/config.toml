@@ -3,8 +3,7 @@ languageCode = "ja"
 title = "INOUE-KOBO.COM"
 theme = "mainroad"
 paginate = "10"
-summaryLength = "10"
-googleAnalytics = "UA-24462002-1"
+summaryLength = "5"
 
 [menu]
 [[menu.main]]
@@ -13,6 +12,9 @@ googleAnalytics = "UA-24462002-1"
   pre = "<i class='fa fa-heart'></i>"
   url = '/'
   weight = -110
+
+[services.googleAnalytics]
+  ID = "G-S8ZWB6Y7EL"
 
 [Author] # Used in authorbox
   name = "Hideki INOUE"
@@ -62,7 +64,7 @@ googleAnalytics = "UA-24462002-1"
   home = "right"
   list = "left"
   single = false
-  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+  widgets = ["search", "recent", "categories", "taglist", "social"]
 
 [Params.widgets]
   tags_counter = true
