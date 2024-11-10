@@ -16,11 +16,6 @@ summaryLength = "5"
 [services.googleAnalytics]
   ID = "G-S8ZWB6Y7EL"
 
-[Author] # Used in authorbox
-  name = "Hideki INOUE"
-  bio = "フリーランスのシステムアーキテクト、機械学習エンジニアです。 "
-  #avatar = "static/images/favicon.ico"
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -46,6 +41,11 @@ summaryLength = "5"
   googleFontsLink = "https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap"
   customCSS = ["css/custom.css"]
   customJS = ["js/custom.js"]
+
+[Params.Author] # Used in authorbox
+  name = "Hideki INOUE"
+  bio = "フリーランスのシステムアーキテクト、機械学習エンジニアです。 "
+  #avatar = "static/images/favicon.ico"
 
 [Params.logo]
   image = "images/computer-2982270_1280.jpg"
