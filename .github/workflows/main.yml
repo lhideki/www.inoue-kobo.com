@@ -24,13 +24,13 @@ jobs:
                   aws-region: ap-northeast-1
 
             - name: Download Topic Files from S3
+              continue-on-error: true # s3 syncがexit code 2を返すため、エラーを無視します。
               env:
                   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                   HOMEPAGE_S3_BUCKET: ${{ secrets.HOMEPAGE_S3_BUCKET }}
               run: |
                   aws s3 sync s3://$HOMEPAGE_S3_BUCKET/topics ./www/content
-                  ls ./www/content
 
             - name: Setup Hugo
               uses: peaceiris/actions-hugo@v2
