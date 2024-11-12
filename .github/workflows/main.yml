@@ -5,7 +5,7 @@ on:
             - master
     workflow_dispatch:
     schedule:
-        - cron: '0 0 * * 3' # 毎週火曜日の0時(JST 9時)に実行します。
+        - cron: '0 0 * * 2' # 毎週火曜日の0時(JST 9時)に実行します。
 
 jobs:
     build:
