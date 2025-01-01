@@ -19,7 +19,7 @@ AWS Lambda で[Browser Use(browser-use)](https://github.com/browser-use/browser-
 
 ```python
 agent = Agent(
-    task="Yahoo Japanの今日のニュースを5つ箇条書きにしてください。",
+    task="www.inoue-kobo.com を開いて、最新の記事から3つを要約して、Markdownの表形式で表示してください。",
     llm=ChatOpenAI(model="gpt-4o"),
 )
 result = await agent.run()
