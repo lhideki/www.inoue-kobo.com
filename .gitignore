@@ -12,3 +12,5 @@ cdk.out
 __pycache__
 
 tmp
+
+www/serve
