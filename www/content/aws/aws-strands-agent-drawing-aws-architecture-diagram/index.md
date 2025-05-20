@@ -43,8 +43,8 @@ get_aws_resource_info_tools = MCPClient(
     lambda: stdio_client(
         StdioServerParameters(
             command="uvx",
-            # CloudFormation MCP Serverを指定します。
-            args=["awslabs.cfn-mcp-server@latest"],
+            # CloudFormation MCP Serverを指定します。`--readonly`オプションを指定することでMCP ServerがAWSに書き込みを行わないようにします。
+            args=["awslabs.cfn-mcp-server@latest", "--readonly"],
             # MCP ServerがAWSにアクセスできるように、ENVにAWS_PROFILEを指定します。
             env={"AWS_PROFILE": "your-aws-profile"},
         )
