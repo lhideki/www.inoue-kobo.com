@@ -34,6 +34,7 @@ class MyArticle(Article):
         self.filename = filename
         with open(filename) as f:
             lines = f.readlines()
+            self.tags = self._parse_meta_tags(lines)
             removed_meta_lines = self._remove_meta(lines)
             self.title = self._parse_title(removed_meta_lines)
             self.lines = removed_meta_lines
@@ -58,6 +59,35 @@ class MyArticle(Article):
 
         return new_lines
 
+    def _parse_meta_tags(self, lines):
+        tags = []
+        is_in_meta = False
+        in_tags = False
+
+        for i, line in enumerate(lines):
+            stripped = line.strip()
+            if i == 0 and stripped == '---':
+                is_in_meta = True
+                continue
+            if is_in_meta and stripped == '---':
+                break
+            if not is_in_meta:
+                continue
+
+            if stripped == 'tags:':
+                in_tags = True
+                continue
+            if in_tags:
+                m = re.match(r'^-\s*(.+)$', stripped)
+                if m:
+                    tag = m.group(1).strip("\"'")
+                    tags.append(tag)
+                else:
+                    if stripped and not stripped.startswith('-'):
+                        in_tags = False
+
+        return tags
+
     def _parse_title(self, lines):
         for line in lines:
             if re.match('\# (.+)', line):
@@ -69,6 +99,12 @@ class MyArticle(Article):
 
     def get_tag(self):
         return self.tag
+
+    def get_tags(self):
+        return self.tags
+
+    def get_qiita_tags(self):
+        return [{'name': tag, 'versions': []} for tag in self.tags]
 
     def to_posting_format(self):
         converted = []
@@ -153,10 +189,7 @@ class QiitaArticles(Articles):
             'title': my_article.get_title(),
             'body': my_article.to_posting_format(),
             'private': False,
-            'tags': [{
-                'name': my_article.get_tag(),
-                'versions': []
-            }]
+            'tags': my_article.get_qiita_tags()
         }
         res = requests.post(self.post_url, json=params, headers=self.headers)
         if res.status_code >= 300:
