@@ -1,6 +1,6 @@
 ---
 title: 'AWS Strands Agentsを使ってAWSのシステム構成図を作成する'
-date: '2025-05-20'
+date: '2025-05-23'
 tags:
     - 'LLM'
     - 'AI Agent'
@@ -46,14 +46,14 @@ get_aws_resource_info_tools = MCPClient(
             # CloudFormation MCP Serverを指定します。`--readonly`オプションを指定することでMCP ServerがAWSに書き込みを行わないようにします。
             args=["awslabs.cfn-mcp-server@latest", "--readonly"],
             # MCP ServerがAWSにアクセスできるように、ENVにAWS_PROFILEを指定します。
-            env={"AWS_PROFILE": "your-aws-profile"},
+            env={"AWS_PROFILE": "your-aws-profile", "AWS_REGION": "ap-northeast-1"},
         )
     )
 )
 
 
 bedrock_model = BedrockModel(
-    model_id="apac.anthropic.claude-3-7-sonnet-20250219-v1:0", temperature=0.0
+    model_id="apac.anthropic.claude-sonnet-4-20250514-v1:0", temperature=0.0
 )
 
 with get_aws_resource_info_tools:
