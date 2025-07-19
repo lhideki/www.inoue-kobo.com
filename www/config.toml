@@ -2,7 +2,7 @@ baseURL = "https://www.inoue-kobo.com/"
 languageCode = "ja"
 title = "INOUE-KOBO.COM"
 theme = "mainroad"
-paginate = "10"
+pagination.pagerSize = "10"
 summaryLength = "5"
 
 [menu]
