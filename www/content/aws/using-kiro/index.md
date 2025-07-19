@@ -318,9 +318,9 @@ Kiro が実行したコマンドは Terminal で実行されます。基本的�
 
 ## 参考資料
 
--   [Kiro が生成した要件定義(requirements.md)全文](requirements)
--   [Kiro が生成した設計(design.md)全文](design)
--   [Kiro が生成したタスク洗い出し(tasks.md)全文](tasks)
+-   [Kiro が生成した要件定義(requirements.md)全文](https://www.dropbox.com/scl/fi/w7kq5z4kug1bwf6das8ij/requirements.md?rlkey=8m2kb25mf1ogcvcjt1yuhf7fe&st=v0judkyp&dl=0)
+-   [Kiro が生成した設計(design.md)全文](https://www.dropbox.com/scl/fi/2xh1zwp5l2f0oihh3iodx/design.md?rlkey=08v2987f11clynzlomnyu1wxb&st=rpde5mrc&dl=0)
+-   [Kiro が生成したタスク洗い出し(tasks.md)全文](https://www.dropbox.com/scl/fi/b787b66wst8omvrful1cu/tasks.md?rlkey=f7z4oyka157v5mft5n2pb4ati&st=yo9o9s6w&dl=0)
 
 ## 参考文献
 
