@@ -316,6 +316,17 @@ Kiro が実行したコマンドは Terminal で実行されます。基本的�
 
 他にも Kiro が利用している LLM のコンテキスト長制限により、次の処理をする前にコンテキストの圧縮(要約)が必要になるケースがある様です。この場合もヒューマンに承認が求められます。
 
+### Hookは連鎖しません
+
+以下の様なHookを設定した場合、最初の一つ目しか動作しません。
+
+* requirements.mdを変更したらdesign.mdを見直してください。
+* design.mdの変更を認識したら、tasks.mdを見直してください。
+
+### Specは画像を認識しません
+
+画面デザインなどの画像のパスを requirements.md に記載しても、Kiroは画像を読み取れないと返答します。チャットウィンドウでは画像を指定できるので、このあたりはアップデートで改善される可能性が高そうです。
+
 ## 参考資料
 
 -   [Kiro が生成した要件定義(requirements.md)全文](https://www.dropbox.com/scl/fi/w7kq5z4kug1bwf6das8ij/requirements.md?rlkey=8m2kb25mf1ogcvcjt1yuhf7fe&st=v0judkyp&dl=0)
