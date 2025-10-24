@@ -4,7 +4,7 @@ date: '2025-10-24'
 tags:
     - 'Google'
     - 'AI/ML'
-thumbnail: 'ai_ml/google-ai-studio-annotation/thumbnail.jpg'
+thumbnail: 'ai_ml/google-ai-studio-annotation/images/thumbnail.jpg'
 ---
 
 # Google AI StudioでGUIへのアノテーションができるようになりました
