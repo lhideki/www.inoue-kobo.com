@@ -33,11 +33,10 @@ jobs:
                   aws s3 sync s3://$HOMEPAGE_S3_BUCKET/topics ./www/content
 
             - name: Setup Hugo
-              uses: peaceiris/actions-hugo@v2
+              uses: peaceiris/actions-hugo@v3
               with:
                   hugo-version: '0.138.0'
                   extended: true
-                  path: /tmp/hugo_cache
 
             - name: Build Hugo
               working-directory:
