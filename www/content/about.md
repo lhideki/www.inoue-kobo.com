@@ -1,6 +1,6 @@
 ---
 title: "ABOUT ME"
-date: "2025-10-29"
+date: "2026-01-09"
 menu: main
 toc: false
 authorbox: false
