@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_1" data-name="レイヤー_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 720 290">
+  <!-- Generator: Adobe Illustrator 30.3.0, SVG Export Plug-In . SVG Version: 2.1.3 Build 182)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #999;
+      }
+
+      .st0, .st1, .st2 {
+        font-size: 9px;
+      }
+
+      .st0, .st1, .st2, .st3, .st4, .st5, .st6, .st7, .st8 {
+        isolation: isolate;
+      }
+
+      .st0, .st1, .st2, .st3, .st4, .st9, .st7, .st8 {
+        font-family: KozGoPr6N-Regular-83pv-RKSJ-H, 'Kozuka Gothic Pr6N';
+      }
+
+      .st1 {
+        fill: #1a3a2a;
+      }
+
+      .st2, .st4 {
+        fill: #333;
+      }
+
+      .st10 {
+        fill: #c0e8d4;
+      }
+
+      .st11 {
+        fill: #d0dcf0;
+      }
+
+      .st12 {
+        fill: #ccc;
+      }
+
+      .st13 {
+        fill: #e8f5f0;
+        stroke: #2a7a50;
+      }
+
+      .st13, .st14 {
+        stroke-width: 2px;
+      }
+
+      .st14 {
+        fill: #e8eef8;
+        stroke: #466dc0;
+      }
+
+      .st15 {
+        fill: #466dc0;
+      }
+
+      .st16 {
+        fill: none;
+        stroke: #ccc;
+        stroke-dasharray: 6 4;
+      }
+
+      .st3, .st6 {
+        fill: #1a2a4a;
+      }
+
+      .st3, .st8 {
+        font-size: 9.5px;
+      }
+
+      .st4 {
+        font-size: 13px;
+      }
+
+      .st17 {
+        fill: #2a7a50;
+      }
+
+      .st5, .st6 {
+        font-size: 10px;
+      }
+
+      .st5, .st8 {
+        fill: #0a2a1a;
+      }
+
+      .st18 {
+        font-family: NotoSansAdlam-Regular, 'Noto Sans Adlam';
+      }
+
+      .st7 {
+        fill: #fff;
+        font-size: 12px;
+      }
+
+      .st19 {
+        fill: #f5f7fb;
+      }
+    </style>
+  </defs>
+  <rect class="st19" width="720" height="290" rx="10" ry="10"/>
+  <text class="st4" transform="translate(266.4 25)"><tspan x="0" y="0">実務での役割分担：人が骨格を担い、AIが補助する</tspan></text>
+  <rect class="st14" x="15" y="38" width="310" height="238" rx="8" ry="8"/>
+  <rect class="st15" x="15" y="38" width="310" height="38" rx="8" ry="8"/>
+  <rect class="st15" x="15" y="63" width="310" height="13"/>
+  <text class="st7" transform="translate(148.4 63)"><tspan x="0" y="0">人が担う部分</tspan></text>
+  <text class="st6" transform="translate(35 100)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">資料の目的と対象読者の明確化</tspan></text>
+  <text class="st6" transform="translate(35 120)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">情報源の特定と自分での通読</tspan></text>
+  <text class="st6" transform="translate(35 140)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">論点の優先順位と構造の決定</tspan></text>
+  <text class="st6" transform="translate(35 160)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">結論の導出と根拠の整理</tspan></text>
+  <text class="st6" transform="translate(35 180)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">最終確認と責任の保持</tspan></text>
+  <rect class="st11" x="25" y="198" width="290" height="68" rx="6" ry="6"/>
+  <text class="st3" transform="translate(61.2 217.58)"><tspan x="0" y="0">このプロセスが「説明責任」の基盤</tspan></text>
+  <text class="st2" transform="translate(61.2 233.58)"><tspan x="0" y="0">整理・推論を経ることで</tspan></text>
+  <text class="st2" transform="translate(61.2 248.58)"><tspan x="0" y="0">レビュー・質問への説明能力が形成される</tspan></text>
+  <line class="st16" x1="360" y1="55" x2="360" y2="265"/>
+  <text class="st0" transform="translate(342.67 172)"><tspan x="0" y="0">採否判断</tspan></text>
+  <text class="st0" transform="translate(339.09 184)"><tspan x="0" y="0">は人が行う</tspan></text>
+  <polygon class="st12" points="345 151 360 141 375 151 345 151"/>
+  <rect class="st13" x="395" y="38" width="310" height="238" rx="8" ry="8"/>
+  <rect class="st17" x="395" y="38" width="310" height="38" rx="8" ry="8"/>
+  <rect class="st17" x="395" y="63" width="310" height="13"/>
+  <text class="st7" transform="translate(517.6 63)"><tspan x="0" y="0">AIが補助する部分</tspan></text>
+  <text class="st5" transform="translate(415 100)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">各節の文章の肉付けと表現整備</tspan></text>
+  <text class="st5" transform="translate(415 120)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">専門用語の言い換え提案</tspan></text>
+  <text class="st5" transform="translate(415 140)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">構成の抜け漏れ確認</tspan></text>
+  <text class="st5" transform="translate(415 160)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">図表・ダイアグラムのアイデア出し</tspan></text>
+  <text class="st5" transform="translate(415 180)"><tspan class="st9" x="0" y="0">▶</tspan><tspan class="st18" x="10" y="0"> </tspan><tspan class="st9" x="12.5" y="0">表記揺れ・誤字脱字の発見</tspan></text>
+  <rect class="st10" x="405" y="198" width="290" height="68" rx="6" ry="6"/>
+  <text class="st8" transform="translate(447.04 216.5)"><tspan x="0" y="0">補助として有効な場面の特徴</tspan></text>
+  <text class="st1" transform="translate(447.04 232.5)"><tspan x="0" y="0">人が骨格を把握した上で</tspan></text>
+  <text class="st1" transform="translate(447.04 247.5)"><tspan x="0" y="0">部分的な作業をAIに委ねる形が基本</tspan></text>
+</svg>
