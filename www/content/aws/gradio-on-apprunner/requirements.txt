@@ -1,6 +1,6 @@
 transformers==4.24.0
 torch==1.11.0
-gradio==3.13.2
+gradio==4.19.2
 sentencepiece==0.1.97
 fugashi==1.2.0
 unidic-lite==1.0.8
