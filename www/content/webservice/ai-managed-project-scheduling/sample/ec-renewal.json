@@ -1,0 +1,542 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-08-29T06:37:16.388Z",
+  "tasks": [
+    {
+      "id": "ec-renewal",
+      "name": "ECサイトリニューアル",
+      "parentId": null,
+      "order": 0
+    },
+    {
+      "id": "requirements",
+      "name": "要件定義",
+      "parentId": "ec-renewal",
+      "order": 0,
+      "startDate": "2026-09-01",
+      "duration": 3,
+      "assigneeId": "pm",
+      "predecessors": [],
+      "progress": 100,
+      "notes": "対象範囲と受け入れ条件を確定する"
+    },
+    {
+      "id": "basic-design",
+      "name": "基本設計",
+      "parentId": "ec-renewal",
+      "order": 1,
+      "startDate": "2026-09-04",
+      "duration": 15,
+      "assigneeId": "pm",
+      "predecessors": [
+        {
+          "id": "requirements",
+          "type": "FS",
+          "lag": 0
+        }
+      ],
+      "progress": 20
+    },
+    {
+      "id": "product-ui",
+      "name": "商品一覧画面実装",
+      "parentId": "ec-renewal",
+      "order": 2,
+      "duration": 6,
+      "assigneeId": "frontend",
+      "predecessors": [
+        {
+          "id": "basic-design",
+          "type": "FS",
+          "lag": 0
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "cart-ui",
+      "name": "カート画面実装",
+      "parentId": "ec-renewal",
+      "order": 3,
+      "duration": 5,
+      "assigneeId": "frontend",
+      "predecessors": [
+        {
+          "id": "basic-design",
+          "type": "FS",
+          "lag": 0
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "product-api",
+      "name": "商品API実装",
+      "parentId": "ec-renewal",
+      "order": 4,
+      "duration": 7,
+      "assigneeId": "backend",
+      "predecessors": [
+        {
+          "id": "basic-design",
+          "type": "FS",
+          "lag": 0
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "order-api",
+      "name": "注文API実装",
+      "parentId": "ec-renewal",
+      "order": 5,
+      "duration": 5,
+      "assigneeId": "backend",
+      "predecessors": [
+        {
+          "id": "basic-design",
+          "type": "FS",
+          "lag": 0
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "integration-test",
+      "name": "結合テスト",
+      "parentId": "ec-renewal",
+      "order": 6,
+      "duration": 5,
+      "assigneeId": "qa",
+      "predecessors": [
+        {
+          "id": "product-ui",
+          "type": "FS",
+          "lag": 0
+        },
+        {
+          "id": "cart-ui",
+          "type": "FS",
+          "lag": 0
+        },
+        {
+          "id": "product-api",
+          "type": "FS",
+          "lag": 0
+        },
+        {
+          "id": "order-api",
+          "type": "FS",
+          "lag": 0
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "migration-rehearsal",
+      "name": "移行リハーサル",
+      "parentId": "ec-renewal",
+      "order": 7,
+      "duration": 3,
+      "assigneeId": "pm",
+      "predecessors": [
+        {
+          "id": "integration-test",
+          "type": "FS",
+          "lag": 0
+        }
+      ],
+      "progress": 0
+    },
+    {
+      "id": "release",
+      "name": "リリース",
+      "parentId": "ec-renewal",
+      "order": 8,
+      "duration": 0,
+      "assigneeId": null,
+      "predecessors": [
+        {
+          "id": "migration-rehearsal",
+          "type": "FS",
+          "lag": 2
+        }
+      ],
+      "progress": 0,
+      "milestone": true,
+      "milestoneMode": "flexible"
+    }
+  ],
+  "resources": [
+    {
+      "id": "pm",
+      "name": "佐藤(PM)",
+      "weeklyCapacity": 5,
+      "monthlyCapacity": 20
+    },
+    {
+      "id": "frontend",
+      "name": "鈴木(フロントエンド)",
+      "weeklyCapacity": 5,
+      "monthlyCapacity": 20
+    },
+    {
+      "id": "backend",
+      "name": "高橋(バックエンド)",
+      "weeklyCapacity": 5,
+      "monthlyCapacity": 20
+    },
+    {
+      "id": "qa",
+      "name": "田中(QA)",
+      "weeklyCapacity": 5,
+      "monthlyCapacity": 20
+    }
+  ],
+  "sprints": [],
+  "versions": [
+    {
+      "id": "v_mtdz6y7r_mlf5p",
+      "name": "AI調整前 2026-08-29 06:37",
+      "createdAt": 1787985436388,
+      "tasks": [
+        {
+          "id": "ec-renewal",
+          "name": "ECサイトリニューアル",
+          "level": 0,
+          "wbsNo": "1",
+          "hasChildren": true,
+          "schedStart": "2026-09-01",
+          "schedFinish": "2026-10-19",
+          "critical": true,
+          "milestone": false,
+          "duration": null,
+          "assigneeId": null,
+          "progress": 18
+        },
+        {
+          "id": "requirements",
+          "name": "要件定義",
+          "level": 1,
+          "wbsNo": "1.1",
+          "hasChildren": false,
+          "schedStart": "2026-09-01",
+          "schedFinish": "2026-09-03",
+          "critical": true,
+          "milestone": false,
+          "duration": 3,
+          "assigneeId": "pm",
+          "progress": 100
+        },
+        {
+          "id": "basic-design",
+          "name": "基本設計",
+          "level": 1,
+          "wbsNo": "1.2",
+          "hasChildren": false,
+          "schedStart": "2026-09-04",
+          "schedFinish": "2026-09-10",
+          "critical": true,
+          "milestone": false,
+          "duration": 5,
+          "assigneeId": "pm",
+          "progress": 60
+        },
+        {
+          "id": "product-ui",
+          "name": "商品一覧画面実装",
+          "level": 1,
+          "wbsNo": "1.3",
+          "hasChildren": false,
+          "schedStart": "2026-09-11",
+          "schedFinish": "2026-09-18",
+          "critical": false,
+          "milestone": false,
+          "duration": 6,
+          "assigneeId": "frontend",
+          "progress": 0
+        },
+        {
+          "id": "cart-ui",
+          "name": "カート画面実装",
+          "level": 1,
+          "wbsNo": "1.4",
+          "hasChildren": false,
+          "schedStart": "2026-09-24",
+          "schedFinish": "2026-09-30",
+          "critical": false,
+          "milestone": false,
+          "duration": 5,
+          "assigneeId": "frontend",
+          "progress": 0
+        },
+        {
+          "id": "product-api",
+          "name": "商品API実装",
+          "level": 1,
+          "wbsNo": "1.5",
+          "hasChildren": false,
+          "schedStart": "2026-09-11",
+          "schedFinish": "2026-09-24",
+          "critical": true,
+          "milestone": false,
+          "duration": 7,
+          "assigneeId": "backend",
+          "progress": 0
+        },
+        {
+          "id": "order-api",
+          "name": "注文API実装",
+          "level": 1,
+          "wbsNo": "1.6",
+          "hasChildren": false,
+          "schedStart": "2026-09-25",
+          "schedFinish": "2026-10-01",
+          "critical": false,
+          "milestone": false,
+          "duration": 5,
+          "assigneeId": "backend",
+          "progress": 0
+        },
+        {
+          "id": "integration-test",
+          "name": "結合テスト",
+          "level": 1,
+          "wbsNo": "1.7",
+          "hasChildren": false,
+          "schedStart": "2026-10-02",
+          "schedFinish": "2026-10-08",
+          "critical": true,
+          "milestone": false,
+          "duration": 5,
+          "assigneeId": "qa",
+          "progress": 0
+        },
+        {
+          "id": "migration-rehearsal",
+          "name": "移行リハーサル",
+          "level": 1,
+          "wbsNo": "1.8",
+          "hasChildren": false,
+          "schedStart": "2026-10-09",
+          "schedFinish": "2026-10-14",
+          "critical": true,
+          "milestone": false,
+          "duration": 3,
+          "assigneeId": "pm",
+          "progress": 0
+        },
+        {
+          "id": "release",
+          "name": "リリース",
+          "level": 1,
+          "wbsNo": "1.9",
+          "hasChildren": false,
+          "schedStart": "2026-10-19",
+          "schedFinish": "2026-10-19",
+          "critical": true,
+          "milestone": true,
+          "duration": 0,
+          "assigneeId": null,
+          "progress": 0
+        }
+      ],
+      "hasWbsInfo": true,
+      "rawTasks": [
+        {
+          "id": "ec-renewal",
+          "name": "ECサイトリニューアル",
+          "parentId": null,
+          "order": 0
+        },
+        {
+          "id": "requirements",
+          "name": "要件定義",
+          "parentId": "ec-renewal",
+          "order": 0,
+          "startDate": "2026-09-01",
+          "duration": 3,
+          "assigneeId": "pm",
+          "predecessors": [],
+          "progress": 100,
+          "notes": "対象範囲と受け入れ条件を確定する"
+        },
+        {
+          "id": "basic-design",
+          "name": "基本設計",
+          "parentId": "ec-renewal",
+          "order": 1,
+          "startDate": "2026-09-04",
+          "duration": 5,
+          "assigneeId": "pm",
+          "predecessors": [
+            {
+              "id": "requirements",
+              "type": "FS",
+              "lag": 0
+            }
+          ],
+          "progress": 60
+        },
+        {
+          "id": "product-ui",
+          "name": "商品一覧画面実装",
+          "parentId": "ec-renewal",
+          "order": 2,
+          "duration": 6,
+          "assigneeId": "frontend",
+          "predecessors": [
+            {
+              "id": "basic-design",
+              "type": "FS",
+              "lag": 0
+            }
+          ],
+          "progress": 0
+        },
+        {
+          "id": "cart-ui",
+          "name": "カート画面実装",
+          "parentId": "ec-renewal",
+          "order": 3,
+          "duration": 5,
+          "assigneeId": "frontend",
+          "predecessors": [
+            {
+              "id": "basic-design",
+              "type": "FS",
+              "lag": 0
+            }
+          ],
+          "progress": 0
+        },
+        {
+          "id": "product-api",
+          "name": "商品API実装",
+          "parentId": "ec-renewal",
+          "order": 4,
+          "duration": 7,
+          "assigneeId": "backend",
+          "predecessors": [
+            {
+              "id": "basic-design",
+              "type": "FS",
+              "lag": 0
+            }
+          ],
+          "progress": 0
+        },
+        {
+          "id": "order-api",
+          "name": "注文API実装",
+          "parentId": "ec-renewal",
+          "order": 5,
+          "duration": 5,
+          "assigneeId": "backend",
+          "predecessors": [
+            {
+              "id": "basic-design",
+              "type": "FS",
+              "lag": 0
+            }
+          ],
+          "progress": 0
+        },
+        {
+          "id": "integration-test",
+          "name": "結合テスト",
+          "parentId": "ec-renewal",
+          "order": 6,
+          "duration": 5,
+          "assigneeId": "qa",
+          "predecessors": [
+            {
+              "id": "product-ui",
+              "type": "FS",
+              "lag": 0
+            },
+            {
+              "id": "cart-ui",
+              "type": "FS",
+              "lag": 0
+            },
+            {
+              "id": "product-api",
+              "type": "FS",
+              "lag": 0
+            },
+            {
+              "id": "order-api",
+              "type": "FS",
+              "lag": 0
+            }
+          ],
+          "progress": 0
+        },
+        {
+          "id": "migration-rehearsal",
+          "name": "移行リハーサル",
+          "parentId": "ec-renewal",
+          "order": 7,
+          "duration": 3,
+          "assigneeId": "pm",
+          "predecessors": [
+            {
+              "id": "integration-test",
+              "type": "FS",
+              "lag": 0
+            }
+          ],
+          "progress": 0
+        },
+        {
+          "id": "release",
+          "name": "リリース",
+          "parentId": "ec-renewal",
+          "order": 8,
+          "duration": 0,
+          "assigneeId": null,
+          "predecessors": [
+            {
+              "id": "migration-rehearsal",
+              "type": "FS",
+              "lag": 2
+            }
+          ],
+          "progress": 0,
+          "milestone": true,
+          "milestoneMode": "flexible"
+        }
+      ],
+      "rawResources": [
+        {
+          "id": "pm",
+          "name": "佐藤(PM)",
+          "weeklyCapacity": 5,
+          "monthlyCapacity": 20
+        },
+        {
+          "id": "frontend",
+          "name": "鈴木(フロントエンド)",
+          "weeklyCapacity": 5,
+          "monthlyCapacity": 20
+        },
+        {
+          "id": "backend",
+          "name": "高橋(バックエンド)",
+          "weeklyCapacity": 5,
+          "monthlyCapacity": 20
+        },
+        {
+          "id": "qa",
+          "name": "田中(QA)",
+          "weeklyCapacity": 5,
+          "monthlyCapacity": 20
+        }
+      ],
+      "rawSprints": [],
+      "hasFullSnapshot": true
+    }
+  ],
+  "levelingOn": true
+}
