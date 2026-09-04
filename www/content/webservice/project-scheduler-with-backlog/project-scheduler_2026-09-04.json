@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-09-04T10:01:21.837Z",
+  "tasks": [
+    {
+      "id": "t_4_d9c55",
+      "name": "要件定義",
+      "parentId": null,
+      "order": 0
+    },
+    {
+      "id": "t_5_i29yf",
+      "name": "業務要件ヒアリング",
+      "parentId": "t_4_d9c55",
+      "order": 0,
+      "startDate": "2026-09-01",
+      "duration": 5,
+      "assigneeId": "res_1_l3936",
+      "sprintIds": [
+        "sprint_g_baeef"
+      ],
+      "predecessors": [],
+      "progress": 80
+    },
+    {
+      "id": "t_6_4cggt",
+      "name": "要件定義書作成",
+      "parentId": "t_4_d9c55",
+      "order": 1,
+      "startDate": "2026-09-01",
+      "duration": 3,
+      "assigneeId": "res_2_dx4nr",
+      "sprintIds": [
+        "sprint_g_baeef"
+      ],
+      "predecessors": [
+        {
+          "id": "t_5_i29yf",
+          "type": "FS",
+          "lag": 0
+        }
+      ],
+      "progress": 100
+    },
+    {
+      "id": "t_7_31qte",
+      "name": "要件レビュー",
+      "parentId": "t_4_d9c55",
+      "order": 2,
+      "startDate": "2026-09-14",
+      "duration": 2,
+      "assigneeId": "res_3_0vimw",
+      "sprintIds": [
+        "sprint_h_kt6ir"
+      ],
+      "predecessors": [
+        {
+          "id": "t_6_4cggt",
+          "type": "FS",
+          "lag": 1
+        }
+      ],
+      "progress": 20
+    },
+    {
+      "id": "t_8_ligy2",
+      "name": "設計",
+      "parentId": null,
+      "order": 1
+    },
+    {
+      "id": "t_9_fkv2b",
+      "name": "基本設計",
+      "parentId": "t_8_ligy2",
+      "order": 0,
+      "startDate": "2026-09-16",
+      "duration": 6,
+      "assigneeId": "res_2_dx4nr",
+      "sprintIds": [
+        "sprint_h_kt6ir"
+      ],
+      "predecessors": [
+        {
+          "id": "t_7_31qte",
+          "type": "FS",
+          "lag": 0
+        }
+      ]
+    },
+    {
+      "id": "t_a_nxd13",
+      "name": "詳細設計",
+      "parentId": "t_8_ligy2",
+      "order": 1,
+      "startDate": "2026-09-18",
+      "duration": 5,
+      "assigneeId": "res_3_0vimw",
+      "sprintIds": [
+        "sprint_h_kt6ir",
+        "sprint_i_gc0im"
+      ],
+      "predecessors": [
+        {
+          "id": "t_9_fkv2b",
+          "type": "SS",
+          "lag": 2
+        }
+      ]
+    },
+    {
+      "id": "t_b_n05pm",
+      "name": "設計完了",
+      "parentId": "t_8_ligy2",
+      "order": 2,
+      "startDate": "2026-09-30",
+      "duration": 0,
+      "milestone": true,
+      "milestoneMode": "flexible",
+      "sprintIds": [
+        "sprint_i_gc0im"
+      ],
+      "predecessors": [
+        {
+          "id": "t_9_fkv2b",
+          "type": "FS",
+          "lag": 0
+        },
+        {
+          "id": "t_a_nxd13",
+          "type": "FS",
+          "lag": 0
+        }
+      ]
+    },
+    {
+      "id": "t_c_6w0tb",
+      "name": "開発・テスト",
+      "parentId": null,
+      "order": 2
+    },
+    {
+      "id": "t_d_0iszr",
+      "name": "実装",
+      "parentId": "t_c_6w0tb",
+      "order": 0,
+      "startDate": "2026-10-01",
+      "duration": 10,
+      "assigneeId": "res_1_l3936",
+      "sprintIds": [
+        "sprint_i_gc0im"
+      ],
+      "predecessors": [
+        {
+          "id": "t_b_n05pm",
+          "type": "FS",
+          "lag": 0
+        }
+      ]
+    },
+    {
+      "id": "t_e_v2r0f",
+      "name": "結合テスト",
+      "parentId": "t_c_6w0tb",
+      "order": 1,
+      "startDate": "2026-10-14",
+      "duration": 4,
+      "assigneeId": "res_3_0vimw",
+      "sprintIds": [
+        "sprint_i_gc0im"
+      ],
+      "predecessors": [
+        {
+          "id": "t_d_0iszr",
+          "type": "FS",
+          "lag": -2
+        }
+      ]
+    },
+    {
+      "id": "t_f_abaru",
+      "name": "リリース",
+      "parentId": "t_c_6w0tb",
+      "order": 2,
+      "startDate": "2026-10-22",
+      "duration": 0,
+      "milestone": true,
+      "milestoneMode": "fixed",
+      "fixedDate": "2026-10-22",
+      "predecessors": [
+        {
+          "id": "t_e_v2r0f",
+          "type": "FS",
+          "lag": 0
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "res_1_l3936",
+      "name": "佐藤",
+      "weeklyCapacity": 5,
+      "monthlyCapacity": 20
+    },
+    {
+      "id": "res_2_dx4nr",
+      "name": "鈴木",
+      "weeklyCapacity": 5,
+      "monthlyCapacity": 20
+    },
+    {
+      "id": "res_3_0vimw",
+      "name": "高橋",
+      "weeklyCapacity": 4,
+      "monthlyCapacity": 16
+    }
+  ],
+  "sprints": [
+    {
+      "id": "sprint_g_baeef",
+      "name": "Sprint 1",
+      "theme": "要件定義とレビュー",
+      "startDate": "2026-09-01",
+      "endDate": "2026-09-10",
+      "order": 0
+    },
+    {
+      "id": "sprint_h_kt6ir",
+      "name": "Sprint 2",
+      "theme": "基本設計・詳細設計",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-28",
+      "order": 1
+    },
+    {
+      "id": "sprint_i_gc0im",
+      "name": "Sprint 3",
+      "theme": "設計完了・実装開始",
+      "startDate": "2026-09-30",
+      "endDate": "2026-10-19",
+      "order": 2
+    }
+  ],
+  "versions": [],
+  "levelingOn": true,
+  "calendarExceptions": []
+}
