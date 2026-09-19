@@ -1,0 +1,5845 @@
+{
+  "started_at_utc": "2026-09-19T03:45:10.817025+00:00",
+  "environment": {
+    "python": "3.13.14",
+    "os": "Darwin",
+    "os_release": "25.6.0",
+    "machine": "arm64",
+    "typesafe_sdk": "0.6.0",
+    "python_dotenv": "1.2.3"
+  },
+  "model_requested": "jev-1.13.0",
+  "rounds": 20,
+  "random_seed": 20260919,
+  "state_characters": 343,
+  "timing": "perf_counter around synchronous system_one; includes network and SDK; reused client; retries disabled",
+  "p95_method": "nearest-rank",
+  "requests": [
+    {
+      "phase": "cold",
+      "condition": "batch_3",
+      "round": -1,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 707.3326249956153,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.43,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.57,
+            "2": 0.43
+          },
+          "confidence": 0.36,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "warmup",
+      "condition": "sequential_3",
+      "round": -1,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 224.22745800577104,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "warmup",
+      "condition": "sequential_3",
+      "round": -1,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 182.80000000959262,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "warmup",
+      "condition": "sequential_3",
+      "round": -1,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 244.93275000713766,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.27,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.73,
+            "2": 0.27
+          },
+          "confidence": 0.59,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "warmup",
+      "condition": "batch_3",
+      "round": -1,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 226.47158399922773,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.3,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.7,
+            "2": 0.3
+          },
+          "confidence": 0.54,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "warmup",
+      "condition": "batch_6",
+      "round": -1,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 225.17729201354086,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.98
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.36,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.64,
+            "2": 0.36
+          },
+          "confidence": 0.46,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "狡猾": 0.0,
+            "臆病": 0.0,
+            "勇敢": 1.0,
+            "怠惰": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.97,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.03,
+            "2": 0.97
+          },
+          "confidence": 0.95,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 0,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 214.49679200304672,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.33,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.67,
+            "2": 0.33
+          },
+          "confidence": 0.5,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 0,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 241.0528750042431,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 0,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 250.15095894923434,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 0,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 191.15454197162762,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.3,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.7,
+            "2": 0.3
+          },
+          "confidence": 0.54,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 0,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 242.47612501494586,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.31,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.69,
+            "2": 0.31
+          },
+          "confidence": 0.53,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "狡猾": 0.0,
+            "勇敢": 1.0,
+            "怠惰": 0.0,
+            "臆病": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 1,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 262.4202080187388,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.38,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.62,
+            "2": 0.38
+          },
+          "confidence": 0.43,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "臆病": 0.0,
+            "勇敢": 1.0,
+            "狡猾": 0.0,
+            "怠惰": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 1,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 244.8369160410948,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 1,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 243.25691699050367,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 1,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 218.63504103384912,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.3,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.7,
+            "2": 0.3
+          },
+          "confidence": 0.55,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 1,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 203.83545802906156,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.36,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.64,
+            "2": 0.36
+          },
+          "confidence": 0.46,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 2,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 190.15666702762246,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.98
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 2,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 226.21383296791464,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 2,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 246.29716703202575,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.36,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.64,
+            "2": 0.36
+          },
+          "confidence": 0.46,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 2,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 210.2897500153631,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.33,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.67,
+            "2": 0.33
+          },
+          "confidence": 0.5,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 2,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 248.25037503615022,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.33,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.67,
+            "2": 0.33
+          },
+          "confidence": 0.51,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "狡猾": 0.0,
+            "臆病": 0.0,
+            "怠惰": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.95,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 3,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 288.46937499474734,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 3,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 215.6214999849908,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 3,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 203.8533329614438,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.35,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.65,
+            "2": 0.35
+          },
+          "confidence": 0.47,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 3,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 244.63695898884907,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.29,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.71,
+            "2": 0.29
+          },
+          "confidence": 0.56,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "怠惰": 0.0,
+            "勇敢": 1.0,
+            "臆病": 0.0,
+            "狡猾": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 3,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 221.34133300278336,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.37,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.63,
+            "2": 0.37
+          },
+          "confidence": 0.44,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 4,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 191.6811250266619,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.29,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.71,
+            "2": 0.29
+          },
+          "confidence": 0.56,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 4,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 234.86670898273587,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "恋愛小説": 0.0,
+            "伝記": 0.0,
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.38,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.62,
+            "2": 0.38
+          },
+          "confidence": 0.42,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "臆病": 0.0,
+            "狡猾": 0.0,
+            "怠惰": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 4,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 180.18370895879343,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 4,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 297.1168749500066,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 4,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 202.5946670328267,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.31,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.69,
+            "2": 0.31
+          },
+          "confidence": 0.53,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 5,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 219.42612499697134,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.41,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.59,
+            "2": 0.41
+          },
+          "confidence": 0.38,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "狡猾": 0.0,
+            "勇敢": 1.0,
+            "怠惰": 0.0,
+            "臆病": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.97,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.03,
+            "2": 0.97
+          },
+          "confidence": 0.95,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 5,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 208.9724579709582,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 5,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 220.49529099604115,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 5,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 207.05224998528138,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.33,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.67,
+            "2": 0.33
+          },
+          "confidence": 0.5,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 5,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 231.63541697431356,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.38,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.62,
+            "2": 0.38
+          },
+          "confidence": 0.43,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 6,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 232.94254200300202,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.31,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.69,
+            "2": 0.31
+          },
+          "confidence": 0.53,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 6,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 187.71408300381154,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 6,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 229.34737498871982,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 6,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 216.55762498266995,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.31,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.69,
+            "2": 0.31
+          },
+          "confidence": 0.53,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 6,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 202.57854199735448,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.33,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.67,
+            "2": 0.33
+          },
+          "confidence": 0.51,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "狡猾": 0.0,
+            "怠惰": 0.0,
+            "臆病": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 7,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 213.09333300450817,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.36,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.64,
+            "2": 0.36
+          },
+          "confidence": 0.46,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "怠惰": 0.0,
+            "狡猾": 0.0,
+            "臆病": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.97,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.03,
+            "2": 0.97
+          },
+          "confidence": 0.95,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 7,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 250.6168750114739,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 7,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 220.85283300839365,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 7,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 221.71016701031476,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.39,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.61,
+            "2": 0.39
+          },
+          "confidence": 0.41,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 7,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 180.26229197857901,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.32,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.68,
+            "2": 0.32
+          },
+          "confidence": 0.53,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 8,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 229.69691699836403,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.3,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.7,
+            "2": 0.3
+          },
+          "confidence": 0.54,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "臆病": 0.0,
+            "勇敢": 1.0,
+            "怠惰": 0.0,
+            "狡猾": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 8,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 250.23991602938622,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 8,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 214.49333301279694,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 8,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 208.54683296056464,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.39,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.61,
+            "2": 0.39
+          },
+          "confidence": 0.41,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 8,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 193.67395801236853,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.32,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.68,
+            "2": 0.32
+          },
+          "confidence": 0.52,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 9,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 187.91987502481788,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.31,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.69,
+            "2": 0.31
+          },
+          "confidence": 0.54,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "怠惰": 0.0,
+            "狡猾": 0.0,
+            "勇敢": 1.0,
+            "臆病": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 9,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 253.17679200088605,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.37,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.63,
+            "2": 0.37
+          },
+          "confidence": 0.44,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 9,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 201.62933395477012,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 9,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 227.42820798885077,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "恋愛小説": 0.0,
+            "伝記": 0.0,
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 9,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 222.6857909699902,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.36,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.64,
+            "2": 0.36
+          },
+          "confidence": 0.46,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 10,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 186.54704198706895,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.39,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.61,
+            "2": 0.39
+          },
+          "confidence": 0.42,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 10,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 280.94337502261624,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.98
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 10,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 225.71237501688302,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 10,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 260.4673749883659,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.41,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.59,
+            "2": 0.41
+          },
+          "confidence": 0.38,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 10,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 269.8692079866305,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.98
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.35,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.65,
+            "2": 0.35
+          },
+          "confidence": 0.48,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "臆病": 0.0,
+            "勇敢": 1.0,
+            "狡猾": 0.0,
+            "怠惰": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 11,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 228.38820901233703,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.28,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.72,
+            "2": 0.28
+          },
+          "confidence": 0.58,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 11,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 199.56712500425056,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 11,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 236.11875000642613,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 11,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 207.2577920043841,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.34,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.66,
+            "2": 0.34
+          },
+          "confidence": 0.49,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 11,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 202.05495797563344,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.27,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.73,
+            "2": 0.27
+          },
+          "confidence": 0.6,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "勇敢": 1.0,
+            "怠惰": 0.0,
+            "狡猾": 0.0,
+            "臆病": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 12,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 236.59799998858944,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.39,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.61,
+            "2": 0.39
+          },
+          "confidence": 0.41,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "怠惰": 0.0,
+            "狡猾": 0.0,
+            "臆病": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 12,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 246.51241704123095,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 12,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 192.6824999973178,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 12,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 252.16254201950505,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.29,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.71,
+            "2": 0.29
+          },
+          "confidence": 0.56,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 12,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 208.72716599842533,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.31,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.69,
+            "2": 0.31
+          },
+          "confidence": 0.53,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 13,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 347.87216695258394,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.39,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.61,
+            "2": 0.39
+          },
+          "confidence": 0.41,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 13,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 251.7680409946479,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.98
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 13,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 194.14929201593623,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 13,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 209.03145900228992,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.31,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.69,
+            "2": 0.31
+          },
+          "confidence": 0.53,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 13,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 217.91779098566622,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.36,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.63,
+            "2": 0.37
+          },
+          "confidence": 0.45,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "勇敢": 1.0,
+            "狡猾": 0.0,
+            "怠惰": 0.0,
+            "臆病": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.97,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.03,
+            "2": 0.97
+          },
+          "confidence": 0.95,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 14,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 215.70766699733213,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 14,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 270.63883299706504,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 14,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 195.04579197382554,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.38,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.62,
+            "2": 0.38
+          },
+          "confidence": 0.43,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 14,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 259.5515410066582,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.35,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.65,
+            "2": 0.35
+          },
+          "confidence": 0.48,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "狡猾": 0.0,
+            "怠惰": 0.0,
+            "臆病": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.95,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.05,
+            "2": 0.95
+          },
+          "confidence": 0.93,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 14,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 182.60029196972027,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.33,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.67,
+            "2": 0.33
+          },
+          "confidence": 0.51,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 15,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 243.7478750362061,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.4,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.6,
+            "2": 0.4
+          },
+          "confidence": 0.41,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 15,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 266.74891699803993,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.98
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.36,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.64,
+            "2": 0.36
+          },
+          "confidence": 0.45,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "勇敢": 1.0,
+            "怠惰": 0.0,
+            "狡猾": 0.0,
+            "臆病": 0.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.97,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.03,
+            "2": 0.97
+          },
+          "confidence": 0.95,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 15,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 232.5797500088811,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 15,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 254.33395797153935,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 15,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 383.24470800580457,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.27,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.73,
+            "2": 0.27
+          },
+          "confidence": 0.59,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 16,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 185.91358297271654,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.31,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.69,
+            "2": 0.31
+          },
+          "confidence": 0.54,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 16,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 270.4810830182396,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.98
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.29,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.71,
+            "2": 0.29
+          },
+          "confidence": 0.57,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "怠惰": 0.0,
+            "狡猾": 0.0,
+            "臆病": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.03,
+            "2": 0.97
+          },
+          "confidence": 0.95,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 16,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 186.6055420250632,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 16,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 241.23545800102875,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 16,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 226.69145895633847,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.41,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.59,
+            "2": 0.41
+          },
+          "confidence": 0.38,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 17,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 184.44899999303743,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.33,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.67,
+            "2": 0.33
+          },
+          "confidence": 0.51,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 17,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 246.4893750147894,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.29,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.71,
+            "2": 0.29
+          },
+          "confidence": 0.57,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "狡猾": 0.0,
+            "臆病": 0.0,
+            "怠惰": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 17,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 213.4664590121247,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 17,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 267.45395798934624,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "恋愛小説": 0.0,
+            "伝記": 0.0,
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 17,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 230.25500000221655,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.37,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.63,
+            "2": 0.37
+          },
+          "confidence": 0.45,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 18,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 308.02445800509304,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.33,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.67,
+            "2": 0.33
+          },
+          "confidence": 0.51,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "怠惰": 0.0,
+            "狡猾": 0.0,
+            "臆病": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.94,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 18,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 214.97058402746916,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 18,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 242.5930420286022,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 18,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 222.2210830077529,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.32,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.68,
+            "2": 0.32
+          },
+          "confidence": 0.52,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 18,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 254.9104579957202,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.27,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.73,
+            "2": 0.27
+          },
+          "confidence": 0.6,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 19,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level",
+        "is_happy_ending",
+        "protagonist_trait",
+        "moral_lesson_strength"
+      ],
+      "elapsed_ms": 277.34966698335484,
+      "model": "jev-1.13.0",
+      "input_tokens": 1433,
+      "output_tokens": 198,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "恋愛小説": 0.0,
+            "伝記": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.28,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.72,
+            "2": 0.28
+          },
+          "confidence": 0.58,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        },
+        "is_happy_ending": {
+          "noul": 0.99
+        },
+        "protagonist_trait": {
+          "choice": "勇敢",
+          "probabilities": {
+            "怠惰": 0.0,
+            "狡猾": 0.0,
+            "臆病": 0.0,
+            "勇敢": 1.0
+          },
+          "confidence": 1.0
+        },
+        "moral_lesson_strength": {
+          "score": 1.96,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.04,
+            "2": 0.96
+          },
+          "confidence": 0.95,
+          "legend": {
+            "0": {
+              "what": "教訓性はほとんどない",
+              "examples": [
+                "単なる出来事の羅列で教訓的な結論がない"
+              ]
+            },
+            "1": {
+              "what": "ある程度の教訓が含まれている",
+              "examples": [
+                "努力や協力の大切さが部分的に読み取れる"
+              ]
+            },
+            "2": {
+              "what": "勧善懲悪など明確な教訓が中心テーマとなっている",
+              "examples": [
+                "悪が裁かれ、善が報われる結末が明示されている"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 19,
+      "question_ids": [
+        "succeeded_with_animal_help",
+        "genre",
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 287.23699995316565,
+      "model": "jev-1.13.0",
+      "input_tokens": 1118,
+      "output_tokens": 104,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        },
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0,
+            "伝記": 0.0,
+            "恋愛小説": 0.0
+          },
+          "confidence": 1.0
+        },
+        "oni_threat_level": {
+          "score": 1.37,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.63,
+            "2": 0.37
+          },
+          "confidence": 0.45,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 19,
+      "question_ids": [
+        "succeeded_with_animal_help"
+      ],
+      "elapsed_ms": 207.00087497243658,
+      "model": "jev-1.13.0",
+      "input_tokens": 713,
+      "output_tokens": 27,
+      "answers": {
+        "succeeded_with_animal_help": {
+          "noul": 0.99
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 19,
+      "question_ids": [
+        "genre"
+      ],
+      "elapsed_ms": 200.17600001301616,
+      "model": "jev-1.13.0",
+      "input_tokens": 782,
+      "output_tokens": 64,
+      "answers": {
+        "genre": {
+          "choice": "昔話・おとぎ話",
+          "probabilities": {
+            "伝記": 0.0,
+            "恋愛小説": 0.0,
+            "推理小説": 0.0,
+            "昔話・おとぎ話": 1.0
+          },
+          "confidence": 1.0
+        }
+      }
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 19,
+      "question_ids": [
+        "oni_threat_level"
+      ],
+      "elapsed_ms": 186.32670905208215,
+      "model": "jev-1.13.0",
+      "input_tokens": 839,
+      "output_tokens": 20,
+      "answers": {
+        "oni_threat_level": {
+          "score": 1.35,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.65,
+            "2": 0.35
+          },
+          "confidence": 0.48,
+          "legend": {
+            "0": {
+              "what": "村人に軽いいたずらをする程度",
+              "examples": [
+                "作物を少し荒らす",
+                "夜中に物音を立てて驚かせる"
+              ]
+            },
+            "1": {
+              "what": "村人の生活や財産に大きな被害を与えている",
+              "examples": [
+                "金銀財宝を略奪する",
+                "家屋を破壊する"
+              ]
+            },
+            "2": {
+              "what": "村人の命や安全を脅かすほど深刻な脅威となっている",
+              "examples": [
+                "村人に暴力を振るう",
+                "村を占拠し支配する"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "groups": [
+    {
+      "phase": "warmup",
+      "condition": "sequential_3",
+      "round": -1,
+      "elapsed_ms": 651.9602080225013
+    },
+    {
+      "phase": "warmup",
+      "condition": "batch_3",
+      "round": -1,
+      "elapsed_ms": 226.47158399922773
+    },
+    {
+      "phase": "warmup",
+      "condition": "batch_6",
+      "round": -1,
+      "elapsed_ms": 225.17729201354086
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 0,
+      "elapsed_ms": 214.49679200304672
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 0,
+      "elapsed_ms": 682.3583759251051
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 0,
+      "elapsed_ms": 242.47612501494586
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 1,
+      "elapsed_ms": 262.4202080187388
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 1,
+      "elapsed_ms": 706.7288740654476
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 1,
+      "elapsed_ms": 203.83545802906156
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 2,
+      "elapsed_ms": 662.6676670275629
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 2,
+      "elapsed_ms": 210.2897500153631
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 2,
+      "elapsed_ms": 248.25037503615022
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 3,
+      "elapsed_ms": 707.944207941182
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 3,
+      "elapsed_ms": 244.63695898884907
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 3,
+      "elapsed_ms": 221.34133300278336
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 4,
+      "elapsed_ms": 191.6811250266619
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 4,
+      "elapsed_ms": 234.86670898273587
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 4,
+      "elapsed_ms": 679.8952509416267
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 5,
+      "elapsed_ms": 219.42612499697134
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 5,
+      "elapsed_ms": 636.5199989522807
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 5,
+      "elapsed_ms": 231.63541697431356
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 6,
+      "elapsed_ms": 232.94254200300202
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 6,
+      "elapsed_ms": 633.6190829752013
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 6,
+      "elapsed_ms": 202.57854199735448
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 7,
+      "elapsed_ms": 213.09333300450817
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 7,
+      "elapsed_ms": 693.1798750301823
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 7,
+      "elapsed_ms": 180.26229197857901
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 8,
+      "elapsed_ms": 229.69691699836403
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 8,
+      "elapsed_ms": 673.2800820027478
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 8,
+      "elapsed_ms": 193.67395801236853
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 9,
+      "elapsed_ms": 187.91987502481788
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 9,
+      "elapsed_ms": 253.17679200088605
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 9,
+      "elapsed_ms": 651.7433329136111
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 10,
+      "elapsed_ms": 186.54704198706895
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 10,
+      "elapsed_ms": 767.1231250278652
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 10,
+      "elapsed_ms": 269.8692079866305
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 11,
+      "elapsed_ms": 228.38820901233703
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 11,
+      "elapsed_ms": 642.9436670150608
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 11,
+      "elapsed_ms": 202.05495797563344
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 12,
+      "elapsed_ms": 236.59799998858944
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 12,
+      "elapsed_ms": 691.3574590580538
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 12,
+      "elapsed_ms": 208.72716599842533
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 13,
+      "elapsed_ms": 347.87216695258394
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 13,
+      "elapsed_ms": 654.948792012874
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 13,
+      "elapsed_ms": 217.91779098566622
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 14,
+      "elapsed_ms": 681.3922919682227
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 14,
+      "elapsed_ms": 259.5515410066582
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 14,
+      "elapsed_ms": 182.60029196972027
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 15,
+      "elapsed_ms": 243.7478750362061
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 15,
+      "elapsed_ms": 266.74891699803993
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 15,
+      "elapsed_ms": 870.158415986225
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 16,
+      "elapsed_ms": 185.91358297271654
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 16,
+      "elapsed_ms": 270.4810830182396
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 16,
+      "elapsed_ms": 654.5324589824304
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 17,
+      "elapsed_ms": 184.44899999303743
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 17,
+      "elapsed_ms": 246.4893750147894
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 17,
+      "elapsed_ms": 711.1754170036875
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 18,
+      "elapsed_ms": 308.02445800509304
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 18,
+      "elapsed_ms": 679.7847090638243
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 18,
+      "elapsed_ms": 254.9104579957202
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_6",
+      "round": 19,
+      "elapsed_ms": 277.34966698335484
+    },
+    {
+      "phase": "measured",
+      "condition": "batch_3",
+      "round": 19,
+      "elapsed_ms": 287.23699995316565
+    },
+    {
+      "phase": "measured",
+      "condition": "sequential_3",
+      "round": 19,
+      "elapsed_ms": 593.5035840375349
+    }
+  ],
+  "summary": {
+    "sequential_3": {
+      "n": 20,
+      "min_ms": 593.5035840375349,
+      "median_ms": 679.8399800027255,
+      "mean_ms": 683.7428333965363,
+      "p95_ms": 767.1231250278652,
+      "max_ms": 870.158415986225
+    },
+    "batch_3": {
+      "n": 20,
+      "min_ms": 180.26229197857901,
+      "median_ms": 212.3932710092049,
+      "mean_ms": 222.18641254585236,
+      "p95_ms": 287.23699995316565,
+      "max_ms": 347.87216695258394
+    },
+    "batch_6": {
+      "n": 20,
+      "min_ms": 187.91987502481788,
+      "median_ms": 243.55654200189747,
+      "mean_ms": 242.02250830130652,
+      "p95_ms": 277.34966698335484,
+      "max_ms": 308.02445800509304
+    },
+    "succeeded_with_animal_help": {
+      "n": 20,
+      "min_ms": 180.18370895879343,
+      "median_ms": 215.33912551240064,
+      "mean_ms": 224.64970215514768,
+      "p95_ms": 280.94337502261624,
+      "max_ms": 288.46937499474734
+    },
+    "genre": {
+      "n": 20,
+      "min_ms": 192.6824999973178,
+      "median_ms": 228.3877914887853,
+      "mean_ms": 233.50356449373066,
+      "p95_ms": 270.63883299706504,
+      "max_ms": 297.1168749500066
+    },
+    "oni_threat_level": {
+      "n": 20,
+      "min_ms": 186.32670905208215,
+      "median_ms": 217.59633300825953,
+      "mean_ms": 225.58956674765795,
+      "p95_ms": 260.4673749883659,
+      "max_ms": 383.24470800580457
+    }
+  },
+  "finished_at_utc": "2026-09-19T03:45:35.691784+00:00"
+}
