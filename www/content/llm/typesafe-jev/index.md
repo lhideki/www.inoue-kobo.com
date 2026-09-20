@@ -43,7 +43,21 @@ TypeSafe AIでは、Jevのような判断に特化したモデルを「System On
 
 コンテキストサイズは、入力する本文(`state`)と最も長い質問の合計で32kトークン以内、本文と全質問の合計で64kトークン以内という2つの条件があります。長い文章に複数の質問を付ける場合は、両方の上限を確認する必要があります。単位は文字数ではなくトークン数です。
 
-レート制限は動的に調整されるため、利用時点の値を公式ドキュメントで確認してください。日本語で利用する場合は、実際に扱う業務データでの精度確認も必要です。
+## Jevの料金とLLMの比較
+
+Jevの料金(2026年9月時点)は、入力100万トークン(MTok)当たり0.042ドル、出力トークンは無料となっています。以下は従来のLLMの料金との比較です。
+
+| 提供元 | モデル | 入力単価(米ドル/MTok) | 出力単価(米ドル/MTok) | Jev比(入力単価) |
+| --- | --- | ---: | ---: | ---: |
+| TypeSafe AI | Jev | 0.042 | 無料 | 1倍 |
+| OpenAI | GPT-5.6 Luna | 0.20 | 1.20 | 約4.8倍 |
+| OpenAI | GPT-5.6 Terra | 2.00 | 12.00 | 約47.6倍 |
+| OpenAI | GPT-5.6 Sol | 4.00 | 20.00 | 約95.2倍 |
+| Anthropic | Claude Haiku 4.5 | 1.00 | 5.00 | 約23.8倍 |
+| Anthropic | Claude Sonnet 5 | 2.00 | 10.00 | 約47.6倍 |
+| Anthropic | Claude Fable 5.1 | 10.00 | 50.00 | 約238.1倍 |
+
+用途が異なるため単純に比較するものではありませんが、Jevの低コストと低レイテンシは、分類や選択、スコアリングといった特定のタスクにおいて大きな利点となります。
 
 ## 前提条件
 
@@ -355,3 +369,4 @@ jev-1.13.0
 
 * [TypeSafe AI公式ドキュメント](https://docs.typesafe.ai/introduction)
 * [TypeSafe Python SDK](https://docs.typesafe.ai/sdk/python)
+* [Introducing System One Models & Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
