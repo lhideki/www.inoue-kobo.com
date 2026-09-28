@@ -1,14 +1,14 @@
 ---
 title: 'システム開発の定例会議を改善する8つのプラクティス'
 date: '2026-09-28'
-thumbnail: 'project-management/project-meeting-practices/images/cover.png'
+thumbnail: 'project-management/project-meeting-practices/images/cover-v2.png'
 tags:
     - 'Project Management'
 ---
 
 # システム開発の定例会議を改善する8つのプラクティス
 
-{{< figure src="images/cover-v2.png" alt="定例会の8つのプラクティス：重要情報の即時共有、議題と参加者の確認、事前読了、不要な会議の中止、担当者と期限の明確化、決定理由の記録、保留事項の引き継ぎ、責任者と決定者の明確化" >}}
+![](images/cover-v2.png)
 
 システム開発における定例会議は、関係者の認識をそろえ、必要に応じて課題を議論し、意思決定する場にもなります。ただし、定例会議を唯一の意思決定の場にすると、次の開催日まで判断や対応が止まりかねません。顧客を含む多くの関係者が参加する会議では、目的と参加者に合った議題を扱い、その場で資料を読み始めたり、一部の担当者にしか関係しない議論を続けたりしないことが大切です。
 
