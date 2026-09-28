@@ -45,7 +45,7 @@ tags:
 
 ### 出典との対応
 
-PMI掲載の[Relationship Building](https://www.pmi.org/learning/library/relationship-building-key-technical-skill-5098)は、PMが顧客担当者へ状況を伝え、顧客側の経営層の前で不意打ちとなる情報提示を避けることを述べています。一方、[Project management from the middle](https://www.pmi.org/learning/library/project-management-middle-five-stages-6969)の「No Surprises」は、チームメンバーがPMへ、マイルストーンに遅れる可能性を対処方法の確定前でも知らせるよう勧めています。
+[Project management from the middle](https://www.pmi.org/learning/library/project-management-middle-five-stages-6969)の「No Surprises」は、チームメンバーがPMへ、マイルストーンに遅れる可能性を対処方法の確定前でも知らせるよう勧めています。
 
 ## 目的に合った議題と参加者を守る(Agenda Discipline)
 
