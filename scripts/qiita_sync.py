@@ -27,6 +27,7 @@ CATEGORY_MAPPINGS = [
     CategoryMapping('REST-API', 'www/content/restapi'),
     CategoryMapping('Discord', 'www/content/discord'),
     CategoryMapping('LLM', 'www/content/llm'),
+    CategoryMapping('プロジェクト管理', 'www/content/project-management'),
 ]
 
 
