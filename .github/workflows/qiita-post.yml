@@ -1,0 +1,36 @@
+name: Post articles to Qiita
+
+on:
+    push:
+        branches:
+            - master
+        paths:
+            - 'www/content/**' # 新規カテゴリを追加してもここは変更不要
+            - '!www/content/about.md'
+            - '!www/content/schedule.md'
+            - '!www/content/trainings.md'
+            - '!www/content/training/**'
+            - '!www/content/webservice/**'
+    workflow_dispatch:
+
+jobs:
+    post:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # qiita_sync.py reads each file's last-commit date from git history
+
+            - name: Setup Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: '3.12'
+
+            - name: Install dependencies
+              run: pip install -r scripts/requirements.txt
+
+            - name: Post updated articles to Qiita
+              env:
+                  QIITA_TOKEN: ${{ secrets.QIITA_TOKEN }}
+              run: python scripts/qiita_sync.py
