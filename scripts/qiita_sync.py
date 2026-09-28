@@ -9,26 +9,12 @@ import glob
 import logging
 import subprocess
 
+from category_mappings import CATEGORY_MAPPINGS
+
 logging.basicConfig(level=logging.INFO)
 MAX_PAGES = 100
 FQDN = 'https://www.inoue-kobo.com'
 DOCUMENT_ROOT = 'www/content'
-
-
-@dataclass
-class CategoryMapping:
-    tag: str
-    dir: str
-
-
-CATEGORY_MAPPINGS = [
-    CategoryMapping('MachineLearning', 'www/content/ai_ml'),
-    CategoryMapping('AWS', 'www/content/aws'),
-    CategoryMapping('REST-API', 'www/content/restapi'),
-    CategoryMapping('Discord', 'www/content/discord'),
-    CategoryMapping('LLM', 'www/content/llm'),
-    CategoryMapping('プロジェクト管理', 'www/content/project-management'),
-]
 
 
 class Article:
