@@ -40,6 +40,23 @@ def read_jsonl(path):
     return [json.loads(line) for line in Path(path).read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
+def executing_checkout():
+    """Find the nearest Git checkout containing this script, including worktrees."""
+    for directory in Path(__file__).resolve().parents:
+        if (directory / ".git").exists():
+            return directory
+    return None
+
+
+def require_external_private_paths(*paths):
+    """Prevent local website builds from publishing private evaluation files."""
+    checkout = executing_checkout()
+    if checkout is not None:
+        for path in paths:
+            if Path(path).resolve().is_relative_to(checkout):
+                raise ValueError("Private inputs and results must be outside the executing repository checkout")
+
+
 def unique_by_id(rows):
     result = {}
     for row in rows:
@@ -329,6 +346,8 @@ def run(args, rows, relations, api_key=None):
         raise ValueError(f"No API call: conservative reserve ${reserved:.4f} exceeds approved guard")
     if args.output.exists() or args.output.with_suffix(".manifest.json").exists():
         raise ValueError("Output already exists; use a new path to preserve previous evidence")
+    require_external_private_paths(args.dataset, args.choices, args.output,
+                                   args.output.with_suffix(".manifest.json"))
     if api_key is not None:
         key = api_key
     elif getattr(args, "prompt_key", False):
@@ -419,6 +438,7 @@ def run(args, rows, relations, api_key=None):
         manifest["wall_clock_seconds"] = time.perf_counter() - started
         manifest["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
         manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return manifest["completed"]
 
 
 def main():
@@ -439,8 +459,7 @@ def main():
     args = parser.parse_args()
     rows, relations = load_inputs(args.dataset, args.choices)
     if args.command == "run":
-        run(args, rows, relations)
-        return
+        return 0 if run(args, rows, relations) else 2
     if args.command == "plan":
         result = plan(rows, relations, args.dataset, args.choices)
     else:
@@ -463,11 +482,12 @@ def main():
         json.dump(result, target, ensure_ascii=False, indent=2)
         target.write("\n")
     print(json.dumps({"output": str(args.output), "mode": "offline"}))
+    return 0
 
 
 if __name__ == "__main__":
     try:
-        main()
+        sys.exit(main())
     except (ValueError, FileExistsError) as exc:
         print(str(exc), file=sys.stderr)
         sys.exit(2)

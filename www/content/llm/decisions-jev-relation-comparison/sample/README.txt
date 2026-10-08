@@ -48,6 +48,13 @@ before any live run. Some public biographies contain sensitive information.
 Keep inputs and results outside a repository. The frozen input filenames are:
   dataset.jsonl, relation_choices.json, jev-results-ja.jsonl, jev-results-en.jsonl
 
+The launcher requires explicit --data and --output paths. When run from a Git
+checkout, launcher preflight and the standalone live runner reject private
+input/result paths within that checkout, including symlinks resolving into it.
+Git ignore rules alone do not prevent a local website build from copying files.
+Copied scripts outside a checkout still work; offline scoring and figure/report
+generation are unchanged.
+
 Offline preflight:
   python3 run_experiment.py --data /path/to/frozen-data \
     --output /path/to/new-private-results

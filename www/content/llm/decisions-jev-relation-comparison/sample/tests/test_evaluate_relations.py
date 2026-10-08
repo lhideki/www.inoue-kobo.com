@@ -221,7 +221,8 @@ class EvaluationTests(unittest.TestCase):
     def test_masked_input_never_falls_back_to_echo(self):
         with tempfile.TemporaryDirectory() as tmp:
             args = argparse.Namespace(execute=True, reserve_budget_usd=1, price_multiplier=1,
-                limit=1, language="ja", output=Path(tmp) / "out.jsonl", timeout=1, prompt_key=True)
+                limit=1, language="ja", output=Path(tmp) / "out.jsonl", timeout=1, prompt_key=True,
+                dataset=Path(tmp) / "rows.jsonl", choices=Path(tmp) / "choices.json")
             def warn_instead_of_reading(*args):
                 evaluation.warnings.warn("Cannot disable echo", evaluation.getpass.GetPassWarning)
                 raise AssertionError("Would have echoed input")
@@ -261,7 +262,8 @@ class EvaluationTests(unittest.TestCase):
     def test_masked_key_requires_interactive_terminal(self):
         with tempfile.TemporaryDirectory() as tmp:
             args = argparse.Namespace(execute=True, reserve_budget_usd=1, price_multiplier=1,
-                limit=1, language="ja", output=Path(tmp) / "out.jsonl", timeout=1, prompt_key=True)
+                limit=1, language="ja", output=Path(tmp) / "out.jsonl", timeout=1, prompt_key=True,
+                dataset=Path(tmp) / "rows.jsonl", choices=Path(tmp) / "choices.json")
             with patch.object(evaluation.sys.stdin, "isatty", return_value=False), \
                  patch.object(evaluation.getpass, "getpass", side_effect=AssertionError("Prompted")), \
                  patch.object(evaluation.http.client, "HTTPSConnection", side_effect=AssertionError("Network")):
@@ -284,6 +286,118 @@ class EvaluationTests(unittest.TestCase):
              patch.object(evaluation.http.client, "HTTPSConnection", side_effect=AssertionError("Network")):
             with self.assertRaises(ValueError):
                 evaluation.run(args, self.rows, self.relations)
+
+    def mock_cli_run(self, *, status=200, include_usage=True, interrupt=False):
+        from unittest.mock import MagicMock
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data, choices, output = root / "rows.jsonl", root / "choices.json", root / "out.jsonl"
+            data.write_text("\n".join(json.dumps(r) for r in self.rows), encoding="utf-8")
+            choices.write_text(json.dumps({"relations": self.relations}), encoding="utf-8")
+            body = {"model": evaluation.MODEL, "answers": [{
+                "type": "choice", "name": "relation", "choice": "関係A", "confidence": .4,
+                "probabilities": [{"value": "関係A", "probability": .7},
+                                  {"value": "関係B", "probability": .3}]}]}
+            if include_usage:
+                body["usage"] = {"input_tokens": 12}
+            if status != 200:
+                body = {"error": {"code": "insufficient_quota"}}
+            response = MagicMock(status=status)
+            response.getheader.return_value = None
+            response.read.return_value = json.dumps(body).encode()
+            connection = MagicMock()
+            connection.getresponse.return_value = response
+            if interrupt:
+                connection.request.side_effect = KeyboardInterrupt
+            argv = [str(SCRIPT), "run", "--dataset", str(data), "--choices", str(choices),
+                    "--output", str(output), "--execute", "--reserve-budget-usd", "1"]
+            with patch.object(evaluation.sys, "argv", argv), \
+                 patch.object(evaluation.sys, "stdout", io.StringIO()), \
+                 patch.dict(evaluation.os.environ, {"OPENAI_API_KEY": "synthetic-key"}, clear=True), \
+                 patch.object(evaluation.http.client, "HTTPSConnection", return_value=connection):
+                exit_code = evaluation.main()
+            manifest = json.loads(output.with_suffix(".manifest.json").read_text())
+            records = evaluation.read_jsonl(output)
+            self.assertNotIn("synthetic-key", output.read_text() + json.dumps(manifest))
+            connection.close.assert_called_once()
+            return exit_code, manifest, records, connection.request.call_count
+
+    def test_cli_http_failure_returns_nonzero(self):
+        code, manifest, records, attempts = self.mock_cli_run(status=429)
+        self.assertEqual(code, 2)
+        self.assertFalse(manifest["completed"])
+        self.assertEqual(records[0]["status"], "http_error")
+        self.assertEqual(attempts, 1)
+
+    def test_cli_missing_usage_returns_nonzero(self):
+        code, manifest, records, attempts = self.mock_cli_run(include_usage=False)
+        self.assertEqual(code, 2)
+        self.assertFalse(manifest["completed"])
+        self.assertEqual(records[0]["status"], "choice")
+        self.assertEqual(attempts, 1)
+
+    def test_cli_interruption_returns_nonzero(self):
+        code, manifest, records, attempts = self.mock_cli_run(interrupt=True)
+        self.assertEqual(code, 2)
+        self.assertFalse(manifest["completed"])
+        self.assertEqual(records[0]["status"], "interrupted")
+        self.assertEqual(attempts, 1)
+
+    def test_cli_complete_run_returns_zero(self):
+        code, manifest, records, attempts = self.mock_cli_run()
+        self.assertEqual(code, 0)
+        self.assertTrue(manifest["completed"])
+        self.assertEqual(len(records), len(self.rows))
+        self.assertEqual(attempts, len(self.rows))
+
+    def test_checkout_discovery_supports_git_directories_and_worktrees(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            script = root / "sample" / "evaluate_relations.py"
+            with patch.object(evaluation, "__file__", str(script)):
+                # The host's temporary-directory ancestors may themselves be checkouts.
+                with patch.object(evaluation.Path, "exists", return_value=False):
+                    self.assertIsNone(evaluation.executing_checkout())
+                (root / ".git").mkdir()
+                self.assertEqual(evaluation.executing_checkout(), root)
+                (root / ".git").rmdir()
+                (root / ".git").write_text("gitdir: /synthetic/worktree")
+                self.assertEqual(evaluation.executing_checkout(), root)
+
+    def test_private_path_guard_resolves_symlinks_and_allows_copied_scripts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            checkout, outside = root / "repo", root / "outside"
+            checkout.mkdir()
+            outside.mkdir()
+            (outside / "link").symlink_to(checkout, target_is_directory=True)
+            with patch.object(evaluation, "executing_checkout", return_value=checkout):
+                evaluation.require_external_private_paths(outside / "data", outside / "results")
+                for path in (checkout, checkout / "data", outside / "link" / "results"):
+                    with self.subTest(path=path), self.assertRaises(ValueError):
+                        evaluation.require_external_private_paths(path)
+            with patch.object(evaluation, "executing_checkout", return_value=None):
+                evaluation.require_external_private_paths(checkout / "data")
+
+    def test_live_run_rejects_checkout_paths_before_key_network_or_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            checkout = root / "repo"
+            checkout.mkdir()
+            for name in ("dataset", "choices", "output"):
+                args = argparse.Namespace(execute=True, reserve_budget_usd=1, price_multiplier=1,
+                    limit=1, language="ja", output=root / "out.jsonl", timeout=1, prompt_key=True,
+                    dataset=root / "rows.jsonl", choices=root / "choices.json")
+                setattr(args, name, checkout / "private.jsonl")
+                with self.subTest(path=name), \
+                     patch.object(evaluation, "executing_checkout", return_value=checkout), \
+                     patch.object(evaluation.getpass, "getpass", side_effect=AssertionError("Key prompted")), \
+                     patch.object(evaluation.os.environ, "get", side_effect=AssertionError("Environment read")), \
+                     patch.object(evaluation.http.client, "HTTPSConnection", side_effect=AssertionError("Network")):
+                    with self.assertRaisesRegex(ValueError, "outside the executing repository"):
+                        evaluation.run(args, self.rows, self.relations)
+                self.assertFalse(args.output.exists())
+                self.assertFalse(args.output.with_suffix(".manifest.json").exists())
 
     def test_budget_denial_does_not_read_key_or_network(self):
         args = argparse.Namespace(execute=True, reserve_budget_usd=.0000001, price_multiplier=1,

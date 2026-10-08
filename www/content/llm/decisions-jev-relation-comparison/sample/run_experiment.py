@@ -29,6 +29,8 @@ def preflight(data_dir, output, budget, multiplier):
         raise ValueError("Budget must be positive and at most the approved USD 10")
     if not math.isfinite(multiplier) or multiplier < 1.1:
         raise ValueError("Keep at least the 10% pricing-premium allowance")
+    evaluation.require_external_private_paths(data_dir, output,
+        *(data_dir / name for name in EXPECTED_HASHES))
     if output.exists():
         raise ValueError("Experiment directory already exists. Inspect prior charges/results; do not automatically rerun")
     for name, digest in EXPECTED_HASHES.items():
@@ -121,10 +123,9 @@ def execute(args):
 
 
 def main():
-    root = Path(__file__).resolve().parent
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data", type=Path, default=root / "data")
-    parser.add_argument("--output", type=Path, default=root / "results")
+    parser.add_argument("--data", type=Path, required=True, help="Private frozen inputs outside this checkout")
+    parser.add_argument("--output", type=Path, required=True, help="New private results directory outside this checkout")
     parser.add_argument("--budget-usd", type=float, default=10)
     parser.add_argument("--price-multiplier", type=float, default=1.1)
     parser.add_argument("--execute", action="store_true")

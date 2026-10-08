@@ -1,6 +1,7 @@
 """Offline-only tests for the shared-budget launcher."""
 import argparse
 import importlib.util
+import io
 import json
 from pathlib import Path
 import sys
@@ -14,6 +15,49 @@ import run_experiment as experiment
 
 
 class ExperimentTests(unittest.TestCase):
+    def test_launcher_requires_explicit_input_and_output_paths(self):
+        for options in ([], ["--data", "outside-data"], ["--output", "outside-results"]):
+            with self.subTest(options=options), \
+                 patch.object(experiment.sys, "argv", ["run_experiment.py"] + options), \
+                 patch.object(experiment.sys, "stderr", io.StringIO()), \
+                 patch.object(experiment, "execute", side_effect=AssertionError("Execution reached")):
+                with self.assertRaises(SystemExit) as result:
+                    experiment.main()
+                self.assertEqual(result.exception.code, 2)
+
+    def test_explicit_paths_allow_offline_preflight(self):
+        with patch.object(experiment.sys, "argv", ["run_experiment.py", "--data", "outside-data",
+                                                   "--output", "outside-results"]), \
+             patch.object(experiment, "execute", return_value=0) as execute:
+            self.assertEqual(experiment.main(), 0)
+        args = execute.call_args.args[0]
+        self.assertEqual(args.data, Path("outside-data"))
+        self.assertEqual(args.output, Path("outside-results"))
+        self.assertFalse(args.execute)
+
+    def test_preflight_rejects_checkout_paths_before_reading_inputs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            checkout, outside = root / "repo", root / "outside"
+            checkout.mkdir()
+            outside.mkdir()
+            for data, output in ((checkout / "data", outside / "results"),
+                                 (outside / "data", checkout / "results")):
+                with self.subTest(data=data, output=output), \
+                     patch.object(experiment.evaluation, "executing_checkout", return_value=checkout), \
+                     patch.object(experiment.evaluation, "sha256", side_effect=AssertionError("Input read")):
+                    with self.assertRaisesRegex(ValueError, "outside the executing repository"):
+                        experiment.preflight(data, output, 10, 1.1)
+                self.assertFalse(output.exists())
+            # External directories must not disguise an input file inside the checkout.
+            data = outside / "data"
+            data.mkdir()
+            (data / "dataset.jsonl").symlink_to(checkout / "private.jsonl")
+            with patch.object(experiment.evaluation, "executing_checkout", return_value=checkout), \
+                 patch.object(experiment.evaluation, "sha256", side_effect=AssertionError("Input read")):
+                with self.assertRaisesRegex(ValueError, "outside the executing repository"):
+                    experiment.preflight(data, outside / "results", 10, 1.1)
+
     def test_combined_budget_is_checked(self):
         with tempfile.TemporaryDirectory() as tmp:
             with patch.object(experiment.evaluation, "sha256", side_effect=lambda p: experiment.EXPECTED_HASHES[p.name]), \
