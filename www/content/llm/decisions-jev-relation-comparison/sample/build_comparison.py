@@ -132,31 +132,51 @@ def figures(data, output):
     fig.suptitle("同一1,418件・36候補での関係選択", fontsize=17, y=.97)
     fig.savefig(output / "quality-comparison.png", dpi=180)
     plt.close(fig)
-    fig, ax = plt.subplots(figsize=(11, 4.8), layout="constrained")
-    labels, correct, wrong, refused = [], [], [], []
-    for lang, japanese in (("ja", "日本語"), ("en", "英語")):
-        for provider, name in (("jev_historical", "Jev"), ("decisions", "Decisions")):
-            score = data["languages"][lang][provider]
-            labels.append(f"{japanese} / {name}")
-            correct.append(score["correct"])
-            wrong.append(score["valid_choices"] - score["correct"])
-            refused.append(score["records"] - score["valid_choices"])
-    y = np.arange(len(labels))
-    ax.barh(y, correct, color="#267f85", label="正解")
-    ax.barh(y, wrong, left=correct, color="#c47d38", label="誤選択")
-    ax.barh(y, refused, left=np.array(correct) + np.array(wrong), color="#697078", label="拒否")
-    for i, (a, b, c) in enumerate(zip(correct, wrong, refused)):
-        ax.text(a / 2, i, str(a), ha="center", va="center", color="white", weight="bold")
-        if b > 0: ax.text(a + b / 2, i, str(b), ha="center", va="center", color="white")
-        ax.text(1440, i, f"拒否 {c}件", va="center", fontsize=11, color="#444444")
-    ax.set_yticks(y, labels)
+    # List prices are not measured per-record costs. Keep the unit in the title.
+    pricing = data.get("price_basis", data)
+    prices = [pricing["jev_current_usd_per_million_input_tokens"],
+              pricing["decisions_standard_usd_per_million_input_tokens"]]
+    fig, ax = plt.subplots(figsize=(10, 3.5))
+    fig.subplots_adjust(left=.17, right=.96, bottom=.28, top=.76)
+    bars = ax.barh([0, 1], prices, height=.48,
+                   color=[colors["jev_historical"], colors["decisions"]])
+    ax.bar_label(bars, labels=[f"{p:.3f}米ドル" for p in prices], padding=8, fontsize=13)
+    ax.set_yticks([0, 1], ["Jev", "Decisions"])
     ax.invert_yaxis()
-    ax.set_xlim(0, 1590)
-    ax.set_xticks([0, 400, 800, 1200, 1418])
-    ax.set_xlabel("件数（各1,418件）")
-    ax.set_title("正解・誤選択・拒否の内訳", fontsize=16)
-    ax.legend(loc="lower center", bbox_to_anchor=(.5, -.28), ncol=3, frameon=False)
-    fig.savefig(output / "answer-breakdown.png", dpi=180, bbox_inches="tight")
+    ax.set_xlim(0, .125)
+    ax.set_xticks([0, .02, .04, .06, .08, .10])
+    ax.set_xlabel("米ドル / 100万入力トークン")
+    ax.set_title("公表入力単価（2026年10月8日時点）", fontsize=16)
+    ax.set_axisbelow(True)
+    ax.grid(axis="x", alpha=.15)
+    fig.text(.5, .04, "同じ処理の費用を比べるには、各APIの使用トークン数も必要です。",
+             ha="center", fontsize=10, color="#555555")
+    fig.savefig(output / "input-price-comparison.png", dpi=180)
+    plt.close(fig)
+    # Use all-attempt quantiles, including Decisions refusals.
+    groups = [("ja", "p50_ms", "日本語 / p50"), ("ja", "p95_ms", "日本語 / p95"),
+              ("en", "p50_ms", "英語 / p50"), ("en", "p95_ms", "英語 / p95")]
+    fig, ax = plt.subplots(figsize=(10, 5.3))
+    fig.subplots_adjust(left=.19, right=.97, bottom=.24, top=.79)
+    y = np.arange(len(groups))
+    for i, provider in enumerate(("jev_historical", "decisions")):
+        values = [data["languages"][lang][provider]["latency_all_attempts"][metric] for lang, metric, _ in groups]
+        bars = ax.barh(y + (i - .5) * .32, values, height=.27, color=colors[provider],
+                       label="Jev（過去の参考値）" if provider == "jev_historical" else "Decisions")
+        ax.bar_label(bars, labels=[f"{v:.0f}ms" for v in values], padding=5, fontsize=11)
+    ax.set_yticks(y, [name for _, _, name in groups])
+    ax.invert_yaxis()
+    ax.set_xlim(0, 405)
+    ax.set_xticks([0, 100, 200, 300, 400])
+    ax.set_xlabel("API呼び出し時間（ms）")
+    ax.set_axisbelow(True)
+    ax.grid(axis="x", alpha=.15)
+    ax.set_title("処理速度: p50とp95の記録値", fontsize=16)
+    handles, labels = ax.get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", bbox_to_anchor=(.5, .045), ncol=2, frameon=False)
+    fig.text(.5, .012, "JevとDecisionsは測定時期・環境が異なるため、速度の優劣は未確定です。",
+             ha="center", fontsize=10, color="#555555")
+    fig.savefig(output / "latency-comparison.png", dpi=180)
     plt.close(fig)
 
 
