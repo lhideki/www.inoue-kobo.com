@@ -79,6 +79,7 @@ automatic retries, and stops before EN if JA fails. Failed/uncertain calls can
 still have billing implications. Inspect evidence and remaining authorized
 budget before any continuation; do not delete files or change output paths just
 to evade the guard. Safe error diagnostics use fixed allowlists, not raw messages.
+The standalone live CLI exits nonzero on incomplete runs while preserving logs.
 
 Metric definitions
 ------------------

@@ -113,14 +113,14 @@ def report(dataset_dir, decisions_dir):
             "macro_f1_difference": d_score["macro_f1_all_candidates"] - j_score["macro_f1_all_candidates"],
             "per_relation_comparison": per_relation,
             "cost": {"metered_input_tokens": tokens, "standard_rate_estimate_usd": tokens / 1e6 * .1,
-                "with_10_percent_premium_estimate_usd": tokens / 1e6 * .1 * 1.1,
-                "invoice_verified": False},
+                "hypothetical_10_percent_premium_estimate_usd": tokens / 1e6 * .1 * 1.1,
+                "premium_applicability_verified": False, "invoice_verified": False},
             "decisions_run": {k: manifest[k] for k in safe_manifest_keys if k in manifest},
             "result_hashes": {"decisions": evaluation.sha256(result_file), "jev": evaluation.sha256(j_file)},
         }
     output["decisions_total_input_tokens"] = sum(r["cost"]["metered_input_tokens"] for r in output["languages"].values())
     output["decisions_total_standard_estimate_usd"] = output["decisions_total_input_tokens"] / 1e6 * .1
-    output["decisions_total_premium_estimate_usd"] = output["decisions_total_standard_estimate_usd"] * 1.1
+    output["decisions_total_hypothetical_premium_estimate_usd"] = output["decisions_total_standard_estimate_usd"] * 1.1
     return output
 
 
