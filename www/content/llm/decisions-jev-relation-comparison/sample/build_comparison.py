@@ -3,10 +3,39 @@
 import argparse
 from collections import Counter
 import json
+import math
 from pathlib import Path
 import statistics
 
 import evaluate_relations as evaluation
+
+
+WILSON_Z_95 = 1.95996398454
+
+
+def wilson_interval(correct, total, z=WILSON_Z_95):
+    """Two-sided Wilson score interval, conditional on independent binary trials.
+
+    Uses all evaluated records (including refusals), not valid choices only.
+    This is not a repeated-run interval or a paired significance test.
+    Formula: https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm
+    """
+    if (type(correct) is not int or type(total) is not int or
+            total <= 0 or not 0 <= correct <= total):
+        raise ValueError("Counts must be integers with 0 <= correct <= total and total > 0")
+    if not math.isfinite(z) or z <= 0:
+        raise ValueError("z must be positive and finite")
+    p = correct / total
+    z2 = z * z
+    denominator = 1 + z2 / total
+    center = (p + z2 / (2 * total)) / denominator
+    half_width = z * math.sqrt(p * (1 - p) / total + z2 / (4 * total * total)) / denominator
+    return max(0.0, center - half_width), min(1.0, center + half_width)
+
+
+def accuracy_interval(result):
+    """Derive the interval from unrounded all-record counts, never from coverage."""
+    return wilson_interval(result["correct"], result["records"])
 
 
 def report(dataset_dir, decisions_dir):
@@ -113,22 +142,38 @@ def figures(data, output):
     colors = {"decisions": "#267f85", "jev_historical": "#506b9b"}
     langs = ("ja", "en")
     positions = np.arange(2)
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5.4))
-    fig.subplots_adjust(left=.065, right=.985, bottom=.19, top=.79, wspace=.17)
+    fig, axes = plt.subplots(1, 2, figsize=(12, 6.0))
+    fig.subplots_adjust(left=.065, right=.985, bottom=.25, top=.79, wspace=.17)
     for ax, metric, title, scale in ((axes[0], "accuracy_all_records", "Accuracy（拒否を含む全件）", 100),
                                     (axes[1], "macro_f1_all_candidates", "Macro F1（36関係）", 1)):
         for i, provider in enumerate(("jev_historical", "decisions")):
             values = [data["languages"][lang][provider][metric] * scale for lang in langs]
+            bounds = ([accuracy_interval(data["languages"][lang][provider]) for lang in langs]
+                      if metric == "accuracy_all_records" else None)
+            error = ([[value - low * scale for value, (low, high) in zip(values, bounds)],
+                      [high * scale - value for value, (low, high) in zip(values, bounds)]]
+                     if bounds else None)
             bars = ax.bar(positions + (i - .5) * .34, values, width=.30, color=colors[provider],
+                          yerr=error, capsize=5,
+                          error_kw={"ecolor": "#26313f", "elinewidth": 1.3, "capthick": 1.3},
                           label="Jev（保存結果）" if provider == "jev_historical" else "Decisions")
-            ax.bar_label(bars, labels=[f"{x:.2f}%" if scale == 100 else f"{x:.4f}" for x in values], padding=5, fontsize=11)
+            if bounds:
+                for bar, value, (_, high) in zip(bars, values, bounds):
+                    ax.annotate(f"{value:.2f}%", (bar.get_x() + bar.get_width() / 2, high * scale),
+                                xytext=(0, 5), textcoords="offset points", ha="center", fontsize=11)
+            else:
+                ax.bar_label(bars, labels=[f"{x:.4f}" for x in values], padding=5, fontsize=11)
         ax.set_xticks(positions, ["日本語", "英語"])
         ax.set_ylim(0, 108 if scale == 100 else 1.08)
         ax.set_title(title, fontsize=14)
         ax.set_axisbelow(True)
         ax.grid(axis="y", alpha=.16)
     handles, labels = axes[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", bbox_to_anchor=(.5, .015), ncol=2, frameon=False)
+    fig.legend(handles, labels, loc="lower center", bbox_to_anchor=(.5, .10), ncol=2, frameon=False)
+    fig.text(.5, .075, "Accuracyのエラーバー: 各設問を独立な二値試行と仮定した参考95%信頼区間（Wilson法）",
+             ha="center", fontsize=10, color="#454545")
+    fig.text(.5, .035, "各N=1,418（拒否は不正解）。同一主語の重複があり独立性は未保証。再実行時のばらつきではありません。",
+             ha="center", fontsize=9.5, color="#555555")
     fig.suptitle("同一1,418件・36候補での関係選択", fontsize=17, y=.97)
     fig.savefig(output / "quality-comparison.png", dpi=180)
     plt.close(fig)

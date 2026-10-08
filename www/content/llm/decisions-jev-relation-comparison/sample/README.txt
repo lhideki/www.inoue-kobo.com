@@ -84,6 +84,18 @@ pairs are separately labeled. Confidence is distinct from maximum probability,
 and neither is a calibrated correctness guarantee. Rounded historical Jev
 probabilities were not used for comparative calibration claims.
 
+Accuracy error bars
+-------------------
+Only the Accuracy panel shows reference 95% Wilson score intervals. They are
+derived by build_comparison.wilson_interval from unrounded correct counts and
+all 1,418 records (including refusals as incorrect), using z=1.95996398454.
+Formula: https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm
+The intervals assume independent binary trials; repeated subjects/articles mean
+independence is not guaranteed. This fixed dataset does not justify a general
+population guarantee or a repeated-API-run variance estimate. Interval overlap
+is not a paired significance test. Macro F1 and fixed prices have no error bars;
+latency p50/p95 remain response-time quantiles, not confidence intervals.
+
 Costs
 -----
 The full run used 11,304,340 input tokens. At USD 0.10/M input tokens its estimate
