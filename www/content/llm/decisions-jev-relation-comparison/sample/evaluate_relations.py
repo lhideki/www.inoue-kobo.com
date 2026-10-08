@@ -366,7 +366,6 @@ def run(args, rows, relations, api_key=None):
     # Verified TLS defaults without create_default_context's SSLKEYLOGFILE hook.
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     context.load_default_certs()
-    connection = http.client.HTTPSConnection("api.openai.com", timeout=args.timeout, context=context)
     labels = {r["labels"][args.language] for r in relations}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     manifest = {"model_requested": MODEL, "endpoint": ENDPOINT, "language": args.language,
@@ -379,7 +378,11 @@ def run(args, rows, relations, api_key=None):
         "timing": "HTTPS request through full response read/JSON decoding; includes client/network; excludes local input construction",
         "completed": False}
     manifest_path = args.output.with_suffix(".manifest.json")
-    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Claim the manifest atomically before networking or entering its finalizer.
+    # An existence check alone cannot protect another process's run evidence.
+    with manifest_path.open("x", encoding="utf-8") as target:
+        target.write(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
+    connection = http.client.HTTPSConnection("api.openai.com", timeout=args.timeout, context=context)
     started = time.perf_counter()
     try:
         with args.output.open("x", encoding="utf-8") as target:

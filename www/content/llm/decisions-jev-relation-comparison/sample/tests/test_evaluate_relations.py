@@ -259,6 +259,46 @@ class EvaluationTests(unittest.TestCase):
             self.assertNotIn("評価用の架空文章", args.output.read_text())
             connection.close.assert_called_once()
 
+    def test_racing_manifest_claim_preserves_owner_evidence_without_network(self):
+        from unittest.mock import MagicMock
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data, choices, output = root / "rows.jsonl", root / "choices.json", root / "out.jsonl"
+            data.write_text("\n".join(json.dumps(r) for r in self.rows), encoding="utf-8")
+            choices.write_text(json.dumps({"relations": self.relations}), encoding="utf-8")
+            manifest = output.with_suffix(".manifest.json")
+            owner_manifest = b'{"completed":false,"owner":"synthetic competing process"}\n'
+            owner_output = b'{"id":"synthetic-owner-record","status":"choice"}\n'
+            args = argparse.Namespace(execute=True, reserve_budget_usd=1, price_multiplier=1, limit=None,
+                language="ja", dataset=data, choices=choices, output=output, timeout=1, prompt_key=False)
+            original_open = Path.open
+            raced = False
+
+            def race_on_manifest_open(path, mode="r", *positional, **keywords):
+                nonlocal raced
+                if path == manifest and mode in ("w", "x") and not raced:
+                    # Both earlier exists() checks were false. A competing owner
+                    # claims the files immediately before this process opens them.
+                    raced = True
+                    with original_open(manifest, "wb") as target:
+                        target.write(owner_manifest)
+                    with original_open(output, "wb") as target:
+                        target.write(owner_output)
+                return original_open(path, mode, *positional, **keywords)
+
+            connection = MagicMock()
+            with patch.object(Path, "open", race_on_manifest_open), \
+                 patch.object(evaluation.platform, "platform", return_value="synthetic-platform"), \
+                 patch.object(evaluation.os.environ, "get", side_effect=AssertionError("Environment read")), \
+                 patch.object(evaluation.http.client, "HTTPSConnection", return_value=connection) as network:
+                with self.assertRaises(FileExistsError):
+                    evaluation.run(args, self.rows, self.relations, api_key="synthetic-key")
+            self.assertTrue(raced)
+            self.assertEqual(manifest.read_bytes(), owner_manifest)
+            self.assertEqual(output.read_bytes(), owner_output)
+            network.assert_not_called()
+            connection.request.assert_not_called()
+
     def test_masked_key_requires_interactive_terminal(self):
         with tempfile.TemporaryDirectory() as tmp:
             args = argparse.Namespace(execute=True, reserve_budget_usd=1, price_multiplier=1,
