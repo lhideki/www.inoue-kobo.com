@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "evaluation_date": "2026-10-08",
+  "task": "closed-set positive-triple relation choice, not CoDEx link prediction",
+  "records_per_language": 1418,
+  "relations": 36,
+  "dataset_sha256": "49295af0df7c14a408771b749924011f35902a82996126727cb44be911f18b91",
+  "choices_sha256": "e5e00d938d20f8b32966fff7b17dc12d26fde687f11afb893009992586c4b70c",
+  "source_article": "https://www.inoue-kobo.com/llm/jev-graph-relation-evaluation/",
+  "refusal_policy": "Primary accuracy uses all 1418 rows per language; refusal is incorrect and a false negative for its expected class. Conditional accuracy is separate.",
+  "macro_f1_policy": "Arithmetic mean over all 36 fixed classes; zero-denominator F1=0",
+  "quantile_method": "nearest rank: sorted(values)[ceil(n*p)-1]",
+  "decisions_model": "gpt-6-luna",
+  "historical_jev_model": "not recorded",
+  "latency_caveat": "Client/network/server timing, with first TCP/TLS included. Historical Jev conditions are unrecorded; no controlled speed comparison.",
+  "diagnostic_excluded_from_benchmark": true,
+  "automatic_retries": 0,
+  "client": "macOS terminal, Python standard-library HTTPS client; more detailed client metadata not included in public summary",
+  "languages": {
+    "ja": {
+      "decisions": {
+        "records": 1418,
+        "attempted": 1418,
+        "missing": 0,
+        "correct": 1220,
+        "valid_choices": 1414,
+        "status_counts": {
+          "choice": 1414,
+          "refusal": 4
+        },
+        "errors": 0,
+        "accuracy_all_records": 0.8603667136812412,
+        "accuracy_valid_choices": 0.8628005657708628,
+        "macro_f1_all_candidates": 0.6832566195987612,
+        "latency_all_attempts": {
+          "count": 1418,
+          "p50_ms": 248.10125003568828,
+          "p95_ms": 348.6977079883218
+        },
+        "latency_valid_choices": {
+          "count": 1414,
+          "p50_ms": 248.10125003568828,
+          "p95_ms": 348.6977079883218,
+          "mean_ms": 264.50241310752483
+        },
+        "input_tokens_reported": 8833591,
+        "usage_records": 1418,
+        "model_returned_counts": {
+          "gpt-6-luna": 1418
+        }
+      },
+      "jev_historical": {
+        "records": 1418,
+        "correct": 1318,
+        "valid_choices": 1418,
+        "status_counts": {
+          "choice": 1418
+        },
+        "accuracy_all_records": 0.9294781382228491,
+        "accuracy_valid_choices": 0.9294781382228491,
+        "macro_f1_all_candidates": 0.7477778629885636,
+        "latency_all_attempts": {
+          "count": 1418,
+          "p50_ms": 232.3677910026163,
+          "p95_ms": 311.423042032402,
+          "mean_ms": 241.11295249078316
+        }
+      },
+      "coverage": 0.997179125528914,
+      "paired_all_records": {
+        "both_correct": 1191,
+        "both_wrong": 71,
+        "jev_only_correct": 127,
+        "decisions_only_correct": 29
+      },
+      "paired_valid_choices_only": {
+        "both_correct": 1191,
+        "both_wrong": 71,
+        "jev_only_correct": 123,
+        "decisions_only_correct": 29,
+        "not_paired_valid": 4
+      },
+      "paired_all_records_method": "For refusals, Jev-correct count is historical total correct minus Jev-correct among valid Decisions choices; remaining refusals are both wrong.",
+      "accuracy_difference_percentage_points": -6.911142454160791,
+      "macro_f1_difference": -0.06452124338980247,
+      "cost": {
+        "metered_input_tokens": 8833591,
+        "standard_rate_estimate_usd": 0.8833591000000001,
+        "hypothetical_10_percent_premium_estimate_usd": 0.97169501,
+        "premium_applicability_verified": false,
+        "invoice_verified": false
+      },
+      "decisions_run": {
+        "wall_clock_seconds": 376.9015074579511,
+        "started_at_utc": "2026-10-08T12:11:25.483329+00:00",
+        "finished_at_utc": "2026-10-08T12:17:42.476404+00:00",
+        "concurrency": 1,
+        "automatic_retries": 0,
+        "warmup_requests": 0,
+        "connection_policy": "HTTPS keep-alive where supported; first TCP/TLS included"
+      }
+    },
+    "en": {
+      "decisions": {
+        "records": 1418,
+        "attempted": 1418,
+        "missing": 0,
+        "correct": 1224,
+        "valid_choices": 1391,
+        "status_counts": {
+          "choice": 1391,
+          "refusal": 27
+        },
+        "errors": 0,
+        "accuracy_all_records": 0.8631875881523272,
+        "accuracy_valid_choices": 0.879942487419123,
+        "macro_f1_all_candidates": 0.6546145896118514,
+        "latency_all_attempts": {
+          "count": 1418,
+          "p50_ms": 233.06133318692446,
+          "p95_ms": 357.69749991595745
+        },
+        "latency_valid_choices": {
+          "count": 1391,
+          "p50_ms": 233.40808297507465,
+          "p95_ms": 357.69749991595745,
+          "mean_ms": 252.55059805433558
+        },
+        "input_tokens_reported": 2470749,
+        "usage_records": 1418,
+        "model_returned_counts": {
+          "gpt-6-luna": 1418
+        }
+      },
+      "jev_historical": {
+        "records": 1418,
+        "correct": 1326,
+        "valid_choices": 1418,
+        "status_counts": {
+          "choice": 1418
+        },
+        "accuracy_all_records": 0.9351198871650211,
+        "accuracy_valid_choices": 0.9351198871650211,
+        "macro_f1_all_candidates": 0.7295053867252247,
+        "latency_all_attempts": {
+          "count": 1418,
+          "p50_ms": 247.47825000667945,
+          "p95_ms": 323.6190410098061,
+          "mean_ms": 255.01669085389514
+        }
+      },
+      "coverage": 0.9809590973201693,
+      "paired_all_records": {
+        "both_correct": 1205,
+        "both_wrong": 73,
+        "jev_only_correct": 121,
+        "decisions_only_correct": 19
+      },
+      "paired_valid_choices_only": {
+        "both_correct": 1205,
+        "both_wrong": 68,
+        "jev_only_correct": 99,
+        "decisions_only_correct": 19,
+        "not_paired_valid": 27
+      },
+      "paired_all_records_method": "For refusals, Jev-correct count is historical total correct minus Jev-correct among valid Decisions choices; remaining refusals are both wrong.",
+      "accuracy_difference_percentage_points": -7.193229901269394,
+      "macro_f1_difference": -0.07489079711337332,
+      "cost": {
+        "metered_input_tokens": 2470749,
+        "standard_rate_estimate_usd": 0.24707490000000001,
+        "hypothetical_10_percent_premium_estimate_usd": 0.27178239,
+        "premium_applicability_verified": false,
+        "invoice_verified": false
+      },
+      "decisions_run": {
+        "wall_clock_seconds": 359.585237959167,
+        "started_at_utc": "2026-10-08T12:17:42.730513+00:00",
+        "finished_at_utc": "2026-10-08T12:23:42.339080+00:00",
+        "concurrency": 1,
+        "automatic_retries": 0,
+        "warmup_requests": 0,
+        "connection_policy": "HTTPS keep-alive where supported; first TCP/TLS included"
+      }
+    }
+  },
+  "provenance": {
+    "decisions_record_validation": "Executed locally; all IDs, request-input hashes, model values and usage totals verified on the execution computer. Public aggregate counts and arithmetic cross-checked separately.",
+    "historical_jev": "Recomputed from saved per-record results.",
+    "privacy": "Raw Wikipedia text, per-record output, private request IDs and credentials are not included.",
+    "per_relation_decisions_metrics_published": false
+  },
+  "decisions_total_input_tokens": 11304340,
+  "decisions_total_standard_estimate_usd": 1.130434,
+  "decisions_total_hypothetical_premium_estimate_usd": 1.2434774,
+  "total_wall_clock_seconds": 737.130649,
+  "overall_started_at_utc": "2026-10-08T12:11:25.374733+00:00",
+  "overall_finished_at_utc": "2026-10-08T12:23:42.505382+00:00",
+  "price_basis": {
+    "checked_at": "2026-10-08",
+    "decisions_standard_usd_per_million_input_tokens": 0.1,
+    "jev_current_usd_per_million_input_tokens": 0.042,
+    "sources": [
+      "https://developers.openai.com/api/docs/guides/decisions#pricing-and-availability",
+      "https://docs.typesafe.ai/models"
+    ]
+  }
+}
