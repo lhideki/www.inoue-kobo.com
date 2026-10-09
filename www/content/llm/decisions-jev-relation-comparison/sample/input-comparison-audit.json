@@ -1,0 +1,42 @@
+{
+  "audited_on": "2026-10-09",
+  "records_per_language": 1418,
+  "languages": [
+    "ja",
+    "en"
+  ],
+  "candidates_per_request": 36,
+  "questions_per_request": 1,
+  "dataset_sha256": "49295af0df7c14a408771b749924011f35902a82996126727cb44be911f18b91",
+  "choices_sha256": "e5e00d938d20f8b32966fff7b17dc12d26fde687f11afb893009992586c4b70c",
+  "original_jev_source_sha256": "16ddd989a329ed751feb7846fe22ba58cce81275d6f0979db96c4aee6ae27e42",
+  "audited_public_decisions_source_sha256": "5df87ac66bf809f1040d99c83a6dcb9a48124962104081757d6c2254e0767e7e",
+  "reconstructed_fields_equal": {
+    "state": 2836,
+    "instructions": 2836,
+    "ordered_candidate_names": 2836,
+    "ordered_candidate_descriptions": 2836
+  },
+  "actual_decisions_request_hash_matches": {
+    "ja": 1418,
+    "en": 1418
+  },
+  "ordered_request_hash_digest_method": "Dataset order; newline-joined str(id) + colon + request_sha256; trailing newline; SHA-256 of UTF-8 bytes",
+  "ordered_request_hash_digests": {
+    "ja": "f563eb9e856b331f4572c4f3b17fd1026274a3b39642741a7148fc346b2ecab3",
+    "en": "dbd3275d51581a17690879f2d88e18a1a30e273d5dc578905a22b535c7a95a62"
+  },
+  "gold_and_prediction_fields_in_requests": false,
+  "historical_jev_http_bodies_available": false,
+  "historical_jev_usage_available": false,
+  "historical_jev_model_sdk_retry_conditions_known": false,
+  "candidate_set_derived_from_test_gold_relations": true,
+  "japanese_records_at_10000_character_limit": 571,
+  "japanese_truncation_count_verified": false,
+  "english_extract_truncation_observed": false,
+  "limitations": [
+    "Jev evidence is source and frozen-data reconstruction, not captured historical HTTP request bytes",
+    "Native API wrappers and hidden provider templates/tokenizers are not held identical",
+    "No per-record raw data, request IDs, article text or credential material are published in this report"
+  ]
+}

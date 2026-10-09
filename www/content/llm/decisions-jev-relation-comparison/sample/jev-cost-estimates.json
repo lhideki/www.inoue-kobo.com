@@ -1,0 +1,126 @@
+{
+  "status": "alternative_tokenizer_content_scenarios_only",
+  "requests_per_language": 1418,
+  "candidates_every_request": 36,
+  "price_input_usd_per_million": "0.042",
+  "output_price_assumption": "free",
+  "regional_multiplier_applied": false,
+  "scenarios": [
+    {
+      "tokenizer": "o200k_base",
+      "serialization": "fieldwise",
+      "provenance": {
+        "tiktoken_version": "0.14.0",
+        "public_definition_source_sha256": "954392738e60d0fb6dca1dad80872efc47c8e2733babecbbf0a23970ed66c2cb",
+        "encoding_asset_sha256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "pattern_sha256": "2d1b8dc11e89af71459b36004f698ab3693f59fd84f63e8ec2b49564ab857420",
+        "special_tokens": "empty; ordinary text encoding, no added special tokens"
+      },
+      "proxy_input_tokens": {
+        "ja": 8473378,
+        "en": 2220863,
+        "both": 10694241
+      },
+      "proxy_cost_usd": {
+        "ja": "0.355881876",
+        "en": "0.093276246",
+        "both": "0.449158122"
+      }
+    },
+    {
+      "tokenizer": "o200k_base",
+      "serialization": "compact_content_json",
+      "provenance": {
+        "tiktoken_version": "0.14.0",
+        "public_definition_source_sha256": "954392738e60d0fb6dca1dad80872efc47c8e2733babecbbf0a23970ed66c2cb",
+        "encoding_asset_sha256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "pattern_sha256": "2d1b8dc11e89af71459b36004f698ab3693f59fd84f63e8ec2b49564ab857420",
+        "special_tokens": "empty; ordinary text encoding, no added special tokens"
+      },
+      "proxy_input_tokens": {
+        "ja": 8606473,
+        "en": 2350218,
+        "both": 10956691
+      },
+      "proxy_cost_usd": {
+        "ja": "0.361471866",
+        "en": "0.098709156",
+        "both": "0.460181022"
+      }
+    },
+    {
+      "tokenizer": "cl100k_base",
+      "serialization": "fieldwise",
+      "provenance": {
+        "tiktoken_version": "0.14.0",
+        "public_definition_source_sha256": "954392738e60d0fb6dca1dad80872efc47c8e2733babecbbf0a23970ed66c2cb",
+        "encoding_asset_sha256": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "pattern_sha256": "f021c3d976978e62ee64cdad150cc3405c2e3d6e3b40407850bb9e8d9eb65899",
+        "special_tokens": "empty; ordinary text encoding, no added special tokens"
+      },
+      "proxy_input_tokens": {
+        "ja": 11375049,
+        "en": 2227720,
+        "both": 13602769
+      },
+      "proxy_cost_usd": {
+        "ja": "0.477752058",
+        "en": "0.09356424",
+        "both": "0.571316298"
+      }
+    },
+    {
+      "tokenizer": "cl100k_base",
+      "serialization": "compact_content_json",
+      "provenance": {
+        "tiktoken_version": "0.14.0",
+        "public_definition_source_sha256": "954392738e60d0fb6dca1dad80872efc47c8e2733babecbbf0a23970ed66c2cb",
+        "encoding_asset_sha256": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "pattern_sha256": "f021c3d976978e62ee64cdad150cc3405c2e3d6e3b40407850bb9e8d9eb65899",
+        "special_tokens": "empty; ordinary text encoding, no added special tokens"
+      },
+      "proxy_input_tokens": {
+        "ja": 11506900,
+        "en": 2348299,
+        "both": 13855199
+      },
+      "proxy_cost_usd": {
+        "ja": "0.4832898",
+        "en": "0.098628558",
+        "both": "0.581918358"
+      }
+    }
+  ],
+  "limitations": [
+    "Not measured Jev usage or historical cost",
+    "Not a Jev tokenizer",
+    "No guaranteed billing lower/upper bounds",
+    "Unknown Jev internal formatting, system text, model, retries and rounding",
+    "Two languages use different article source content",
+    "Content JSON excludes model routing and unknown internal wrappers; fieldwise excludes JSON keys/punctuation",
+    "No caching discounts or batch discounts assumed; every candidate repeated on every request"
+  ],
+  "scenario_sensitivity": {
+    "ja": {
+      "min_scenario_tokens": 8473378,
+      "max_scenario_tokens": 11506900,
+      "max_minus_min_tokens": 3033522,
+      "max_over_min_ratio": "1.358006216647009020487460845",
+      "interpretation": "range across four declared proxies, NOT billing bounds"
+    },
+    "en": {
+      "min_scenario_tokens": 2220863,
+      "max_scenario_tokens": 2350218,
+      "max_minus_min_tokens": 129355,
+      "max_over_min_ratio": "1.058245375784098343751955884",
+      "interpretation": "range across four declared proxies, NOT billing bounds"
+    },
+    "both": {
+      "min_scenario_tokens": 10694241,
+      "max_scenario_tokens": 13855199,
+      "max_minus_min_tokens": 3160958,
+      "max_over_min_ratio": "1.295575721549570465075548606",
+      "interpretation": "range across four declared proxies, NOT billing bounds"
+    }
+  }
+}
