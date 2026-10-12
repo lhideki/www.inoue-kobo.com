@@ -1,4 +1,6 @@
 import os
+import argparse
+from pathlib import Path
 from abc import ABCMeta, abstractmethod
 from dataclasses import dataclass
 from typing import Optional
@@ -10,6 +12,7 @@ import logging
 import subprocess
 
 from category_mappings import CATEGORY_MAPPINGS
+from article_urls import article_base_url, resolve_article_urls
 
 logging.basicConfig(level=logging.INFO)
 MAX_PAGES = 100
@@ -83,18 +86,8 @@ class MyArticle(Article):
         return self.tag
 
     def to_posting_format(self):
-        converted = []
-
-        for line in self.lines:
-            matched = re.match(r'^!\[(.*)\]\((.+)\)$', line)
-            if not matched:
-                converted.append(line)
-                continue
-            alt, relative_src = matched.group(1), matched.group(2)
-            parent_dir = os.path.dirname(self.filename)[len(DOCUMENT_ROOT):]
-            new_src = os.path.join(parent_dir, relative_src)
-            converted.append(f'![{alt}]({FQDN}{new_src})\n')
-        return ''.join(converted)
+        base = article_base_url(self.filename, DOCUMENT_ROOT, FQDN)
+        return resolve_article_urls(self.body, base)
 
 
 class QiitaArticle(Article):
@@ -234,13 +227,53 @@ class UpdateChecker():
         return self.results
 
 
-def main():
+def sync_selected_article(client, filename, item_id):
+    """Repair exactly one existing public article; never create a new item."""
+    if not re.fullmatch(r'[0-9a-f]{20}', item_id):
+        raise ValueError('The Qiita item ID must be 20 lowercase hexadecimal characters.')
+    path = Path(filename).resolve()
+    if not path.is_file() or path.suffix != '.md':
+        raise ValueError('The selected article must be an existing Markdown file.')
+    mapping = next((m for m in CATEGORY_MAPPINGS
+                    if path.is_relative_to(Path(m.dir).resolve())), None)
+    if mapping is None:
+        raise ValueError('The selected article is outside the configured sync categories.')
+    article = MyArticle(mapping.tag, str(path))
+    response = requests.get(f'{client.post_url}/{item_id}',
+                            headers=client.headers, timeout=30)
+    response.raise_for_status()
+    source = response.json()
+    if source.get('id') != item_id or source.get('title') != article.get_title():
+        raise ValueError('The selected Qiita item does not match the local article title.')
+    if source.get('private') is not False:
+        raise ValueError('Selected-article repair only supports existing public items.')
+    if source.get('body') == article.to_posting_format():
+        logging.info('Selected article %s is already up to date.', item_id)
+        return
+    client.update(item_id, source['tags'], article)
+    logging.info('Updated selected article %s.', item_id)
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description='Synchronize local articles with Qiita.')
+    parser.add_argument('--article', help='Repair only this existing local article.')
+    parser.add_argument('--item-id', help='Existing Qiita item ID (requires --article).')
+    args = parser.parse_args(argv)
+    if bool(args.article) != bool(args.item_id):
+        parser.error('--article and --item-id must be supplied together.')
     token = os.environ.get('QIITA_TOKEN')
     if not token:
         logging.error('QIITA_TOKEN environment variable is not set.')
         raise SystemExit(1)
 
     qiita_articles = QiitaArticles(token, MAX_PAGES)
+    if args.article:
+        try:
+            sync_selected_article(qiita_articles, args.article, args.item_id)
+        except (ValueError, RuntimeError, requests.RequestException) as error:
+            logging.error('Selected-article sync failed: %s', error)
+            raise SystemExit(1)
+        return
     qiita_articles.fetch()
 
     had_errors = False
