@@ -67,7 +67,7 @@ hugo server
 
 - `www/content/{ai_ml,aws,restapi,discord,llm}` 配下の記事をタイトルでQiita側の記事と突き合わせ
 - gitのコミット日時がQiita側の最終更新日時より新しい記事のみ新規投稿 / 更新
-- 画像の相対パスは `https://www.inoue-kobo.com` を付与した絶対URLに変換して投稿
+- Markdown画像とHTMLの `img src` / `a href` の相対パスは、本サイトの絶対URLに解決して投稿。コード例と外部URLは保持
 
 必要な GitHub Secrets:
 
@@ -79,4 +79,23 @@ hugo server
 export QIITA_TOKEN=xxxx
 pip install -r scripts/requirements.txt
 python scripts/qiita_sync.py
+```
+
+既存の記事1件だけを再同期する場合は、Actions の **Post articles to Qiita** を手動実行し、
+`article_path` に対象のローカル記事パス、`qiita_item_id` に既存のQiita記事IDを指定します。
+両方を空欄にすると通常の差分同期です。片方だけの指定はエラーになります。
+
+CLIからも同じ操作ができます。
+
+```bash
+python scripts/qiita_sync.py --article www/content/llm/example/index.md --item-id <既存Qiita記事ID>
+```
+
+1件指定ではコミット日時に関係なく本文を比較し、タイトルが一致する既存の公開記事だけを更新します。
+タグは保持し、新規投稿や他の記事の同期は行いません。HTMLの表示は投稿先に依存します。
+
+同期処理のテスト（API通信なし）:
+
+```bash
+python -m unittest discover -s scripts/tests -v
 ```

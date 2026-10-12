@@ -1,2 +1,3 @@
 requests
 PyYAML
+markdown-it-py>=3,<5

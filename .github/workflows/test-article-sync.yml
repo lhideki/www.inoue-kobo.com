@@ -1,0 +1,27 @@
+name: Test article synchronization
+
+on:
+    pull_request:
+        paths:
+            - 'scripts/**'
+            - '.github/workflows/qiita-post.yml'
+            - '.github/workflows/test-article-sync.yml'
+    push:
+        branches: [master]
+        paths:
+            - 'scripts/**'
+            - '.github/workflows/test-article-sync.yml'
+
+permissions:
+    contents: read
+
+jobs:
+    test:
+        runs-on: ubuntu-22.04
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v5
+              with:
+                  python-version: '3.12'
+            - run: pip install -r scripts/requirements.txt
+            - run: python -m unittest discover -s scripts/tests -v

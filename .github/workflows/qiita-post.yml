@@ -12,6 +12,15 @@ on:
             - '!www/content/training/**'
             - '!www/content/webservice/**'
     workflow_dispatch:
+        inputs:
+            article_path:
+                description: 'Repair one local Markdown article (requires qiita_item_id; blank = normal sync)'
+                required: false
+                type: string
+            qiita_item_id:
+                description: 'Existing public Qiita item ID (requires article_path)'
+                required: false
+                type: string
 
 jobs:
     post:
@@ -33,4 +42,11 @@ jobs:
             - name: Post updated articles to Qiita
               env:
                   QIITA_TOKEN: ${{ secrets.QIITA_TOKEN }}
-              run: python scripts/qiita_sync.py
+                  ARTICLE_PATH: ${{ inputs.article_path }}
+                  QIITA_ITEM_ID: ${{ inputs.qiita_item_id }}
+              run: |
+                  args=()
+                  if [[ -n "$ARTICLE_PATH" || -n "$QIITA_ITEM_ID" ]]; then
+                      args=(--article "$ARTICLE_PATH" --item-id "$QIITA_ITEM_ID")
+                  fi
+                  python scripts/qiita_sync.py "${args[@]}"
